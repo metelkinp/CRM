@@ -1,28 +1,21 @@
-<?php 
-$GLOBALS["tabStructure"] =array (
-  'LBL_TABGROUP_ACTIVITIES' => 
+<?php
+// created: 2017-05-03 16:18:27
+$GLOBALS['tabStructure'] = array (
+  'LBL_TABGROUP_CRM' => 
   array (
-    'label' => 'LBL_TABGROUP_ACTIVITIES',
+    'label' => 'LBL_TABGROUP_CRM',
     'modules' => 
     array (
-      0 => 'Home',
-      1 => 'Calendar',
-      2 => 'Calls',
-      3 => 'Meetings',
-      4 => 'Emails',
-      5 => 'Tasks',
-      6 => 'Notes',
+      0 => 'PPT_Accounts',
+      1 => 'PPT_Contacts',
     ),
   ),
-  'LBL_TABGROUP_COLLABORATION' => 
+  'LBL_TABGROUP_OPPORTUNITIES' => 
   array (
-    'label' => 'LBL_TABGROUP_COLLABORATION',
+    'label' => 'LBL_TABGROUP_OPPORTUNITIES',
     'modules' => 
     array (
-      0 => 'Home',
-      1 => 'Emails',
-      2 => 'Documents',
-      3 => 'Project',
+      0 => 'PPT_SRA',
     ),
   ),
 );

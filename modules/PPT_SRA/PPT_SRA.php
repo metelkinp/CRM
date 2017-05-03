@@ -1,15 +1,11 @@
 <?php
-
-if (!defined('sugarEntry')) {
-    define('sugarEntry', true);
-}
 /**
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
  *
  * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2016 SalesAgility Ltd.
+ * Copyright (C) 2011 - 2017 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -42,13 +38,69 @@ if (!defined('sugarEntry')) {
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-include 'include/MVC/preDispatch.php';
-$startTime = microtime(true);
-require_once 'include/entryPoint.php';
-ob_start();
-require_once 'include/MVC/SugarApplication.php';
-require_once 'custom/include/pptSetup.php';
-pptSetup();
-$app = new SugarApplication();
-$app->startSession();
-$app->execute();
+require_once('include/SugarObjects/templates/basic/Basic.php');
+
+class PPT_SRA extends Basic
+{
+    public $new_schema = true;
+    public $module_dir = 'PPT_SRA';
+    public $object_name = 'PPT_SRA';
+    public $table_name = 'ppt_sra';
+    public $importable = true;
+
+    public $id;
+    public $name;
+    public $date_entered;
+    public $date_modified;
+    public $modified_user_id;
+    public $modified_by_name;
+    public $created_by;
+    public $created_by_name;
+    public $description;
+    public $deleted;
+    public $created_by_link;
+    public $modified_user_link;
+    public $assigned_user_id;
+    public $assigned_user_name;
+    public $assigned_user_link;
+    public $SecurityGroups;
+
+//    public $number;
+//    public $agent_id;
+//    public $agent_name;
+//    public $shipper_id;
+//    public $shipper_name;
+//    public $origin;
+//    public $dest;
+//    public $service;
+//    public $product;
+//    public $contact_id;
+//    public $contact_name;
+//    public $capri;
+//    public $issue;
+//    public $valid_from;
+//    public $valid_until;
+//    public $currency;
+//
+//    public $min_field;
+//    public $n_field;
+//    public $r_45kg;
+//    public $r_100kg;
+//    public $r_300kg;
+//    public $r_500kg;
+//    public $r_1000kg;
+//
+//    public $prefix = 'L';
+	
+    public function bean_implements($interface)
+    {
+        switch($interface)
+        {
+            case 'ACL':
+                return true;
+        }
+
+        return false;
+    }
+	
+}

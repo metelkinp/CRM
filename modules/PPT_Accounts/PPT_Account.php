@@ -1,15 +1,11 @@
 <?php
-
-if (!defined('sugarEntry')) {
-    define('sugarEntry', true);
-}
 /**
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
  *
  * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2016 SalesAgility Ltd.
+ * Copyright (C) 2011 - 2017 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -42,13 +38,70 @@ if (!defined('sugarEntry')) {
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-include 'include/MVC/preDispatch.php';
-$startTime = microtime(true);
-require_once 'include/entryPoint.php';
-ob_start();
-require_once 'include/MVC/SugarApplication.php';
-require_once 'custom/include/pptSetup.php';
-pptSetup();
-$app = new SugarApplication();
-$app->startSession();
-$app->execute();
+class PPT_Account extends Basic
+{
+    public $new_schema = true;
+    public $module_dir = 'PPT_Accounts';
+    public $object_name = 'PPT_Account';
+    public $table_name = 'ppt_accounts';
+    public $importable = true;
+
+    public $id;
+    public $name;
+    public $date_entered;
+    public $date_modified;
+    public $modified_user_id;
+    public $modified_by_name;
+    public $created_by;
+    public $created_by_name;
+    public $description;
+    public $deleted;
+    public $created_by_link;
+    public $modified_user_link;
+    public $assigned_user_id;
+    public $assigned_user_name;
+    public $assigned_user_link;
+    public $SecurityGroups;
+
+    public $active_flag;
+    public $importonly_flag;
+    public $localhero_flag;
+    public $cdb_num;
+    public $sales_level_6;
+    public $company_type;
+    public $station;
+    public $industry_type;
+    public $acc_short_name;
+    public $bkng_short_name;
+    public $iata_num;
+    public $cass_num;
+    public $sap_num;
+    public $phone;
+    public $fax;
+    public $email;
+    public $website;
+    public $address_type;
+    public $address_street;
+    public $address_lane;
+    public $address_building;
+    public $address_area;
+    public $address_po_box;
+    public $address_zip;
+    public $address_city;
+    public $address_state;
+    public $address_country;
+    public $lavlsv_num;
+    public $account_role;
+	
+    public function bean_implements($interface)
+    {
+        switch($interface)
+        {
+            case 'ACL':
+                return true;
+        }
+
+        return false;
+    }
+	
+}

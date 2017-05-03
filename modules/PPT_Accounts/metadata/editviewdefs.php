@@ -1,15 +1,11 @@
 <?php
-
-if (!defined('sugarEntry')) {
-    define('sugarEntry', true);
-}
 /**
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
  *
  * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2016 SalesAgility Ltd.
+ * Copyright (C) 2011 - 2017 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -42,13 +38,51 @@ if (!defined('sugarEntry')) {
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-include 'include/MVC/preDispatch.php';
-$startTime = microtime(true);
-require_once 'include/entryPoint.php';
-ob_start();
-require_once 'include/MVC/SugarApplication.php';
-require_once 'custom/include/pptSetup.php';
-pptSetup();
-$app = new SugarApplication();
-$app->startSession();
-$app->execute();
+$module_name = 'myppt_Account';
+$viewdefs[$module_name]['EditView'] = array(
+    'templateMeta' => array(
+        'form' => array(
+            'buttons' => array(
+                'SAVE',
+                'CANCEL',
+            ),
+        ),
+        'maxColumns' => '2',
+        'widths' => array(
+            array('label' => '10', 'field' => '30'),
+            array('label' => '10', 'field' => '30'),
+        ),
+    ),
+
+    'panels' => array(
+        'lbl_panel_basic' => array(
+            array('name','cdb_num',),
+            array('station', 'sales_level_6',),
+            array('company_type','industry_type',),
+            array('acc_short_name','bkng_short_name' ,''),
+            array('active_flag','',),
+            array('importonly_flag','',),
+            array('localhero_flag','',),
+        ),
+        'lbl_panel_accounting_info' => array(
+            array('iata_num','cass_num',),
+            array('sap_num','lavlsv_num',),
+            array('account_role','',),
+        ),
+        'lbl_panel_main_contacts' => array(
+            array('phone','',),
+            array('fax','',),
+            array('email','',),
+            array('website','',),
+        ),
+        'lbl_panel_main_address' => array(
+            array('address_street','address_lane',),
+            array('address_building','address_area',),
+            array('address_po_box','address_zip',),
+            array('address_city', 'address_state',),
+            array('address_country','address_type',),
+        ),
+
+    ),
+
+);

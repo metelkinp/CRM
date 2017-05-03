@@ -468,6 +468,19 @@ $modules_exempt_from_availability_check['TemplateSectionLine'] = 'TemplateSectio
 $report_include_modules['TemplateSectionLine'] = 'TemplateSectionLine';
 $modInvisList[] = 'TemplateSectionLine';
 
+//PPT
+$beanList['PPT_Accounts'] = 'PPT_Account';
+$beanFiles['PPT_Account'] = 'modules/PPT_Accounts/PPT_Account.php';
+$moduleList[] = 'PPT_Accounts';
+
+$beanList['PPT_Contacts'] = 'PPT_Contact';
+$beanFiles['PPT_Contact'] = 'modules/PPT_Contacts/PPT_Contact.php';
+$moduleList[] = 'PPT_Contacts';
+
+$beanList['PPT_SRA'] = 'PPT_SRA';
+$beanFiles['PPT_SRA'] = 'modules/PPT_SRA/PPT_SRA.php';
+$moduleList[] = 'PPT_SRA';
+
 if (file_exists('include/modules_override.php')) {
     include 'include/modules_override.php';
 }

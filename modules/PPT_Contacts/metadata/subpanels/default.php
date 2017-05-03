@@ -1,15 +1,11 @@
 <?php
-
-if (!defined('sugarEntry')) {
-    define('sugarEntry', true);
-}
 /**
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
  *
  * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2016 SalesAgility Ltd.
+ * Copyright (C) 2011 - 2017 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -42,13 +38,63 @@ if (!defined('sugarEntry')) {
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-include 'include/MVC/preDispatch.php';
-$startTime = microtime(true);
-require_once 'include/entryPoint.php';
-ob_start();
-require_once 'include/MVC/SugarApplication.php';
-require_once 'custom/include/pptSetup.php';
-pptSetup();
-$app = new SugarApplication();
-$app->startSession();
-$app->execute();
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
+
+$subpanel_layout = array(
+    'top_buttons' => array(
+        array('widget_class' => 'SubPanelTopCreateButton'),
+        array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'People'),
+    ),
+
+    'where' => '',
+
+    'list_fields' => array(
+        'first_name' => array(
+            'name' => 'first_name',
+            'usage' => 'query_only',
+        ),
+        'last_name' => array(
+            'name' => 'last_name',
+            'usage' => 'query_only',
+        ),
+        'salutation' => array(
+            'name' => 'salutation',
+            'usage' => 'query_only',
+        ),
+        'name' => array(
+            'name' => 'name',
+            'vname' => 'LBL_LIST_NAME',
+            'sort_by' => 'last_name',
+            'sort_order' => 'asc',
+            'widget_class' => 'SubPanelDetailViewLink',
+            'module' => 'Contacts',
+            'width' => '40%',
+        ),
+        'email1' => array(
+            'name' => 'email1',
+            'vname' => 'LBL_LIST_EMAIL',
+            'widget_class' => 'SubPanelEmailLink',
+            'width' => '35%',
+            'sortable' => false,
+        ),
+        'phone_work' => array(
+            'name' => 'phone_work',
+            'vname' => 'LBL_LIST_PHONE',
+            'width' => '15%',
+        ),
+        'edit_button' => array(
+            'vname' => 'LBL_EDIT_BUTTON',
+            'widget_class' => 'SubPanelEditButton',
+            'module' => 'Contacts',
+            'width' => '5%',
+        ),
+        'remove_button' => array(
+            'vname' => 'LBL_REMOVE',
+            'widget_class' => 'SubPanelRemoveButton',
+            'module' => 'Contacts',
+            'width' => '5%',
+        ),
+    ),
+);
