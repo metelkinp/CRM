@@ -65,33 +65,32 @@ class PPT_SRA extends Basic
     public $assigned_user_link;
     public $SecurityGroups;
 
-//    public $number;
-//    public $agent_id;
-//    public $agent_name;
-//    public $shipper_id;
-//    public $shipper_name;
-//    public $origin;
-//    public $dest;
-//    public $service;
-//    public $product;
-//    public $contact_id;
-//    public $contact_name;
-//    public $capri;
-//    public $issue;
-//    public $valid_from;
-//    public $valid_until;
-//    public $currency;
-//
-//    public $min_field;
-//    public $n_field;
-//    public $r_45kg;
-//    public $r_100kg;
-//    public $r_300kg;
-//    public $r_500kg;
-//    public $r_1000kg;
-//
-//    public $prefix = 'L';
-	
+    public $number;
+    public $origin;
+    public $dest;
+    public $service;
+    public $product;
+    public $capri;
+    public $issue;
+    public $valid_from;
+    public $valid_until;
+    public $currency;
+    public $min_field;
+    public $n_field;
+    public $r_45kg;
+    public $r_100kg;
+    public $r_300kg;
+    public $r_500kg;
+    public $r_1000kg;
+
+    //related
+    public $account_id;
+    public $account_name;
+    public $shipper_id;
+    public $shipper_name;
+    public $contact_id;
+    public $contact_name;
+
     public function bean_implements($interface)
     {
         switch($interface)
@@ -102,5 +101,18 @@ class PPT_SRA extends Basic
 
         return false;
     }
-	
+
+    public function save($check_notify = false)
+    {
+        $this->number = $this->db->getOne("SELECT MAX(number) + 1 FROM " . $this->table_name);
+
+        if(empty($this->number))
+            $this->number = 1;
+
+        $this->name = 'L' . $this->number;
+
+        return parent::save($check_notify);
+    }
+
+
 }

@@ -42,7 +42,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'myppt_SRA';
+$module_name = 'PPT_SRA';
 $searchFields[$module_name] = array(
     'name' => array('query_type' => 'default'),
     'current_user_only' => array(
@@ -52,10 +52,10 @@ $searchFields[$module_name] = array(
         'vname' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool'
     ),
-    'agent_name' => array(
+    'account_name' => array(
         'query_type' => 'default',
-        'db_field' => array('agent_id'),
-        'vname' => 'LBL_AGENT',
+        'db_field' => array('account_id'),
+        'vname' => 'LBL_ACCOUNT',
         'type' => 'enum',
     ),
     'shipper_name' => array(

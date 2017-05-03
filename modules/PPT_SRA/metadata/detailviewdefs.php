@@ -1,6 +1,6 @@
 <?php
 
-$module_name = 'myppt_SRA';
+$module_name = 'PPT_SRA';
 $viewdefs[$module_name]['DetailView'] = array(
     'templateMeta' => array (
         'form' => array (
@@ -17,12 +17,9 @@ $viewdefs[$module_name]['DetailView'] = array(
     ),
 
     'panels' => array (
-        //lbl_... this found into language/en_us.lang.php
         'lbl_panel_main' => array(
-            //first row
             array('name'),
             array('agent_name','shipper_name'),
-            //second row
             array('origin', 'dest'),
             array ('service','product'),
             array('issue','valid_from'),

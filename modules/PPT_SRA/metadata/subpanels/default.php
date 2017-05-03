@@ -42,7 +42,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'myppt_SRA';
+$module_name = 'PPT_SRA';
 $subpanel_layout = array(
     'top_buttons' => array(
         array('widget_class' => 'SubPanelTopCreateButton'),
@@ -59,17 +59,17 @@ $subpanel_layout = array(
             'widget_class' => 'SubPanelDetailViewLink',
             'width' => '10%',
         ),
-        'agent_name' => array(
-            'name' => 'agent_name',
-            'vname' => 'LBL_AGENT',
-            'module' => 'myppt_Account',
-            'target_record_key' => 'agent_id',
-            'target_module' => 'myppt_Account',
+        'account_name' => array(
+            'name' => 'account_name',
+            'vname' => 'LBL_ACCOUNT',
+            'module' => 'PPT_Accounts',
+            'target_record_key' => 'account_id',
+            'target_module' => 'PPT_Accounts',
             'widget_class' => 'SubPanelDetailViewLink',
             'width' => '15%'
         ),
-        'agent_id' => array(
-            'name' => 'agent_id',
+        'account_id' => array(
+            'name' => 'account_id',
             'usage' => 'query_only',
         ),
         'origin' => array(

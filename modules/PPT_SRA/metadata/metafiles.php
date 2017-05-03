@@ -1,6 +1,6 @@
 <?php
 
-$module_name = 'myppt_SRA';
+$module_name = 'PPT_SRA';
 $metafiles[$module_name] = array(
     'detailviewdefs' => 'modules/' . $module_name . '/metadata/detailviewdefs.php',
     'editviewdefs' => 'modules/' . $module_name . '/metadata/editviewdefs.php',

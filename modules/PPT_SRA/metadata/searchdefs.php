@@ -38,7 +38,7 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$module_name = 'myppt_SRA';
+$module_name = 'PPT_SRA';
 $searchdefs[$module_name] = array(
     'templateMeta' => array(
         'maxColumns' => '3',
@@ -48,12 +48,12 @@ $searchdefs[$module_name] = array(
     'layout' => array(
         'basic_search' => array(
             'name',
-            array ('name' => 'agent_name', 'label' => 'LBL_AGENT', 'type' => 'enum'),
+            array ('name' => 'account_name', 'label' => 'LBL_ACCOUNT', 'type' => 'enum'),
             array('name' => 'current_user_only', 'label' => 'LBL_CURRENT_USER_FILTER', 'type' => 'bool'),
         ),
         'advanced_search' => array(
             'name',
-            array ('name' => 'agent_name', 'label' => 'LBL_AGENT', 'type' => 'enum'),
+            array ('name' => 'account_name', 'label' => 'LBL_ACCOUNT', 'type' => 'enum'),
             array ('name' => 'shipper_name', 'label' => 'LBL_SHIPPER', 'type' => 'enum'),
             'origin',
             'dest',

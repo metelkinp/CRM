@@ -4,7 +4,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'myppt_SRA';
+$module_name = 'PPT_SRA';
 $subpanel_layout = array(
     'top_buttons' => array(
         array('widget_class' => 'SubPanelTopCreateButton'),
@@ -17,7 +17,7 @@ $subpanel_layout = array(
         'name' => array(
             'name' => 'name',
             'vname' => 'LBL_NAME',
-            'module' => 'myppt_SRA',
+            'module' => 'PPT_SRA',
             'widget_class' => 'SubPanelDetailViewLink',
             'width' => '10%',
         ),

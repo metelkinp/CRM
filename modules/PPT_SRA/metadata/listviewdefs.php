@@ -4,7 +4,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'myppt_SRA';
+$module_name = 'PPT_SRA';
 $listViewDefs[$module_name] = array(
     'NAME' => array(
         'width' => '32',
@@ -12,14 +12,13 @@ $listViewDefs[$module_name] = array(
         'default' => true,
         'link' => true
     ),
-    'AGENT_NAME' => array(
+    'ACCOUNT_NAME' => array(
         'width' => '30',
-        'label' => 'LBL_AGENT',
+        'label' => 'LBL_ACCOUNT',
         'link' => true,
         'default' => true,
-        'id' => 'AGENT_ID',
-        'module' => 'myppt_Account',
-
+        'id' => 'ACCOUNT_ID',
+        'module' => 'PPT_Accounts',
     ),
     'SHIPPER_NAME' => array(
         'width' => '30',
@@ -27,25 +26,22 @@ $listViewDefs[$module_name] = array(
         'link' => true,
         'default' => true,
         'id' => 'SHIPPER_ID',
-        'module' => 'myppt_Account',
+        'module' => 'PPT_Accounts',
     ),
     'ORIGIN' => array(
         'width' => '10',
         'label' => 'LBL_ORIGIN',
         'default' => true,
-
     ),
     'DEST' => array(
         'width' => '10',
         'label' => 'LBL_DEST',
         'default' => true,
-
     ),
     'SERVICE' => array(
         'width' => '15',
         'label' => 'LBL_SERVICE',
         'default' => true,
-
     ),
     'MIN_FIELD' => array (
         'width' => '5',
