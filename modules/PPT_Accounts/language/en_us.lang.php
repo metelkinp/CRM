@@ -70,7 +70,7 @@ $mod_strings = array(
     'LBL_SEARCH_FORM_TITLE' => ' Accounts',
     'LBL_HISTORY_SUBPANEL_TITLE' => 'View History',
     'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
-    'LBL_MYPPT_ACCOUNT_SUBPANEL_TITLE' => 'Accounts',
+    'LBL_PPT_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
     'LBL_NEW_FORM_TITLE' => 'New Accounts',
     'LBL_ACTIVE_FLAG' => 'Active:',
     'LBL_IMPORTONLY_FLAG' => 'Import Account Only:',
@@ -101,7 +101,6 @@ $mod_strings = array(
     'LBL_ADDRESS_COUNTRY' => 'Country',
     'LBL_LAVLSV_NUM' => 'LAV/LSV No.',
     'LBL_ASSIGNED_TO' => 'Assigned to',
-    'LNK_IMPORT_MYPPT_ACCOUNT' => 'Import Accounts',
     'LBL_ADDRESS_PO_BOX' => 'PO box',
     'LBL_ACCOUNT_ROLE' => 'Role',
 
@@ -110,10 +109,10 @@ $mod_strings = array(
     'LBL_PANEL_MAIN_CONTACTS' => 'Main Contacts',
     'LBL_PANEL_MAIN_ADDRESS' => 'Main Address',
 
-    'LBL_MYPPT_SRA_SUBPANEL_TITLE' => 'SRA',
-    'LBL_MYPPT_SPQ_SUBPANEL_TITLE' => 'Spot Quotes',
-    'LBL_MYPPT_PA_SUBPANEL_TITLE' => 'Pallet Agreement',
-    'LBL_MYPPT_CONTRACTS_SUBPANEL_TITLE' => 'Contracts',
-    'LBL_MYPPT_CONTACT_SUBPANEL_TITLE' => 'Contacts',
+//    'LBL_MYPPT_SRA_SUBPANEL_TITLE' => 'SRA',
+//    'LBL_MYPPT_SPQ_SUBPANEL_TITLE' => 'Spot Quotes',
+//    'LBL_MYPPT_PA_SUBPANEL_TITLE' => 'Pallet Agreement',
+//    'LBL_MYPPT_CONTRACTS_SUBPANEL_TITLE' => 'Contracts',
+//    'LBL_MYPPT_CONTACT_SUBPANEL_TITLE' => 'Contacts',
 
 );

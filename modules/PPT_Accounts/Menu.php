@@ -44,9 +44,9 @@
 
 global $mod_strings, $app_strings, $sugar_config;
  
-if(ACLController::checkAccess('myppt_Account', 'edit', true)){
-    $module_menu[]=array('index.php?module=myppt_Account&action=EditView&return_module=myppt_Account&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'myppt_Account');
+if(ACLController::checkAccess('PPT_Accounts', 'edit', true)){
+    $module_menu[]=array('index.php?module=PPT_Accounts&action=EditView&return_module=PPT_Accounts&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add');
 }
-if(ACLController::checkAccess('myppt_Account', 'list', true)){
-    $module_menu[]=array('index.php?module=myppt_Account&action=index&return_module=myppt_Account&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'myppt_Account');
+if(ACLController::checkAccess('PPT_Accounts', 'list', true)){
+    $module_menu[]=array('index.php?module=PPT_Accounts&action=index&return_module=PPT_Accounts&return_action=DetailView', $mod_strings['LNK_LIST'],'List');
 }

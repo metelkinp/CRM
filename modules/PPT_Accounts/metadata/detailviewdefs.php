@@ -38,7 +38,7 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$module_name = 'myppt_Account';
+$module_name = 'PPT_Accounts';
 $viewdefs[$module_name]['DetailView'] = array(
     'templateMeta' => array(
         'form' => array(

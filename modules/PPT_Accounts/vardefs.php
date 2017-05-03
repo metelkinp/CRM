@@ -38,41 +38,38 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$table_name = 'ppt_accounts';
-$module = 'PPT_Accounts';
-$dictionary['PPT_Accounts'] = array(
+//$table_name = 'ppt_accounts';
+//$module = 'PPT_Accounts';
+$dictionary['PPT_Account'] = array(
     'table' => 'ppt_accounts',
     'audited' => true,
     'inline_edit' => true,
-    'duplicate_merge' => true,
+    'duplicate_merge' => 'disabled',
     'fields' => array(
-        'name' =>
-            array(
-                'name' => 'name',
-                'vname' => 'LBL_NAME',
-                'type' => 'name',
-                'link' => true,
-                'dbType' => 'varchar',
-                'len' => '255',
-                'unified_search' => false,
-                'full_text_search' =>
-                    array(
-                        'boost' => 3,
-                    ),
-                'required' => true,
-                'importable' => 'required',
-                'duplicate_merge' => 'disabled',
-                'merge_filter' => 'disabled',
-                'massupdate' => 0,
-                'no_default' => false,
-                'comments' => '',
-                'help' => '',
-                'duplicate_merge_dom_value' => '0',
-                'audited' => false,
-                'inline_edit' => true,
-                'reportable' => true,
-                'size' => '20',
-            ),
+//        'name' =>
+//            array(
+//                'name' => 'name',
+//                'vname' => 'LBL_NAME',
+//                'type' => 'name',
+//                'link' => true,
+//                'dbType' => 'varchar',
+//                'len' => '255',
+//                'unified_search' => false,
+//                'full_text_search' => array('boost' => 3),
+//                'required' => true,
+//                'importable' => 'required',
+//                'duplicate_merge' => 'disabled',
+//                'merge_filter' => 'disabled',
+//                'massupdate' => 0,
+//                'no_default' => false,
+//                'comments' => '',
+//                'help' => '',
+//                'duplicate_merge_dom_value' => '0',
+//                'audited' => false,
+//                'inline_edit' => true,
+//                'reportable' => true,
+//                'size' => '20',
+//            ),
         'active_flag' =>
             array(
                 'required' => false,
@@ -711,69 +708,77 @@ $dictionary['PPT_Accounts'] = array(
         )
     ),
     'indices' => array(
-//        0 => array(
-//            'name' => 'idx_name',
-//            'type' => 'fulltext',
-//            'fields' => array('name'),
-//        ),
-//        1 => array(
-//            'name' => 'idx_cdb_num',
-//            'type' => 'index',
-//            'fields' => array('cdb_num'),
-//        ),
-//        2 => array(
-//            'name' => 'idx_lavlsv_num',
-//            'type' => 'index',
-//            'fields' => array('lavlsv_num'),
-//        ),
-
+        array(
+            'name' => 'idx_name',
+            'type' => 'index',
+            'fields' => array('name'),
+        ),
+        array(
+            'name' => 'idx_cdb_num',
+            'type' => 'index',
+            'fields' => array('cdb_num'),
+        ),
+        array(
+            'name' => 'idx_lavlsv_num',
+            'type' => 'index',
+            'fields' => array('lavlsv_num'),
+        ),
     ),
     'relationships' => array(
-//        strtolower($module)."_sra" => array(
-//            'lhs_module' => $module,
-//            'lhs_table' => $table_name,
+        'ppt_account_sra' => array(
+            'lhs_module' => 'PPT_Accounts',
+            'lhs_table' => 'ppt_accounts',
+            'lhs_key' => 'id',
+            'rhs_module' => 'PPT_SRA',
+            'rhs_table' => 'ppt_sra',
+            'rhs_key' => 'account_id',
+            'relationship_type' => 'one-to-many',
+        ),
+        'ppt_shipper_sra' => array(
+            'lhs_module' => 'PPT_Accounts',
+            'lhs_table' => 'ppt_accounts',
+            'lhs_key' => 'id',
+            'rhs_module' => 'PPT_SRA',
+            'rhs_table' => 'ppt_sra',
+            'rhs_key' => 'shipper_id',
+            'relationship_type' => 'one-to-many',
+        ),
+////        strtolower($module)."_spq" => array(
+////            'lhs_module' => $module,
+////            'lhs_table' => $table_name,
+////            'lhs_key' => 'id',
+////            'rhs_module' => 'myppt_SPQ',
+////            'rhs_table' => 'myppt_spq',
+////            'rhs_key' => 'agent_id',
+////            'relationship_type' => 'one-to-many',
+////        ),
+////        strtolower($module)."_pa" => array(
+////            'lhs_module' => $module,
+////            'lhs_table' => $table_name,
+////            'lhs_key' => 'id',
+////            'rhs_module' => 'myppt_PA',
+////            'rhs_table' => 'myppt_pa',
+////            'rhs_key' => 'agent_id',
+////            'relationship_type' => 'one-to-many',
+////        ),
+//        'ppt_account_contacts' => array(
+//            'lhs_module' => 'PPT_Accounts',
+//            'lhs_table' => 'ppt_accounts',
 //            'lhs_key' => 'id',
-//            'rhs_module' => 'myppt_SRA',
-//            'rhs_table' => 'myppt_sra',
-//            'rhs_key' => 'agent_id',
-//            'relationship_type' => 'one-to-many',
-//        ),
-//        strtolower($module)."_spq" => array(
-//            'lhs_module' => $module,
-//            'lhs_table' => $table_name,
-//            'lhs_key' => 'id',
-//            'rhs_module' => 'myppt_SPQ',
-//            'rhs_table' => 'myppt_spq',
-//            'rhs_key' => 'agent_id',
-//            'relationship_type' => 'one-to-many',
-//        ),
-//        strtolower($module)."_pa" => array(
-//            'lhs_module' => $module,
-//            'lhs_table' => $table_name,
-//            'lhs_key' => 'id',
-//            'rhs_module' => 'myppt_PA',
-//            'rhs_table' => 'myppt_pa',
-//            'rhs_key' => 'agent_id',
-//            'relationship_type' => 'one-to-many',
-//        ),
-//        strtolower($module)."_contacts" => array(
-//            'lhs_module' => $module,
-//            'lhs_table' => $table_name,
-//            'lhs_key' => 'id',
-//            'rhs_module' => 'myppt_Contact',
-//            'rhs_table' => 'myppt_contact',
+//            'rhs_module' => 'PPT_Contacts',
+//            'rhs_table' => 'ppt_contacts',
 //            'rhs_key' => 'account_id',
 //            'relationship_type' => 'one-to-many',
 //        ),
-//        strtolower($module)."_contracts" => array(
-//            'lhs_module' => $module,
-//            'lhs_table' => $table_name,
-//            'lhs_key' => 'id',
-//            'rhs_module' => 'myppt_Contracts',
-//            'rhs_table' => 'myppt_contracts',
-//            'rhs_key' => 'account_id',
-//            'relationship_type' => 'one-to-many',
-//        ),
+////        strtolower($module)."_contracts" => array(
+////            'lhs_module' => $module,
+////            'lhs_table' => $table_name,
+////            'lhs_key' => 'id',
+////            'rhs_module' => 'myppt_Contracts',
+////            'rhs_table' => 'myppt_contracts',
+////            'rhs_key' => 'account_id',
+////            'relationship_type' => 'one-to-many',
+////        ),
     ),
     'optimistic_locking' => true,
     'unified_search' => true,

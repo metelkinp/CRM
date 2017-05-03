@@ -42,7 +42,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'myppt_Account';
+$module_name = 'PPT_Accounts';
 $searchFields[$module_name] = array(
     'name' => array('query_type' => 'default'),
     'current_user_only' => array(

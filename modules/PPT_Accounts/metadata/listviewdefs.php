@@ -42,7 +42,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'myppt_Account';
+$module_name = 'PPT_Accounts';
 $listViewDefs[$module_name] = array(
     'NAME' => array(
         'width' => '20',

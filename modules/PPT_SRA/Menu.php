@@ -45,8 +45,8 @@
 global $mod_strings, $app_strings, $sugar_config;
  
 if(ACLController::checkAccess('PPT_SRA', 'edit', true)){
-    $module_menu[]=array('index.php?module=PPT_SRA&action=EditView&return_module=PPT_SRA&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'PPT_SRA');
+    $module_menu[]=array('index.php?module=PPT_SRA&action=EditView&return_module=PPT_SRA&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add');
 }
 if(ACLController::checkAccess('myppt_SRA', 'list', true)){
-    $module_menu[]=array('index.php?module=PPT_SRA&action=index&return_module=PPT_SRA&return_action=DetailView', $mod_strings['LNK_LIST'],'List', 'PPT_SRA');
+    $module_menu[]=array('index.php?module=PPT_SRA&action=index&return_module=PPT_SRA&return_action=DetailView', $mod_strings['LNK_LIST'],'List');
 }

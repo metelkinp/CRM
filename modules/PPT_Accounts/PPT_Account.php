@@ -38,6 +38,8 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+require_once('include/SugarObjects/templates/basic/Basic.php');
+
 class PPT_Account extends Basic
 {
     public $new_schema = true;
@@ -102,6 +104,11 @@ class PPT_Account extends Basic
         }
 
         return false;
+    }
+
+    public function save($check_notify = false)
+    {
+        return parent::save($check_notify);
     }
 	
 }
