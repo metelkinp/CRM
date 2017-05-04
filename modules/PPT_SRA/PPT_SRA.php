@@ -103,10 +103,13 @@ class PPT_SRA extends Basic
 
     public function save($check_notify = false)
     {
-        $this->number = $this->db->getOne("SELECT MAX(number) + 1 FROM " . $this->table_name);
+        if (empty($this->number)) {
 
-        if (empty($this->number))
-            $this->number = 1;
+            $this->number = $this->db->getOne("SELECT MAX(number) + 1 FROM " . $this->table_name);
+
+//            if (empty($this->number))
+//                $this->number = 1;
+        }
 
 
         $prefix = ($this->number > 999) ? "" :

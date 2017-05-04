@@ -18,13 +18,13 @@ $viewdefs[$module_name]['DetailView'] = array(
 
     'panels' => array (
         'lbl_panel_main' => array(
-            array('name'),
-            array('agent_name','shipper_name'),
+            array('name','issue'),
+            array('valid_from','valid_until'),
+            array('account_name','shipper_name'),
             array('origin', 'dest'),
             array ('service','product'),
-            array('issue','valid_from'),
-            array('valid_until'),
-            array('capri','currency'),
+            array('currency', ''),
+            array('capri',''),
         ),
         'lbl_panel_rates' => array (
             array('min_field',''),
@@ -37,16 +37,6 @@ $viewdefs[$module_name]['DetailView'] = array(
         ),
         'lbl_panel_other' => array (
             array('contact_name', 'description'),
-            array(
-                'name' => 'date_entered',
-                'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-                'label' => 'LBL_DATE_ENTERED',
-            ),
-            array(
-                'name' => 'date_modified',
-                'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-                'label' => 'LBL_DATE_MODIFIED',
-            ),
             array('assigned_user_name',''),
         ),
     ),

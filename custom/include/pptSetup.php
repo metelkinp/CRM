@@ -7,19 +7,21 @@ function pptSetup()
         $db_defs = array(
             'ppt-airports-dom' => array(
                 'field' => 'code',
-                'table' => 'ppt_airports',
+                //'table' => 'ppt_airports',
+                'table' => 'ppt_tmp_destinations',
             ),
-            'ppt-products-dom' => array(
+            'ppt-services-dom' => array(
                 'field' => 'service',
                 'table' => 'ppt_services',
             ),
-            'ppt-services-dom' => array(
+            'ppt-products-dom' => array(
                 'field' => 'product',
                 'table' => 'ppt_products',
             ),
             'ppt-stations-dom' => array(
                 'field' => 'code',
-                'table' => 'ppt_stations',
+                //'table' => 'ppt_stations',
+                'table' => 'ppt_tmp_destinations',
             ),
             'ppt-company-types-dom' => array(
                 'field' => 'company_type',

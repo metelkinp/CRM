@@ -44,6 +44,16 @@ $dictionary['PPT_SRA'] = array(
     'inline_edit' => true,
     'duplicate_merge' => 'disabled',
     'fields' => array(
+        'number' => array(
+            'name' => 'number',
+            'vname' => 'LBL_NUMBER',
+            'type' => 'int',
+            'len' => 11,
+            'default' => 1,
+            'required' => false,
+            'massupdate' => 0,
+            'reportable' => true,
+        ),
         'origin' => array(
             'name' => 'origin',
             'vname' => 'LBL_ORIGIN',

@@ -82,7 +82,7 @@ $viewdefs[$module_name]['EditView'] = array(
             array('address_city', 'address_state',),
             array('address_country','address_type',),
         ),
-        'lbl_other_info' => array(
+        'lbl_panel_other_info' => array(
             array('assigned_user_name',''),
         ),
 
