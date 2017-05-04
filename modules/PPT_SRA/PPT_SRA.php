@@ -107,16 +107,15 @@ class PPT_SRA extends Basic
 
             $this->number = $this->db->getOne("SELECT MAX(number) + 1 FROM " . $this->table_name);
 
-//            if (empty($this->number))
-//                $this->number = 1;
+            if (empty($this->number))
+                $this->number = 1;
+
+            $prefix = ($this->number > 999) ? "" :
+                ($this->number > 99) ? "0" :
+                    ($this->number > 9) ? "00" : "000";
+
+            $this->name = 'L' . $prefix . $this->number;
         }
-
-
-        $prefix = ($this->number > 999) ? "" :
-            ($this->number > 99) ? "0" :
-                ($this->number > 9) ? "00" : "000";
-
-        $this->name = 'L' . $prefix . $this->number;
 
         return parent::save($check_notify);
     }
