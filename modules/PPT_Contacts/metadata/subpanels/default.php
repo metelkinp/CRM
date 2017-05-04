@@ -45,55 +45,65 @@ if (!defined('sugarEntry') || !sugarEntry) {
 $subpanel_layout = array(
     'top_buttons' => array(
         array('widget_class' => 'SubPanelTopCreateButton'),
-        array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'People'),
+        array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' =>  $module_name),
     ),
 
     'where' => '',
 
     'list_fields' => array(
-        'first_name' => array(
-            'name' => 'first_name',
-            'usage' => 'query_only',
-        ),
-        'last_name' => array(
-            'name' => 'last_name',
-            'usage' => 'query_only',
-        ),
         'salutation' => array(
+            'sortable' => false,
             'name' => 'salutation',
-            'usage' => 'query_only',
+            'vname' => 'LBL_SALUTATION',
+            'width' => '5%',
         ),
         'name' => array(
             'name' => 'name',
-            'vname' => 'LBL_LIST_NAME',
-            'sort_by' => 'last_name',
-            'sort_order' => 'asc',
+            'vname' => 'LBL_NAME',
+            'width' => '20%',
             'widget_class' => 'SubPanelDetailViewLink',
-            'module' => 'Contacts',
-            'width' => '40%',
+            'module' => $module_name,
         ),
-        'email1' => array(
-            'name' => 'email1',
-            'vname' => 'LBL_LIST_EMAIL',
-            'widget_class' => 'SubPanelEmailLink',
-            'width' => '35%',
+        'job_title' => array(
+            'name' => 'job_title',
             'sortable' => false,
-        ),
-        'phone_work' => array(
-            'name' => 'phone_work',
-            'vname' => 'LBL_LIST_PHONE',
+            'vname' => 'LBL_JOB_TITLE',
             'width' => '15%',
         ),
-        'edit_button' => array(
-            'vname' => 'LBL_EDIT_BUTTON',
-            'widget_class' => 'SubPanelEditButton',
-            'module' => 'Contacts',
-            'width' => '5%',
+        'account_name' => array(
+            'name' => 'account_name',
+            'vname' => 'LBL_ACCOUNT',
+            'module' => 'PPT_Accounts',
+            'target_record_key' => 'account_id',
+            'target_module' => 'PPT_Accounts',
+            'widget_class' => 'SubPanelDetailViewLink',
+            'width' => '20%'
         ),
-        'remove_button' => array(
-            'vname' => 'LBL_REMOVE',
-            'widget_class' => 'SubPanelRemoveButton',
-            'module' => 'Contacts',
+        'account_id' => array(
+            'name' => 'account_id',
+            'usage' => 'query_only',
+        ),
+        'phone_main' => array(
+            'name' => 'phone_main',
+            'vname' => 'LBL_PHONE_MAIN',
+            'sortable' => false,
+            'width' => '15%',
+        ),
+        'phone_mobile' => array(
+            'name' => 'phone_mobile',
+            'vname' => 'LBL_PHONE_MOBILE',
+            'sortable' => false,
+            'width' => '15%',
+        ),
+        'email' => array(
+            'name' => 'email',
+            'vname' => 'LBL_EMAIL',
+            'width' => '15%',
+            'sortable' => false,
+        ),
+        'active_flag' => array(
+            'name' => 'active_flag',
+            'vname' => 'LBL_ACTIVE_FLAG',
             'width' => '5%',
         ),
     ),

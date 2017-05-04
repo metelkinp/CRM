@@ -37,7 +37,17 @@ $viewdefs[$module_name]['DetailView'] = array(
         ),
         'lbl_panel_other' => array (
             array('contact_name', 'description'),
-            array ('created_by_name'),
+            array(
+                'name' => 'date_entered',
+                'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+                'label' => 'LBL_DATE_ENTERED',
+            ),
+            array(
+                'name' => 'date_modified',
+                'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+                'label' => 'LBL_DATE_MODIFIED',
+            ),
+            array('assigned_user_name',''),
         ),
     ),
 );

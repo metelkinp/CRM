@@ -93,8 +93,7 @@ class PPT_SRA extends Basic
 
     public function bean_implements($interface)
     {
-        switch($interface)
-        {
+        switch ($interface) {
             case 'ACL':
                 return true;
         }
@@ -106,10 +105,15 @@ class PPT_SRA extends Basic
     {
         $this->number = $this->db->getOne("SELECT MAX(number) + 1 FROM " . $this->table_name);
 
-        if(empty($this->number))
+        if (empty($this->number))
             $this->number = 1;
 
-        $this->name = 'L' . $this->number;
+
+        $prefix = ($this->number > 999) ? "" :
+            ($this->number > 99) ? "0" :
+                ($this->number > 9) ? "00" : "000";
+
+        $this->name = 'L' . $prefix . $this->number;
 
         return parent::save($check_notify);
     }

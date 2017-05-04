@@ -41,7 +41,7 @@ $viewdefs[$module_name]['EditView'] = array(
         ),
         'lbl_panel_other' => array(
             array('contact_name', 'description'),
-            array('created_by_name'),
+            array('assigned_user_name',''),
         ),
     ),
 );

@@ -38,38 +38,12 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-//$table_name = 'ppt_accounts';
-//$module = 'PPT_Accounts';
 $dictionary['PPT_Account'] = array(
     'table' => 'ppt_accounts',
-    'audited' => true,
+    'audited' => false,
     'inline_edit' => true,
     'duplicate_merge' => 'disabled',
     'fields' => array(
-//        'name' =>
-//            array(
-//                'name' => 'name',
-//                'vname' => 'LBL_NAME',
-//                'type' => 'name',
-//                'link' => true,
-//                'dbType' => 'varchar',
-//                'len' => '255',
-//                'unified_search' => false,
-//                'full_text_search' => array('boost' => 3),
-//                'required' => true,
-//                'importable' => 'required',
-//                'duplicate_merge' => 'disabled',
-//                'merge_filter' => 'disabled',
-//                'massupdate' => 0,
-//                'no_default' => false,
-//                'comments' => '',
-//                'help' => '',
-//                'duplicate_merge_dom_value' => '0',
-//                'audited' => false,
-//                'inline_edit' => true,
-//                'reportable' => true,
-//                'size' => '20',
-//            ),
         'active_flag' =>
             array(
                 'required' => false,
@@ -603,7 +577,7 @@ $dictionary['PPT_Account'] = array(
                 'reportable' => true,
                 'unified_search' => false,
                 'merge_filter' => 'disabled',
-                'len' => '20',
+                'len' => '50',
                 'size' => '20',
             ),
         'address_city' =>
@@ -761,15 +735,15 @@ $dictionary['PPT_Account'] = array(
 ////            'rhs_key' => 'agent_id',
 ////            'relationship_type' => 'one-to-many',
 ////        ),
-//        'ppt_account_contacts' => array(
-//            'lhs_module' => 'PPT_Accounts',
-//            'lhs_table' => 'ppt_accounts',
-//            'lhs_key' => 'id',
-//            'rhs_module' => 'PPT_Contacts',
-//            'rhs_table' => 'ppt_contacts',
-//            'rhs_key' => 'account_id',
-//            'relationship_type' => 'one-to-many',
-//        ),
+        'ppt_account_contacts' => array(
+            'lhs_module' => 'PPT_Accounts',
+            'lhs_table' => 'ppt_accounts',
+            'lhs_key' => 'id',
+            'rhs_module' => 'PPT_Contacts',
+            'rhs_table' => 'ppt_contacts',
+            'rhs_key' => 'account_id',
+            'relationship_type' => 'one-to-many',
+        ),
 ////        strtolower($module)."_contracts" => array(
 ////            'lhs_module' => $module,
 ////            'lhs_table' => $table_name,

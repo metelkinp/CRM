@@ -65,64 +65,46 @@ class PPT_Contact extends Basic
     public $assigned_user_link;
     public $SecurityGroups;
 
-//    public $salutation;
-//    public $first_name;
-//    public $last_name;
-//    public $full_name;
-//    public $title;
-//    public $photo;
-//    public $department;
-//    public $do_not_call;
-//    public $phone_home;
-//    public $email;
-//    public $phone_mobile;
-//    public $phone_work;
-//    public $phone_other;
-//    public $phone_fax;
-//    public $email1;
-//    public $email2;
-//    public $invalid_email;
-//    public $email_opt_out;
-//    public $primary_address_street;
-//    public $primary_address_street_2;
-//    public $primary_address_street_3;
-//    public $primary_address_city;
-//    public $primary_address_state;
-//    public $primary_address_postalcode;
-//    public $primary_address_country;
-//    public $alt_address_street;
-//    public $alt_address_street_2;
-//    public $alt_address_street_3;
-//    public $alt_address_city;
-//    public $alt_address_state;
-//    public $alt_address_postalcode;
-//    public $alt_address_country;
-//    public $assistant;
-//    public $assistant_phone;
-//    public $email_addresses_primary;
-//    public $email_addresses;
-//    public $email_addresses_non_primary;
-//    public $ppt_position;
-//    public $ppt_academ_title;
-//    public $ppt_honorous_title;
-//    public $ppt_nickname;
-//    public $ppt_manager_fname;
-//    public $ppt_manager_lname;
-//    public $ppt_pref_comm;
-//    public $ppt_sex;
-//    public $ppt_pref_lang;
-//    public $ppt_nameday;
-//    public $ppt_birthday;
-//    public $ppt_ebook_login;
-//    public $myppt_ppt_account_id_c;
-//    public $ppt_account;
-//    public $primary_address_lane;
-//    public $primary_address_building;
-//    public $primary_address_area;
-//    public $alt_address_lane;
-//    public $alt_address_building;
-//    public $alt_address_area;
-	
+    public $first_name;
+    public $last_name;
+    public $salutation;
+    public $position;
+    public $job_title;
+    public $department;
+    public $gender;
+    public $academic_title;
+    public $honorous_title;
+    public $nickname;
+    public $phone_main;
+    public $phone_mobile;
+    public $fax;
+    public $email;
+    public $pref_comm;
+    public $pref_lang;
+    public $birthday;
+    public $eBook_login;
+    public $active_flag;
+
+    public $address_business_street;
+    public $address_business_lane;
+    public $address_business_po_box;
+    public $address_business_zip;
+    public $address_business_city;
+    public $address_business_state;
+    public $address_business_country;
+
+    public $address_personal_street;
+    public $address_personal_lane;
+    public $address_personal_po_box;
+    public $address_personal_zip;
+    public $address_personal_city;
+    public $address_personal_state;
+    public $address_personal_country;
+
+    //relations
+    public $account_id;
+    public $account_name;
+
     public function bean_implements($interface)
     {
         switch($interface)
@@ -133,5 +115,13 @@ class PPT_Contact extends Basic
 
         return false;
     }
-	
+
+    public function save($check_notify = false)
+    {
+        $this->name = $this->first_name . ' ' . $this->last_name;
+
+        return parent::save($check_notify);
+    }
+
+
 }

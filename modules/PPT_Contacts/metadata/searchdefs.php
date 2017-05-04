@@ -38,7 +38,7 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$module_name = 'myppt_Contact';
+$module_name = 'PPT_Contacts';
 $searchdefs[$module_name] = array(
     'templateMeta' => array(
         'maxColumns' => '3',
@@ -49,14 +49,18 @@ $searchdefs[$module_name] = array(
         'basic_search' => array(
             array('name' => 'search_name', 'label' => 'LBL_NAME', 'type' => 'name'),
             array('name' => 'current_user_only', 'label' => 'LBL_CURRENT_USER_FILTER', 'type' => 'bool'),
-        ),
+            array ('name' => 'account_name', 'label' => 'LBL_ACCOUNT', 'type' => 'enum'),
+            ),
         'advanced_search' => array(
             'first_name',
             'last_name',
-            'address_city',
-            'created_by_name',
-            'do_not_call',
-            'email',
+            array ('name' => 'account_name', 'label' => 'LBL_ACCOUNT', 'type' => 'enum'),
+            array(
+                'name' => 'assigned_user_id',
+                'label' => 'LBL_ASSIGNED_TO',
+                'type' => 'enum',
+                'function' => array('name' => 'get_user_array', 'params' => array(false))
+            ),
         ),
     ),
 );

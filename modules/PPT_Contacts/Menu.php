@@ -44,14 +44,9 @@
 
 global $mod_strings, $app_strings, $sugar_config;
  
-if(ACLController::checkAccess('myppt_Contact', 'edit', true)){
-    $module_menu[]=array('index.php?module=myppt_Contact&action=EditView&return_module=myppt_Contact&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add', 'myppt_Contact');
+if(ACLController::checkAccess('PPT_Contacts', 'edit', true)){
+    $module_menu[]=array('index.php?module=PPT_Contacts&action=EditView&return_module=PPT_Contacts&return_action=DetailView', $mod_strings['LNK_NEW_RECORD'], 'Add');
 }
-if(ACLController::checkAccess('myppt_Contact', 'edit', true)){
-    $module_menu[]=array('index.php?module=myppt_Contact&action=ImportVCard', $mod_strings['LNK_IMPORT_VCARD'], 'Create_Contact_Vcard', 'myppt_Contact');
-}if(ACLController::checkAccess('myppt_Contact', 'list', true)){
-    $module_menu[]=array('index.php?module=myppt_Contact&action=index&return_module=myppt_Contact&return_action=DetailView', $mod_strings['LNK_LIST'],'View', 'myppt_Contact');
-}
-if(ACLController::checkAccess('myppt_Contact', 'import', true)){
-    $module_menu[]=array('index.php?module=Import&action=Step1&import_module=myppt_Contact&return_module=myppt_Contact&return_action=index', $app_strings['LBL_IMPORT'], 'Import', 'myppt_Contact');
+if(ACLController::checkAccess('PPT_Contacts', 'list', true)){
+    $module_menu[]=array('index.php?module=PPT_Contacts&action=index&return_module=PPT_Contacts&return_action=DetailView', $mod_strings['LNK_LIST'],'List');
 }

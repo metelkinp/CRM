@@ -38,9 +38,15 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$module_name = 'myppt_Contact';
+$module_name = 'PPT_Contacts';
 $viewdefs[$module_name]['EditView'] = array(
     'templateMeta' => array(
+        'form' => array(
+            'buttons' => array(
+                'SAVE',
+                'CANCEL',
+            ),
+        ),
         'maxColumns' => '2',
         'widths' => array(
             array('label' => '10', 'field' => '30'),
@@ -48,74 +54,43 @@ $viewdefs[$module_name]['EditView'] = array(
         ),
     ),
     'panels' => array(
-        'lbl_contact_information' => array(
-
+        'lbl_panel_main_info' => array(
             array(
                 array(
                     'name' => 'first_name',
                     'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}' .
-                                    '&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+                        '&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
                 ),
-                'phone_work',
-            ),
-
-            array(
                 'last_name',
-                'phone_mobile',
             ),
-
-            array(
-                'title',
-                'phone_home',
-            ),
-
-            array(
-                'department',
-                'phone_other',
-            ),
-
-            array(
-                '',
-                'phone_fax',
-            ),
-
-            array(
-                'assigned_user_name',
-                'do_not_call',
-            ),
-
-            array(
-                'description',
-            ),
-
+            array('gender', ''),
+            array('account_name','position'),
+            array('job_title','department'),
+            array('active_flag',''),
         ),
-        'lbl_email_addresses' => array(
-            array('email1')
+        'lbl_panel_contacts' => array(
+            array('phone_main','phone_mobile'),
+            array('fax','email'),
         ),
-        'lbl_address_information' => array(
-            array(
-                array(
-                    'name' => 'primary_address_street',
-                    'hideLabel' => true,
-                    'type' => 'address',
-                    'displayParams' => array('key' => 'primary', 'rows' => 2, 'cols' => 30, 'maxlength' => 150),
-                ),
-
-                array(
-                    'name' => 'alt_address_street',
-                    'hideLabel' => true,
-                    'type' => 'address',
-                    'displayParams' => array(
-                        'key' => 'alt',
-                        'copy' => 'primary',
-                        'rows' => 2,
-                        'cols' => 30,
-                        'maxlength' => 150
-                    ),
-                ),
-            ),
+        'lbl_panel_other_info' => array(
+            array('birthday',''),
+            array('academic_title','honorous_title'),
+            array('nickname','eBook_login'),
+            array('pref_comm','pref_lang'),
+            array('assigned_user_name',''),
         ),
-
-    )
+        'lbl_panel_address_business' => array(
+            array('address_business_street','address_business_lane'),
+            array('address_business_po_box','address_business_zip'),
+            array('address_business_city','address_business_state'),
+            array('address_business_country',''),
+        ),
+        'lbl_panel_address_personal' => array(
+            array('address_personal_street','address_personal_lane'),
+            array('address_personal_po_box','address_personal_zip'),
+            array('address_personal_city','address_personal_state'),
+            array('address_personal_country',''),
+        ),
+    ),
 
 );

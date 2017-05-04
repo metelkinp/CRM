@@ -38,7 +38,7 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$module_name = 'myppt_Account';
+$module_name = 'PPT_Accounts';
 $viewdefs[$module_name]['QuickCreate'] = array(
     'templateMeta' => array(
         'maxColumns' => '2',
@@ -49,13 +49,13 @@ $viewdefs[$module_name]['QuickCreate'] = array(
     ),
 
     'panels' => array(
-        'default' => array(
-
-            array(
-                'name',
-                'assigned_user_name',
-            ),
-        ),
+//        'default' => array(
+//
+//            array(
+//                'name',
+//                'assigned_user_name',
+//            ),
+//        ),
 
     ),
 

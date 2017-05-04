@@ -38,104 +38,51 @@
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
-$module_name = 'myppt_Contact';
+$module_name = 'PPT_Contacts';
 $viewdefs[$module_name]['DetailView'] = array(
     'templateMeta' => array(
         'form' => array(
             'buttons' => array(
                 'EDIT',
-                'DUPLICATE',
                 'DELETE',
-                'FIND_DUPLICATES',
-            ),
+            )
         ),
         'maxColumns' => '2',
         'widths' => array(
             array('label' => '10', 'field' => '30'),
-            array('label' => '10', 'field' => '30')
+            array('label' => '10', 'field' => '30'),
         ),
     ),
     'panels' => array(
-
-        array(
-            array(
-                'name' => 'full_name',
-                'label' => 'LBL_NAME',
-            ),
-            array(
-                'name' => 'phone_work',
-            ),
+        'lbl_panel_main_info' => array(
+            array('salutation', 'name'),
+            array('account_name','position'),
+            array('job_title','department'),
+            array('active_flag',''),
         ),
-
-        array(
-            'title',
-            array(
-                'name' => 'phone_mobile',
-            ),
+        'lbl_panel_contacts' => array(
+            array('phone_main','phone_mobile'),
+            array('fax','email'),
         ),
-
-        array(
-            'department',
-
-            array(
-                'name' => 'phone_home',
-                'label' => 'LBL_HOME_PHONE',
-            ),
+        'lbl_panel_other_info' => array(
+            array('birthday',''),
+            array('academic_title','honorous_title'),
+            array('nickname','eBook_login'),
+            array('pref_comm','pref_lang'),
+            array('assigned_user_name',''),
         ),
-
-        array(
-            null,
-            array(
-                'name' => 'phone_other',
-                'label' => 'LBL_OTHER_PHONE',
-            ),
+        'lbl_panel_address_business' => array(
+            array('address_business_street','address_business_lane'),
+            array('address_business_po_box','address_business_zip'),
+            array('address_business_city','address_business_state'),
+            array('address_business_country',''),
         ),
-
-        array(
-            array(
-                'name' => 'date_entered',
-                'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-                'label' => 'LBL_DATE_ENTERED',
-            ),
-            array(
-                'name' => 'phone_fax',
-                'label' => 'LBL_FAX_PHONE',
-            ),
+        'lbl_panel_address_personal' => array(
+            array('address_personal_street','address_personal_lane'),
+            array('address_personal_po_box','address_personal_zip'),
+            array('address_personal_city','address_personal_state'),
+            array('address_personal_country',''),
         ),
-
-        array(
-            array(
-                'name' => 'date_modified',
-                'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-                'label' => 'LBL_DATE_MODIFIED',
-            ),
-            'do_not_call',
-        ),
-        array('assigned_user_name', ''),
-
-        array(
-            'email1'
-        ),
-
-        array(
-            array(
-                'name' => 'primary_address_street',
-                'label' => 'LBL_PRIMARY_ADDRESS',
-                'type' => 'address',
-                'displayParams' => array('key' => 'primary'),
-            ),
-            array(
-                'name' => 'alt_address_street',
-                'label' => 'LBL_ALT_ADDRESS',
-                'type' => 'address',
-                'displayParams' => array('key' => 'alt'),
-            ),
-        ),
-
-        array(
-            'description',
-        ),
-
-    )
+    ),
 
 );

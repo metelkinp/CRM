@@ -64,6 +64,26 @@ function pptSetup()
             }
         }
 
+        $str .= '$app_list_strings[\'ppt-positions-dom\'] = array(
+        \'L1O\' => \'Level 1 Operations\',
+        \'L1S\' => \'Level 1 Sales\',
+        \'L2O\' => \'Level 2 Operations\',
+        \'L2S\' => \'Level 2 Sales\',
+        \'M&A\' => \'Marketing & Administration\',
+        \'S\' => \'Sales\',
+        \'TLM\' => \'Top Level Management\');' . "\r\n";
+
+        $str .= '$app_list_strings[\'ppt-genders-dom\'] = array(
+        \'M\' => \'Male\',
+        \'F\' => \'Female\');' . "\r\n";
+
+        $str .= '$app_list_strings[\'ppt-pref-comm-dom\'] = array(
+        \'Main\' => \'Main Phone\',
+        \'Mob\' => \'Mobile Phone\',
+        \'Fax\' => \'Fax\',
+        \'Email\' => \'Email\',
+        \'Other\' => \'Other\');' . "\r\n";
+
         fwrite($file, $str);
         fclose($file);
 

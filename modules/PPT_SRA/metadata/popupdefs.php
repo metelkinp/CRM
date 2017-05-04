@@ -42,17 +42,17 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'myppt_SRA';
-$object_name = 'myppt_SRA';
-$_module_name = 'myppt_sra';
+$module_name = 'PPT_SRA';
+$object_name = 'PPT_SRA';
+$_module_name = 'ppt_sra';
 $popupMeta = array(
-    'moduleMain' => $module_name,
-    'varName' => $object_name,
-    'orderBy' => $_module_name . '.name',
-    'whereClauses' => array(
-        'name' => $_module_name . '.name',
-    ),
-    'searchInputs' => array($_module_name . '_number', 'name', 'priority', 'status'),
+//    'moduleMain' => $module_name,
+//    'varName' => $object_name,
+//    'orderBy' => $_module_name . '.name',
+//    'whereClauses' => array(
+//        'name' => $_module_name . '.name',
+//    ),
+//    'searchInputs' => array($_module_name . '_number', 'name', 'priority', 'status'),
 
 );
  

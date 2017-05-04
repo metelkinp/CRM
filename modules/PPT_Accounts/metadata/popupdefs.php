@@ -42,17 +42,17 @@ if (!defined('sugarEntry') || !sugarEntry) {
     die('Not A Valid Entry Point');
 }
 
-$module_name = 'myppt_Account';
-$object_name = 'myppt_Account';
-$_module_name = 'myppt_account';
+$module_name = 'PPT_Accounts';
+$object_name = 'PPT_Account';
+$_module_name = 'ppt_accounts';
 $popupMeta = array(
-    'moduleMain' => $module_name,
-    'varName' => $object_name,
-    'orderBy' => $_module_name . '.name',
-    'whereClauses' => array(
-        'name' => $_module_name . '.name',
-    ),
-    'searchInputs' => array($_module_name . '_number', 'name', 'priority', 'status'),
+//    'moduleMain' => $module_name,
+//    'varName' => $object_name,
+//    'orderBy' => $_module_name . '.name',
+//    'whereClauses' => array(
+//        'name' => $_module_name . '.name',
+//    ),
+//    'searchInputs' => array($_module_name . '_number', 'name', 'priority', 'status'),
 
 );
  

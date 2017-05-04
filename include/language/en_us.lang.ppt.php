@@ -8,3 +8,20 @@ $app_list_strings['ppt-industries-dom'] = array('Others' => 'Others','Aircraft p
 $app_list_strings['ppt-sales-level-6-dom'] = array('GDN AF01' => 'GDN AF01','KTW AF01' => 'KTW AF01','LCAG OWN SALES' => 'LCAG OWN SALES','POZ AF00' => 'POZ AF00','POZ AF01' => 'POZ AF01','TLV AF00' => 'TLV AF00','TLV AF01' => 'TLV AF01','TLV AF02' => 'TLV AF02','TLV AF03' => 'TLV AF03','TLV AF04' => 'TLV AF04','TLV AF06' => 'TLV AF06','TLV AF10' => 'TLV AF10','TLV AF20 IMPORT ACCOUNTS' => 'TLV AF20 IMPORT ACCOUNTS','TLV AF55 MARKETING' => 'TLV AF55 MARKETING','WAW AF00' => 'WAW AF00','WAW AF01' => 'WAW AF01','WAW AF02' => 'WAW AF02','WAW AF10' => 'WAW AF10',);
 $app_list_strings['ppt-account-roles-dom'] = array('Broker/Consignee/Shipper ohne KK-Nr' => 'Broker/Consignee/Shipper ohne KK-Nr','IATA-Agent' => 'IATA-Agent','Major Account' => 'Major Account','Marketing (easySales)' => 'Marketing (easySales)','Own Org Unit' => 'Own Org Unit',);
 $app_list_strings['ppt-commodity-types-dom'] = array('ACE' => 'ACE','AOG' => 'AOG','ACT' => 'ACT','GEN' => 'GEN','MUW' => 'MUW','VAL' => 'VAL','MAL' => 'MAL','RMD' => 'RMD','RDS' => 'RDS','PER' => 'PER','NAR' => 'NAR','BUP' => 'BUP','EDD' => 'EDD','IBC' => 'IBC','SMU' => 'SMU','CAO' => 'CAO','DGR' => 'DGR','VUN' => 'VUN','CSL' => 'CSL','PEA' => 'PEA','MMB' => 'MMB','UCB' => 'UCB','PEF' => 'PEF','EAT' => 'EAT','AVI' => 'AVI','RCX' => 'RCX','RGX' => 'RGX','RXB' => 'RXB','RXC' => 'RXC','RXD' => 'RXD','RXE' => 'RXE','RXG' => 'RXG','RXS' => 'RXS','RLM' => 'RLM','RLI' => 'RLI','RFG' => 'RFG','RCL' => 'RCL','RNG' => 'RNG','RPG' => 'RPG','RFL' => 'RFL','RFS' => 'RFS','RSC' => 'RSC','RFW' => 'RFW','ROX' => 'ROX','ROP' => 'ROP','RPB' => 'RPB','RIS' => 'RIS','RRW' => 'RRW','RRY' => 'RRY','RCM' => 'RCM','ICE' => 'ICE','REQ' => 'REQ','PIL' => 'PIL','SPE' => 'SPE','OBC' => 'OBC','DIP' => 'DIP','EIC' => 'EIC','BXO' => 'BXO','FIL' => 'FIL','PES' => 'PES','PEP' => 'PEP','DIR' => 'DIR','HEG' => 'HEG','GOG' => 'GOG','ASH' => 'ASH','HUM' => 'HUM','ZXY' => 'ZXY','ZXE' => 'ZXE','ELI' => 'ELI','ELM' => 'ELM','LHO' => 'LHO','MAG' => 'MAG','PEM' => 'PEM','NWP' => 'NWP','PBU' => 'PBU','QRT' => 'QRT','MAX' => 'MAX','RRE' => 'RRE','SWP' => 'SWP','ULD' => 'ULD','RSB' => 'RSB','WEA' => 'WEA',);
+$app_list_strings['ppt-positions-dom'] = array(
+        'L1O' => 'Level 1 Operations',
+        'L1S' => 'Level 1 Sales',
+        'L2O' => 'Level 2 Operations',
+        'L2S' => 'Level 2 Sales',
+        'M&A' => 'Marketing & Administration',
+        'S' => 'Sales',
+        'TLM' => 'Top Level Management');
+$app_list_strings['ppt-genders-dom'] = array(
+        'M' => 'Male',
+        'F' => 'Female');
+$app_list_strings['ppt-pref-comm-dom'] = array(
+        'Main' => 'Main Phone',
+        'Mob' => 'Mobile Phone',
+        'Fax' => 'Fax',
+        'Email' => 'Email',
+        'Other' => 'Other');
