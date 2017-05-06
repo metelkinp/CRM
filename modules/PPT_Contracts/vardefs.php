@@ -144,6 +144,18 @@ $dictionary['PPT_Contract'] = array(
             'reportable' => true,
             'display_default' => 'now',
         ),
+
+//        'line_items_group' => array(
+//            'name' => 'line_items_group',
+//            'vname' => 'LBL_LINE_ITEMS_GROUP',
+//            'type' => 'varchar',
+//            'len' => 255,
+//            'size' => 20,
+//            'required' => false,
+//            'massupdate' => 0,
+//            'reportable' => true,
+//            'source' => 'non-db',
+//        ),
         'line_items' => array(
             'name' => 'line_items',
             'vname' => 'LBL_LINE_ITEMS',

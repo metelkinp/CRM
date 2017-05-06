@@ -18,7 +18,7 @@ $viewdefs[$module_name]['EditView'] = array(
 
     'panels' => array(
         'lbl_panel_main' => array(
-            array('status','account_name'),
+            array('status', 'account_name'),
             array('', 'shipper_name'),
             array('', 'contact_name'),
             array('origin', 'dest'),
@@ -27,15 +27,20 @@ $viewdefs[$module_name]['EditView'] = array(
             array('shipping_date', 'arrival_date'),
         ),
         'lbl_panel_line_items' => array(
-            array('line_items',''),
+            array(
+                array(
+                    'name' => 'line_items_group',
+                    'customCode' => '{include file="modules/PPT_Contracts/tpls/lineItemsGroup.tpl"}',
+                    'label' => 'LBL_LIG',
+                ),
+            ),
+            array('line_items', ''),
         ),
-        'lbl_panel_rates' => array (
-
-        ),
+        'lbl_panel_rates' => array(),
         'lbl_panel_other' => array(
-            array('start_date','end_date'),
-            array('customer_signed_date','company_signed_date'),
-            array('assigned_user_name',''),
+            array('start_date', 'end_date'),
+            array('customer_signed_date', 'company_signed_date'),
+            array('assigned_user_name', ''),
         ),
     ),
 );

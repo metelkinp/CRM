@@ -38,6 +38,7 @@ class PPT_Contract extends Basic
     //cargo and line items section
 
     public $line_items;        //this is a json-object, saved as text
+   // public $line_items_group;
 
     //rates section
 
