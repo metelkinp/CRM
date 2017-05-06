@@ -1,45 +1,7 @@
 <?php
-/**
- *
- * SugarCRM Community Edition is a customer relationship management program developed by
- * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- *
- * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2017 SalesAgility Ltd.
- *
- * This program is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Affero General Public License version 3 as published by the
- * Free Software Foundation with the addition of the following permission added
- * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
- * OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
- * details.
- *
- * You should have received a copy of the GNU Affero General Public License along with
- * this program; if not, see http://www.gnu.org/licenses or write to the Free
- * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
- * 02110-1301 USA.
- *
- * You can contact SugarCRM, Inc. headquarters at 10050 North Wolfe Road,
- * SW2-130, Cupertino, CA 95014, USA. or at email address contact@sugarcrm.com.
- *
- * The interactive user interfaces in modified source and object code versions
- * of this program must display Appropriate Legal Notices, as required under
- * Section 5 of the GNU Affero General Public License version 3.
- *
- * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "Powered by
- * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
- * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
- * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- */
 
-$dictionary['PPT_SRA'] = array(
-    'table' => 'ppt_sra',
+$dictionary['PPT_Contract'] = array(
+    'table' => 'ppt_contracts',
     'audited' => false,
     'inline_edit' => true,
     'duplicate_merge' => 'disabled',
@@ -94,135 +56,106 @@ $dictionary['PPT_SRA'] = array(
             'massupdate' => 0,
             'reportable' => true,
         ),
-        'capri' => array(
-            'name' => 'capri',
-            'vname' => 'LBL_CAPRI',
-            'type' => 'bool',
-            'default' => 1,
-            'massupdate' => 0,
-            'reportable' => true,
-        ),
-        'issue' => array(
-            'name' => 'issue',
-            'vname' => 'LBL_ISSUE',
+
+        'shipping_date' => array(
+            'name' => 'shipping_date',
+            'vname' => 'LBL_SHIPPING_DATE',
             'type' => 'date',
             'required' => true,
             'massupdate' => 0,
             'reportable' => true,
             'display_default' => 'now',
         ),
-        'valid_from' => array(
-            'name' => 'valid_from',
-            'vname' => 'LBL_VALID_FROM',
+        'arrival_date' => array(
+            'name' => 'arrival_date',
+            'vname' => 'LBL_ARRIVAL_DATE',
             'type' => 'date',
             'required' => true,
             'massupdate' => 0,
             'reportable' => true,
-            'display_default' => 'now',
+            'display_default' => '+3 day',
         ),
-        'valid_until' => array(
-            'name' => 'valid_until',
-            'vname' => 'LBL_VALID_UNTIL',
-            'type' => 'date',
-            'required' => true,
+        'scc' => array(
+            'name' => 'scc',
+            'vname' => 'LBL_SCC',
+            'type' => 'enum',
+            'dbType' => 'enum',
+            'options' => 'ppt-commodity-types-dom',
             'massupdate' => 0,
             'reportable' => true,
-            'display_default' => '+ 5 month',
-        ),
-        'currency' => array(
-            'name' => 'currency',
-            'vname' => 'LBL_CURRENCY',
-            'type' => 'varchar',
             'len' => 50,
-            'size' => 20,
+        ),
+        'iata_code' => array(
+            'name' => 'iata_code',
+            'vname' => 'LBL_IATA_CODE',
+            'type' => 'varchar',
+            'massupdate' => 0,
+            'required' => false,
+            'reportable' => true,
+            'len' => 100,
+        ),
+        'status' => array(
+            'required' => false,
+            'name' => 'status',
+            'vname' => 'LBL_STATUS',
+            'type' => 'enum',
+            'massupdate' => 0,
+            'default' => 'Not Started',
+            'importable' => 'true',
+            'reportable' => true,
+            'len' => 100,
+            'size' => '20',
+            'options' => 'contract_status_list',
+            'studio' => 'visible',
+        ),
+        'start_date' => array(
+            'name' => 'start_date',
+            'vname' => 'LBL_START_DATE',
+            'type' => 'date',
+            'required' => true,
             'massupdate' => 0,
             'reportable' => true,
+            'display_default' => 'now',
         ),
-        'min_field' => array(
-            'name' => 'min_field',
-            'vname' => 'LBL_MIN',
-            'type' => 'int',
-            'dbType' => 'int',
-            'len' => '4',
+        'end_date' => array(
+            'name' => 'end_date',
+            'vname' => 'LBL_END_DATE',
+            'type' => 'date',
+            'required' => true,
             'massupdate' => 0,
-            'duplicate_merge' => 'disabled',
-            'audited' => false,
-            'inline_edit' => true,
+            'reportable' => true,
+            'display_default' => '+3 day',
         ),
-        'n_field' => array(
-            'name' => 'n_field',
-            'vname' => 'LBL_N',
-            'type' => 'float',
-            'dbType' => 'float',
-            'len' => '4',
-            'precision' => '2',
+        'customer_signed_date' => array(
+            'name' => 'customer_signed_date',
+            'vname' => 'LBL_CUSTOMER_SIGNED_DATE',
+            'type' => 'date',
+            'required' => false,
             'massupdate' => 0,
-            'duplicate_merge' => 'disabled',
-            'audited' => false,
-            'inline_edit' => true,
+            'reportable' => true,
+            'display_default' => 'now',
         ),
-        'r_45kg' => array(
-            'name' => 'r_45kg',
-            'vname' => 'LBL_45KG',
-            'type' => 'float',
-            'dbType' => 'float',
-            'len' => '4',
-            'precision' => '2',
+        'company_signed_date' => array(
+            'name' => 'company_signed_date',
+            'vname' => 'LBL_COMPANY_SIGNED_DATE',
+            'type' => 'date',
+            'required' => false,
             'massupdate' => 0,
-            'duplicate_merge' => 'disabled',
-            'audited' => false,
-            'inline_edit' => true,
+            'reportable' => true,
+            'display_default' => 'now',
         ),
-        'r_100kg' => array(
-            'name' => 'r_100kg',
-            'vname' => 'LBL_100KG',
-            'type' => 'float',
-            'dbType' => 'float',
-            'len' => '4',
-            'precision' => '2',
+        'line_items' => array(
+            'name' => 'line_items',
+            'vname' => 'LBL_LINE_ITEMS',
+            'type' => 'text',
+            'required' => true,
             'massupdate' => 0,
-            'duplicate_merge' => 'disabled',
-            'audited' => false,
-            'inline_edit' => true,
-        ),
-        'r_300kg' => array(
-            'name' => 'r_300kg',
-            'vname' => 'LBL_300KG',
-            'type' => 'float',
-            'dbType' => 'float',
-            'len' => '4',
-            'precision' => '2',
-            'massupdate' => 0,
-            'duplicate_merge' => 'disabled',
-            'audited' => false,
-            'inline_edit' => true,
-        ),
-        'r_500kg' => array(
-            'name' => 'r_500kg',
-            'vname' => 'LBL_500KG',
-            'type' => 'float',
-            'dbType' => 'float',
-            'len' => '4',
-            'precision' => '2',
-            'massupdate' => 0,
-            'duplicate_merge' => 'disabled',
-            'audited' => false,
-            'inline_edit' => true,
-        ),
-        'r_1000kg' => array(
-            'name' => 'r_1000kg',
-            'vname' => 'LBL_1000KG',
-            'type' => 'float',
-            'dbType' => 'float',
-            'len' => '4',
-            'precision' => '2',
-            'massupdate' => 0,
-            'duplicate_merge' => 'disabled',
-            'audited' => false,
-            'inline_edit' => true,
+            'reportable' => true,
+            'rows' => 10,
+            'cols' => 100,
         ),
 
-        //related
+        //relations
         'account_id' => array(
             'name' => 'account_id',
             'rname' => 'id',
@@ -321,28 +254,17 @@ $dictionary['PPT_SRA'] = array(
             'quicksearch' => 'enabled',
             'studio' => 'visible',
         ),
-
     ),
     'indices' => array(
         array(
-            'name' => 'idx_name',
-            'type' => 'unique',
-            'fields' => array('name'),
-        ),
-        array(
-            'name' => 'idx_accounts',
+            'name' => 'idx_account',
             'type' => 'index',
             'fields' => array('account_id'),
         ),
         array(
-            'name' => 'idx_shippers',
+            'name' => 'idx_shipper',
             'type' => 'index',
             'fields' => array('shipper_id'),
-        ),
-        array(
-            'name' => 'idx_contacts',
-            'type' => 'index',
-            'fields' => array('contact_id'),
         ),
         array(
             'name' => 'idx_origin',
@@ -350,44 +272,35 @@ $dictionary['PPT_SRA'] = array(
             'fields' => array('origin'),
         ),
         array(
-            'name' => 'idx_destination',
+            'name' => 'idx_dest',
             'type' => 'index',
             'fields' => array('dest'),
         ),
+        array(
+            'name' => 'idx_contact',
+            'type' => 'index',
+            'fields' => array('contact_id'),
+        ),
     ),
     'relationships' => array(
-        'sra_accounts' => array(
+        'contract_accounts' => array(
             'lhs_module' => 'PPT_Accounts',
             'lhs_table' => 'ppt_accounts',
             'lhs_key' => 'id',
-            'rhs_module' => 'PPT_SRA',
-            'rhs_table' => 'ppt_sra',
+            'rhs_module' => 'PPT_Contracts',
+            'rhs_table' => 'ppt_contracts',
             'rhs_key' => 'account_id',
             'relationship_type' => 'one-to-many',
         ),
-        'sra_shippers' => array(
+        'contract_shippers' => array(
             'lhs_module' => 'PPT_Accounts',
             'lhs_table' => 'ppt_accounts',
             'lhs_key' => 'id',
-            'rhs_module' => 'PPT_SRA',
-            'rhs_table' => 'ppt_sra',
+            'rhs_module' => 'PPT_Contracts',
+            'rhs_table' => 'ppt_contracts',
             'rhs_key' => 'shipper_id',
             'relationship_type' => 'one-to-many',
         ),
-
-//        strtolower($module)."_contracts" => array (
-//            'lhs_module' => $module,
-//            'lhs_table' => $table_name,
-//            'lhs_key' => 'id',
-//            'rhs_module' => 'myppt_Contracts',
-//            'rhs_table' => 'myppt_contracts',
-//            'rhs_key' => 'id',
-//            'relationship_type' => 'many-to-many',
-//            'join_table' => 'myppt_sra_contracts',
-//            'join_key_lhs' => 'sra_id',
-//            'join_key_rhs' => 'contract_id',
-//        ),
-
     ),
     'optimistic_locking' => true,
     'unified_search' => true,
@@ -395,4 +308,4 @@ $dictionary['PPT_SRA'] = array(
 if (!class_exists('VardefManager')) {
     require_once('include/SugarObjects/VardefManager.php');
 }
-VardefManager::createVardef('PPT_SRA', 'PPT_SRA', array('basic', 'assignable', 'security_groups'));
+VardefManager::createVardef('PPT_Contracts', 'PPT_Contract', array('basic', 'assignable', 'security_groups',));

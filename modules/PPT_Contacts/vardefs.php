@@ -467,7 +467,26 @@ $dictionary['PPT_Contact'] = array(
             'fields' => array('account_id'),
         ),
     ),
-    'relationships' => array (),
+    'relationships' => array (
+        'contact_sra' => array(
+            'lhs_module' => 'PPT_Contacts',
+            'lhs_table' => 'ppt_contacts',
+            'lhs_key' => 'id',
+            'rhs_module' => 'PPT_SRA',
+            'rhs_table' => 'ppt_sra',
+            'rhs_key' => 'contact_id',
+            'relationship_type' => 'one-to-many',
+        ),
+        'contact_contracts' => array(
+            'lhs_module' => 'PPT_Contacts',
+            'lhs_table' => 'ppt_contacts',
+            'lhs_key' => 'id',
+            'rhs_module' => 'PPT_Contracts',
+            'rhs_table' => 'ppt_contracts',
+            'rhs_key' => 'contact_id',
+            'relationship_type' => 'one-to-many',
+        ),
+    ),
     'optimistic_locking' => true,
     'unified_search' => true,
 );

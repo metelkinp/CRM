@@ -86,6 +86,7 @@ $listViewDefs[$module_name] = array(
     ),
     'ACTIVE_FLAG' => array(
         'width' => '5',
+        'type' => 'bool',
         'label' => 'LBL_ACTIVE_FLAG',
         'default' => true,
     )

@@ -699,25 +699,7 @@ $dictionary['PPT_Account'] = array(
         ),
     ),
     'relationships' => array(
-        'ppt_account_sra' => array(
-            'lhs_module' => 'PPT_Accounts',
-            'lhs_table' => 'ppt_accounts',
-            'lhs_key' => 'id',
-            'rhs_module' => 'PPT_SRA',
-            'rhs_table' => 'ppt_sra',
-            'rhs_key' => 'account_id',
-            'relationship_type' => 'one-to-many',
-        ),
-        'ppt_shipper_sra' => array(
-            'lhs_module' => 'PPT_Accounts',
-            'lhs_table' => 'ppt_accounts',
-            'lhs_key' => 'id',
-            'rhs_module' => 'PPT_SRA',
-            'rhs_table' => 'ppt_sra',
-            'rhs_key' => 'shipper_id',
-            'relationship_type' => 'one-to-many',
-        ),
-////        strtolower($module)."_spq" => array(
+       ////        strtolower($module)."_spq" => array(
 ////            'lhs_module' => $module,
 ////            'lhs_table' => $table_name,
 ////            'lhs_key' => 'id',
@@ -735,7 +717,7 @@ $dictionary['PPT_Account'] = array(
 ////            'rhs_key' => 'agent_id',
 ////            'relationship_type' => 'one-to-many',
 ////        ),
-        'ppt_account_contacts' => array(
+        'account_contacts' => array(
             'lhs_module' => 'PPT_Accounts',
             'lhs_table' => 'ppt_accounts',
             'lhs_key' => 'id',
