@@ -2,7 +2,7 @@
 <style>
     /* make thead and tfoot cells darker */
     .table th {
-        background: #f5f5f5;
+        background: #F3F1F1;
     }
 
     /* undo Bootstrap's 2px thead border */
@@ -34,6 +34,9 @@
         white-space: nowrap;
     }
 
+    .line-items > thead > tr > th {
+        font-size: 10pt;
+    }
     /* show line breaks in Description column */
     /*.line-items > tbody > tr > td:nth-child(2) {*/
         /*white-space: pre-line;*/
@@ -83,12 +86,12 @@
     <table class="line-items editable table table-bordered">
         <thead class="panel-heading">
         <tr class="panel-heading">
-            <th>PCS</th>
+            <th>Pcs.</th>
             <th>L</th>
             <th>W</th>
             <th>H</th>
-            <th>WEIGHT</th>
-            <th>VOLUME</th>
+            <th>Weight</th>
+            <th>Volume</th>
             <th>ULD type</th>
             <th>No. ULD</th>
             <th>Load Priority</th>

@@ -43,10 +43,11 @@ $mod_strings = array(
     'LBL_END_DATE' => 'Expiry Date',
     'LBL_CUSTOMER_SIGNED_DATE' => 'Signed By Customer',
     'LBL_COMPANY_SIGNED_DATE' => 'Signed By Company',
-    'LBL_LINE_ITEMS' => 'Order Items',
+    'LBL_LINE_ITEMS' => 'Line Items',
+    'LBL_LIG' => 'Items',
 
     'LBL_PANEL_MAIN' => 'Main Information',
-    'LBL_PANEL_LINE_ITEMS' => 'Order Items',
+    'LBL_PANEL_LINE_ITEMS' => 'Line Items',
     'LBL_PANEL_RATES' => 'Rates',
     'LBL_PANEL_OTHER' => 'Other',
 

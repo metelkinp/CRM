@@ -3,6 +3,10 @@
 $module_name = 'PPT_Contracts';
 $viewdefs[$module_name]['EditView'] = array(
     'templateMeta' => array(
+        'includes' => array(
+            array('file' => 'modules/PPT_Contracts/javascript/lineItemsGroup.js'),
+            array('file' => 'modules/PPT_Contracts/javascript/editview.js'),
+        ),
         'form' => array(
             'buttons' => array(
                 'SAVE',
