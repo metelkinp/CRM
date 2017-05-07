@@ -1,17 +1,16 @@
-var Order = function() {
-    this.addLineItem = function() {
-        // build new table row from line item inputs
-        var newRow = '<tr>'+
-            '<td>'+$('#pcs_input').val()+'</td>'+
-            '<td>'+$('#l_input').val()+'</td>'+
-            '<td>'+$('#w_input').val()+'</td>'+
-            '<td>'+$('#h_input').val()+'</td>'+
-            '<td>'+$('#weight_input').val()+'</td>'+
-            '<td>'+$('#volume_input').val()+'</td>'+
-            '<td>'+$('#uld_input').val()+'</td>'+
-            '<td>'+$('#no_uld_input').val()+'</td>'+
-            '<td>'+$('#loadp_input').val()+'</td>'+
-            '<td><span class="glyphicon glyphicon-remove remove-line-item" title="Remove Line Item"></span></td>'+
+var Order = function () {
+
+    var columns = ['pcs', 'length', 'width', 'height', 'weight', 'volume', 'uld', 'no_uld', 'load_priority'];
+
+    this.addLineItem = function () {
+
+        var columnsSubRow = '';
+        $.each(columns, function (index, value) {
+            columnsSubRow += ('<td>' + $('#' + value + '_input').val() + '</td>');
+        });
+
+        var newRow = '<tr>' + columnsSubRow +
+            '<td><span class="glyphicon glyphicon-minus remove-line-item" title="Remove Line Item"></span></td>' +
             '</tr>';
 
         // add the new row to the table
@@ -29,17 +28,19 @@ var Order = function() {
             });
 
             // scroll to the bottom of the page to compensate for the new table row
-            $('html, body').animate({ scrollTop: $('.line-items > tfoot > tr:last-child').offset().top
-            - $(window).height()/2 }, 'fast');
+            $('html, body').animate({
+                scrollTop: $('.line-items > tfoot > tr:last-child').offset().top
+                - $(window).height() / 2
+            }, 'fast');
         });
 
         // clear line item inputs
-        $('.line-items tfoot input').each(function() {
+        $('.line-items tfoot input').each(function () {
             $(this).val('');
         });
 
         // set default qty to 1 for convenience
-        $('.line-items > tfoot > tr > th:first-child input').each(function() {
+        $('.line-items > tfoot > tr > th:first-child input').each(function () {
             $(this).val('1');
         });
 
@@ -47,9 +48,50 @@ var Order = function() {
         // specifically useful when tabbing out of qty_input
         $('.line-items > tfoot > tr > th:first-child input').focus();
 
-        // recalculate total
-       // this.updateTotal();
     };
+
+    this.save = function () {
+        this.readOnlyMode();
+
+        var res = [];
+
+        $('.line-items > tbody > tr').each(function () {
+            var i = 0;
+            var item = {};
+            $(this).children('td:not(:last-child)').each(function () {
+                item[columns[i++]] = $(this).context.innerText;
+            });
+            res.push(item);
+        });
+
+        //console.log(res);
+        return res;
+    };
+
+    this.readOnlyMode = function () {
+
+        var columnsSubRow = '';
+        $.each(columns, function (index, value) {
+            columnsSubRow += ('<td>' + $('#' + value + '_input').val() + '</td>');
+        });
+
+        var newRow = '<tr>' + columnsSubRow + '<td></td></tr>';
+
+        // add the new row to the table
+        $('.line-items > tbody:last').append(newRow);
+
+        //hide footer
+        $('.line-items > tfoot > tr:first').hide();
+
+        //hide last element in each row
+        $('.line-items > tbody > tr, .line-items > thead > tr').each(function () {
+            $(this).children('th:last, td:last').hide();
+        });
+
+        $('.line-items > tfoot > tr > th').attr('colspan', 9);
+
+        $('.save-line-items').removeClass('glyphicon-hdd').addClass('glyphicon-pencil');
+    }
 };
 
 Order = new Order();
@@ -62,15 +104,3 @@ function LineItem() {
         LineItem.count++;
     }
 }
-
-$(function() {
-    // add line item to table
-    $('.add-line-item').click(function (event) {
-        console.log(event.pageY);
-        Order.addLineItem();
-
-        // scroll to the bottom of the page to compensate for the new table row
-        $('html, body').animate({ scrollTop: $('.line-items > tfoot > tr:last-child').offset().top
-        - $(window).height()/2 }, 'fast');
-    });
-});

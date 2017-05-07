@@ -12,6 +12,7 @@ $viewdefs[$module_name]['EditView'] = array(
                 'SAVE',
                 'CANCEL',
             ),
+           //'headerTpl' => 'modules/PPT_Contracts/tpls/editViewHeader.tpl',
         ),
         'maxColumns' => '2',
         'widths' => array(
@@ -34,7 +35,7 @@ $viewdefs[$module_name]['EditView'] = array(
             array(
                 array(
                     'name' => 'line_items_group',
-                    'customCode' => '{include file="modules/PPT_Contracts/tpls/lineItemsGroup.tpl"}',
+                    'customCode' => '{include file="modules/PPT_Contracts/tpls/lineItemsGroupEdit.tpl"}',
                     'label' => 'LBL_LIG',
                 ),
             ),
