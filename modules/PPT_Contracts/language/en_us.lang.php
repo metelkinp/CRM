@@ -45,11 +45,13 @@ $mod_strings = array(
     'LBL_COMPANY_SIGNED_DATE' => 'Signed By Company',
     'LBL_LINE_ITEMS' => 'Line Items',
     'LBL_LIG' => 'Items',
+    'LBL_FLIGHT_SEARCH' => 'Flights',
 
     'LBL_PANEL_MAIN' => 'Main Information',
     'LBL_PANEL_LINE_ITEMS' => 'Line Items',
     'LBL_PANEL_RATES' => 'Rates',
     'LBL_PANEL_OTHER' => 'Other',
+    'LBL_PANEL_FLIGHTS' => 'Flight Search',
 
     'LBL_CURRENT_USER_FILTER' => 'Current User',
 

@@ -12,7 +12,7 @@ $viewdefs[$module_name]['EditView'] = array(
                 'SAVE',
                 'CANCEL',
             ),
-           //'headerTpl' => 'modules/PPT_Contracts/tpls/editViewHeader.tpl',
+           'footerTpl' => 'modules/PPT_Contracts/tpls/editViewHeader.tpl',
         ),
         'maxColumns' => '2',
         'widths' => array(
@@ -41,6 +41,16 @@ $viewdefs[$module_name]['EditView'] = array(
             ),
             array('line_items', ''),
         ),
+        'lbl_panel_flights' => array(
+            array(
+                array(
+                    'name' => 'flight_search',
+                    'customCode' => '{include file="modules/PPT_Contracts/tpls/flightSearch.tpl"}',
+                    'label' => 'LBL_FLIGHT_SEARCH',
+                ),
+            ),
+        ),
+
         'lbl_panel_rates' => array(),
         'lbl_panel_other' => array(
             array('start_date', 'end_date'),

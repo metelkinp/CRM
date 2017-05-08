@@ -35,6 +35,10 @@ class PPT_Contract extends Basic
     public $status;
     public $customer_signed_date;
     public $company_signed_date;
+
+    //flight search
+    public $flight_date;
+
     //cargo and line items section
 
     public $line_items;        //this is a json-object, saved as text
@@ -66,11 +70,10 @@ class PPT_Contract extends Basic
 
     public function save($check_notify = false)
     {
-        if (empty($this->number)) {
-
+        if ($this->number == 0) {
             $this->number = $this->db->getOne("SELECT MAX(number) + 1 FROM " . $this->table_name);
 
-            if (empty($this->number))
+            if (!isset($this->number))
                 $this->number = 1;
 
             $this->name = 'Contract #' . $this->number;

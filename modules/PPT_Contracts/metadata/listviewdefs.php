@@ -14,7 +14,7 @@ $listViewDefs[$module_name] = array(
     ),
     'ACCOUNT_NAME' => array(
         'width' => '30%',
-        'label' => 'LBL_AGENT',
+        'label' => 'LBL_ACCOUNT',
         'link' => true,
         'default' => true,
         'id' => 'ACCOUNT_ID',

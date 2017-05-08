@@ -11,7 +11,7 @@ $dictionary['PPT_Contract'] = array(
             'vname' => 'LBL_NUMBER',
             'type' => 'int',
             'len' => 11,
-            'default' => 1,
+            'default' => 0,
             'required' => false,
             'massupdate' => 0,
             'reportable' => true,
@@ -143,6 +143,17 @@ $dictionary['PPT_Contract'] = array(
             'massupdate' => 0,
             'reportable' => true,
             'display_default' => 'now',
+        ),
+
+        //flights
+        'flight_date' => array(
+            'name' => 'flight_date',
+            'vname' => 'LBL_FLIGHT_DATE',
+            'type' => 'date',
+            'required' => false,
+            'massupdate' => 0,
+            'reportable' => true,
+            'source' => 'non-db',
         ),
 
 //        'line_items_group' => array(

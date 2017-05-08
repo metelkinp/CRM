@@ -4,17 +4,8 @@ var Order = function () {
 
     this.addLineItem = function () {
 
-        var columnsSubRow = '';
-        $.each(columns, function (index, value) {
-            columnsSubRow += ('<td>' + $('#' + value + '_input').val() + '</td>');
-        });
-
-        var newRow = '<tr>' + columnsSubRow +
-            '<td><span class="glyphicon glyphicon-minus remove-line-item" title="Remove Line Item"></span></td>' +
-            '</tr>';
-
         // add the new row to the table
-        $('.line-items > tbody:last').append(newRow);
+        $('.line-items > tbody:last').append(buildSubRow(columns, true));
 
         //add remove action
         $('.remove-line-item:last').click(function (event) {
@@ -43,7 +34,6 @@ var Order = function () {
         $('.line-items > tfoot > tr > th:first-child input').each(function () {
             $(this).val('1');
         });
-
         // return focus to first input field after adding line item,
         // specifically useful when tabbing out of qty_input
         $('.line-items > tfoot > tr > th:first-child input').focus();
@@ -51,7 +41,16 @@ var Order = function () {
     };
 
     this.save = function () {
+        $('.line-items > tbody:last').append(buildSubRow(columns, true));
+
         this.readOnlyMode();
+
+        $('.line-items > tfoot > tr:last').show();
+
+        $('.line-items > tfoot > tr > th').attr('colspan', 9);
+
+        //TODO: need something else for edit-mode
+        $('.save-line-items').removeClass('glyphicon-hdd').addClass('glyphicon-pencil');
 
         var res = [];
 
@@ -69,32 +68,41 @@ var Order = function () {
     };
 
     this.readOnlyMode = function () {
-
-        var columnsSubRow = '';
-        $.each(columns, function (index, value) {
-            columnsSubRow += ('<td>' + $('#' + value + '_input').val() + '</td>');
-        });
-
-        var newRow = '<tr>' + columnsSubRow + '<td></td></tr>';
-
-        // add the new row to the table
-        $('.line-items > tbody:last').append(newRow);
-
         //hide footer
-        $('.line-items > tfoot > tr:first').hide();
+        $('.line-items > tfoot > tr').hide();
 
         //hide last element in each row
         $('.line-items > tbody > tr, .line-items > thead > tr').each(function () {
             $(this).children('th:last, td:last').hide();
         });
 
-        $('.line-items > tfoot > tr > th').attr('colspan', 9);
+    };
 
-        $('.save-line-items').removeClass('glyphicon-hdd').addClass('glyphicon-pencil');
+    this.restoreItems = function (data) {
+        $.each(data, function (index, obj) {
+
+            $('.line-items > tbody:last').append(buildSubRow(obj, false));
+        });
+    };
+
+    function buildSubRow(arr, fromFooter) {
+        var subRow = '<tr>';
+
+        $.each(arr, function (key, val) {
+            var insertedValue = (fromFooter) ? $('#' + val + '_input').val() : val;
+            subRow += ('<td>' + insertedValue + '</td>');
+        });
+
+        subRow += (fromFooter) ?
+            '<td><span class="glyphicon glyphicon-minus remove-line-item" title="Remove Line Item"></span></td></tr>' :
+            '<td></td></tr>';
+
+        return subRow;
     }
-};
 
-Order = new Order();
+};
+//
+//Order = new Order();
 
 // helper to keep count of dynamic line items on page
 function LineItem() {
