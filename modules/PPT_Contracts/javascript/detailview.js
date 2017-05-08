@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    Order = new Order();
+    // "use strict";
+    // Order = new Order();
 
     //hidden
     $("div[data-label='LBL_LINE_ITEMS']").css({visibility: 'hidden', height: 0});

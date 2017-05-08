@@ -1,7 +1,8 @@
 {literal}
     <style>
+
         /* make thead and tfoot cells darker */
-        .table th {
+        .flight-table-body td {
             background: #F3F1F1;
         }
 
@@ -12,28 +13,29 @@
         }
 
         /* align text vertically in all cells */
-        .line-items th,
-        .line-items td {
+        .flight-line-items th,
+        .flight-line-items td {
             vertical-align: middle !important;
         }
 
         /* don't wrap headers or ITC Part No. column */
-        .line-items > thead > tr > th,
-        .line-items > tbody > tr > td {
+        .flight-line-items > thead > tr > th,
+        .flight-line-items > tbody > tr > td {
             white-space: nowrap;
         }
 
-        .line-items > thead > tr > th {
+        .flight-line-items > thead > tr > th {
             font-size: 10pt;
         }
 
-        .line-items > thead > tr > th {
+        .flight-line-items > thead > tr > th,
+        .flight-line-items > tbody > tr > td:last-child {
             text-align: center;
         }
 
         /* make action icons slightly bigger */
         /*.line-items.editable > thead > tr > th:last-child,*/
-        .line-items.editable > tbody > tr > td:last-child {
+        .flight-line-items.editable > tbody > tr > td:last-child {
             font-size: 13pt;
             cursor: pointer;
             -webkit-touch-callout: none;
@@ -43,12 +45,20 @@
             -ms-user-select: none;
             user-select: none;
         }
+
+        /*!*scroll*!*/
+        /*.search-result {*/
+            /*height: 20vh;*/
+            /*overflow-y: scroll;*/
+            /*overflow-x: hidden;*/
+        /*}*/
+
     </style>
 {/literal}
 
 <div style="position: relative; width: 120%; margin: 0; padding: 0;" class="flights-container">
 
-    <table class="line-items editable table table-bordered">
+    <table class="flight-line-items editable table table-bordered">
         <thead class="panel-heading">
         <tr class="panel-heading">
             <th>Origin</th>
@@ -58,7 +68,7 @@
         </tr>
         </thead>
 
-        <tbody>
+        <tbody class="flight-table-body">
         <tr>
             <td><input class="form-control input-sm" id="origin_input" name="origin_input" type="text"></td>
             <td><input class="form-control input-sm" id="destination_input" name="destination_input" type="text"></td>
@@ -89,7 +99,7 @@
         </tr>
         </tbody>
 
-        <tfoot>
-        </tfoot>
+        <tfoot class="search-result">
+         </tfoot>
     </table>
 </div>

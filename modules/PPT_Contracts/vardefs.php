@@ -154,6 +154,7 @@ $dictionary['PPT_Contract'] = array(
             'massupdate' => 0,
             'reportable' => true,
             'source' => 'non-db',
+            'display_default' => 'now',
         ),
 
 //        'line_items_group' => array(

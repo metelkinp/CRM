@@ -5,6 +5,8 @@ $viewdefs[$module_name]['EditView'] = array(
     'templateMeta' => array(
         'includes' => array(
             array('file' => 'modules/PPT_Contracts/javascript/lineItemsGroup.js'),
+            array('file' => 'modules/PPT_Contracts/javascript/mydatetime.js'),
+            array('file' => 'modules/PPT_Contracts/javascript/buildFlight.js'),
             array('file' => 'modules/PPT_Contracts/javascript/editview.js'),
         ),
         'form' => array(
