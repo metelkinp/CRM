@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+    $('#flight-search-body').hide();
+
+    var order = new Order();
+
     //if changed origin/destination
     var origin = $('#origin');
     origin.change(function () {
@@ -17,7 +21,7 @@ $(document).ready(function () {
 
     // add line item to table
     $('.add-line-item').click(function (event) {
-        Order.addLineItem();
+        order.addLineItem();
 
         // scroll to the bottom of the page to compensate for the new table row
         $('html, body').animate({ scrollTop: $('.line-items > tfoot > tr:last-child').offset().top
@@ -26,13 +30,20 @@ $(document).ready(function () {
 
     //save values
     $('.save-line-items').click(function () {
-        var data = JSON.stringify(Order.save());
+        var data = JSON.stringify(order.save());
 
         $('#line_items').text(data);
     });
     
     //search flights
-    $('.find-flights').click(function () {
+    $('.flight-search-icon').click(function (event) {
+        var container = $('#flight-search-body');
+
+        container.html('');
+        container.hide();
+
+        $('body').css('cursor','progress');
+        $('.flight-search-icon').css('cursor','progress');
 
         //TODO : troubles with date on neo4j server
         var date = new Date($('#flight_date').val());
@@ -44,44 +55,41 @@ $(document).ready(function () {
             from:  date.getTime()
         };
 
-        console.log(data);
-
         $.ajax({
             method: 'GET',
             url: "http://localhost:3030/services/ppt/flights/find",
             data: data,
             crossDomain : true,
             success: function (data, status, jqxhr) {
-                // console.log('success');
-                // console.log(data);
-
-                displayResult(data);
+                displayResult(data, container);
             },
             error: function (jqxhr, status, trace) {
-                alert(status + ": " + trace);
+                displayResult({}, container, 'Server Error');
             }
-        })
+        });
     });
 
-    function displayResult(data) {
-        var targetElement = $('.search-result');
+    function displayResult(data, container, err) {
+        $('body').css('cursor','default');
+        $('.flight-search-icon').css('cursor','pointer');
 
-        targetElement.html('');
+        container.show();
 
-        if (data.length === 0 || data.length === undefined) {
-            var str = '<tr><td colspan="4" style="text-align: center; font-size: 14pt">No Flights Found</td></tr>'
+        var elem;
 
-            targetElement.append(str);
+        if (err !== undefined) {
+            elem = $('<div class="col-sm-12" style="text-align: center; font-size: 14pt; color: red"></div>');
+            elem.text(err);
+            container.append(elem);
         } else {
-
-            var str = '<tr><td colspan="4" style="text-align: center; font-size: 14pt">Found: ' +
-                data.length + ' flights</td></tr>';
-
-            targetElement.append(str);
-
-            // $.each(data, function (index, value) {
-            //
-            // })
+            if (data.length === 0 || data.length === undefined) {
+                elem = '<div class="col-sm-12" style="text-align: center; font-size: 14pt">No Flights Found</div>';
+                container.append(elem);
+            } else {
+                elem = '<div class="col-sm-12" style="text-align: center; font-size: 14pt">' +
+                    data.length + ' Flights Found</div>';
+                container.append(elem);
+            }
         }
     }
 });

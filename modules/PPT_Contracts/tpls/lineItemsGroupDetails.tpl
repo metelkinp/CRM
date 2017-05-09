@@ -33,11 +33,6 @@
             text-align: center;
         }
 
-        /* uppercase ITC Part No. input */
-        /*.line-items > tfoot > tr > th:first-child input {*/
-        /*text-transform: uppercase;*/
-        /*}*/
-
         /* make action icons slightly bigger */
         /*.line-items.editable > thead > tr > th:last-child,*/
         .line-items.editable > tbody > tr > td:last-child,

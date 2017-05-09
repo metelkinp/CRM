@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // "use strict";
-    // Order = new Order();
+    var order = new Order();
 
     //hidden
     $("div[data-label='LBL_LINE_ITEMS']").css({visibility: 'hidden', height: 0});
@@ -10,6 +10,6 @@ $(document).ready(function () {
     litems.css({visibility: 'hidden', height: 0});
 
     var data = JSON.parse(litems.text());
-    Order.restoreItems(data);
-    Order.readOnlyMode();
+    order.restoreItems(data);
+    order.readOnlyMode();
 });

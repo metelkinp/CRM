@@ -11,17 +11,6 @@
             border-bottom-width: 1px;
         }
 
-        /*!* only allow horizontal textarea resize *!*/
-        /*textarea {*/
-        /*resize: vertical;*/
-        /*}*/
-
-        /*!* but allow textarea resize for line item description *!*/
-        /*.line-items textarea {*/
-        /*min-width: 300px;*/
-        /*resize: both;*/
-        /*}*/
-
         /* align text vertically in all cells */
         .line-items th,
         .line-items td {
@@ -38,28 +27,15 @@
             font-size: 10pt;
         }
 
-        /* show line breaks in Description column */
-        /*.line-items > tbody > tr > td:nth-child(2) {*/
-        /*white-space: pre-line;*/
-        /*}*/
-
-        /* center text in columns: Cost, Price, Qty, Subtotal */
-        /*.line-items > thead > tr > th:not(:nth-child(2)),	!* thead: center all except Description *!*/
-        /*.line-items > tbody > tr > td:nth-child(n+3),	   !* tbody: don't center first two columns: ITC Part & Description *!*/
-        /*.line-items > tfoot > tr > th:not(:nth-child(2)) input {*/
-        /*text-align: center;*/
-        /*}*/
-
         .line-items > thead > tr > th, /* thead: center all except Description */
         .line-items > tbody > tr > td, /* tbody: don't center first two columns: ITC Part & Description */
         .line-items > tfoot > tr > th input {
             text-align: center;
         }
 
-        /* uppercase ITC Part No. input */
-        /*.line-items > tfoot > tr > th:first-child input {*/
-        /*text-transform: uppercase;*/
-        /*}*/
+        .line-items > tfoot > tr > th:not(:last-child) {
+            padding: 2px;
+        }
 
         /* make action icons slightly bigger */
         /*.line-items.editable > thead > tr > th:last-child,*/

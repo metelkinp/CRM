@@ -33,7 +33,7 @@ $viewdefs[$module_name]['DetailView'] = array(
             array(
                 array(
                     'name' => 'line_items_group',
-                    'customCode' => '{include file="modules/PPT_Contracts/tpls/lineItemsGroupDetail.tpl"}',
+                    'customCode' => '{include file="modules/PPT_Contracts/tpls/lineItemsGroupDetails.tpl"}',
                     'label' => 'LBL_LIG',
                 ),
             ),
