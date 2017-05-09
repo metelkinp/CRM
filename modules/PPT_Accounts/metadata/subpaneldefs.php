@@ -3,15 +3,34 @@
 $layout_defs['PPT_Accounts'] = array (
     'subpanel_setup' => array (
         'ppt_contacts' => array(
-            'order' => '250',
+            'order' => '50',
             'module' => 'PPT_Contacts',
-            'sort_order' => 'desc',
+            'sort_order' => 'asc',
             'sort_by' => 'name',
             'subpanel_name' => 'default',
             'get_subpanel_data' => 'ppt_contacts',
             'add_subpanel_data' => 'ppt_contact_id',
             'title_key' => 'LBL_SUBPANEL_CONTACTS',
-            'top_buttons' => array(),
+            'top_buttons' => array(
+                array(
+                    'widget_class' => 'SubPanelTopCreateButton',
+                ),
+            ),
+        ),
+        'ppt_contracts' => array(
+            'order' => '100',
+            'module' => 'PPT_Contracts',
+            'sort_order' => 'desc',
+            'sort_by' => 'date_modified',
+            'subpanel_name' => 'ForAccount',
+            'get_subpanel_data' => 'ppt_contracts',
+            'add_subpanel_data' => 'ppt_contract_id',
+            'title_key' => 'LBL_SUBPANEL_CONTRACTS',
+            'top_buttons' => array(
+                array(
+                    'widget_class' => 'SubPanelTopCreateButton',
+                ),
+            ),
         ),
 
 //        'myppt_SRA' => array (

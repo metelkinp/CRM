@@ -109,6 +109,7 @@ $mod_strings = array(
     'LBL_PANEL_OTHER_INFO' => 'Other Information',
 
     'LBL_SUBPANEL_CONTACTS' => 'Contacts',
+    'LBL_SUBPANEL_CONTRACTS' => 'Contracts',
 
 //    'LBL_MYPPT_SRA_SUBPANEL_TITLE' => 'SRA',
 //    'LBL_MYPPT_SPQ_SUBPANEL_TITLE' => 'Spot Quotes',

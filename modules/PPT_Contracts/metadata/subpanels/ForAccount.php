@@ -19,7 +19,7 @@ $subpanel_layout = array(
         ),
         'contact_name' => array(
             'name' => 'contact_name',
-            'vname' => 'LBL_CONTACT_NAME',
+            'vname' => 'LBL_CONTACT',
             'module' => 'PPT_Contacts',
             'target_record_key' => 'contact_id',
             'target_module' => 'PPT_Contacts',
