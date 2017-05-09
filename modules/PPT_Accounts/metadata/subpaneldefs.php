@@ -2,6 +2,18 @@
 
 $layout_defs['PPT_Accounts'] = array (
     'subpanel_setup' => array (
+        'ppt_contacts' => array(
+            'order' => '250',
+            'module' => 'PPT_Contacts',
+            'sort_order' => 'desc',
+            'sort_by' => 'name',
+            'subpanel_name' => 'default',
+            'get_subpanel_data' => 'ppt_contacts',
+            'add_subpanel_data' => 'ppt_contact_id',
+            'title_key' => 'LBL_SUBPANEL_CONTACTS',
+            'top_buttons' => array(),
+        ),
+
 //        'myppt_SRA' => array (
 //            'order' => '250',
 //            'module' => 'PPT_SRA',

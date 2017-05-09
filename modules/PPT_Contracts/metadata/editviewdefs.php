@@ -21,6 +21,30 @@ $viewdefs[$module_name]['EditView'] = array(
             array('label' => 10, 'field' => 30),
             array('label' => 10, 'field' => 30),
         ),
+        'useTabs' => true,
+        'tabDefs' => array(
+            'LBL_PANEL_MAIN' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded',
+            ),
+            'LBL_PANEL_LINE_ITEMS' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded',
+            ),
+            'LBL_PANEL_FLIGHTS' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded',
+            ),
+            'LBL_PANEL_RATES' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded',
+            ),
+            'LBL_PANEL_OTHER' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded',
+            ),
+        ),
+
     ),
 
     'panels' => array(

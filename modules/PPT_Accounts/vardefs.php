@@ -679,7 +679,18 @@ $dictionary['PPT_Account'] = array(
             'audited' => false,
             'inline_edit' => true,
             'merge_filter' => 'disabled',
-        )
+        ),
+
+        //relations
+        'ppt_contacts' => array(
+            'name' => 'ppt_contacts',
+            'type' => 'link',
+            'relationship' => 'account_contacts',
+            'module' => 'PPT_Contacts',
+            'bean_name' => 'PPT_Contact',
+            'source' => 'non-db',
+        ),
+
     ),
     'indices' => array(
         array(
