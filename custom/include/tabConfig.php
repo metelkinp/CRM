@@ -8,7 +8,6 @@ $GLOBALS['tabStructure'] = array(
                 array(
                     0 => 'PPT_Accounts',
                     1 => 'PPT_Contacts',
-                    2 => 'PPT_Contracts',
                 ),
         ),
     'LBL_TABGROUP_OPPORTUNITIES' =>
@@ -17,6 +16,7 @@ $GLOBALS['tabStructure'] = array(
             'modules' =>
                 array(
                     0 => 'PPT_SRA',
+                    1 => 'PPT_Contracts',
                 ),
         ),
 );

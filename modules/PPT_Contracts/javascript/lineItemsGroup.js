@@ -39,25 +39,24 @@ function Order() {
     }
 
     function save() {
-
-        $('.line-items > tbody:last').append(buildSubRow(columns, true));
-
-        this.readOnlyMode();
-
-        $('.line-items > tfoot > tr:last').show();
-
-        $('.line-items > tfoot > tr > th').attr('colspan', 9);
-
-        //TODO: need something else for edit-mode
-        $('.save-line-items').removeClass('glyphicon-hdd').addClass('glyphicon-pencil');
-
         var res = [];
 
+        //save cells content from each row in table body
         $('.line-items > tbody > tr').each(function () {
             var i = 0;
             var item = {};
             $(this).children('td:not(:last-child)').each(function () {
                 item[columns[i++]] = $(this).context.innerText;
+            });
+            res.push(item);
+        });
+
+        //save inputs from table footer
+        $('.line-items > tfoot > tr').each(function () {
+            var i = 0;
+            var item = {};
+            $(this).children('th:not(:last-child)').each(function () {
+                item[columns[i++]] = $(this).children('input:first-child').val();
             });
             res.push(item);
         });

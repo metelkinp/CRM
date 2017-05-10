@@ -86,12 +86,6 @@
             {*<th><input class="form-control input-sm" id="subtotal_input" name="subtotal_input" disabled="disabled" type="text"></th>*}
             <th><span class="glyphicon glyphicon-plus add-line-item" title="Add Line Item"></span></th>
         </tr>
-        <tr>
-            <th colspan="10">
-                <span class="glyphicon glyphicon-hdd save-line-items" title="Save"></span>
-            </th>
-            {*<th></th>*}
-        </tr>
         {*<tr>*}
         {*<th colspan="9">*}
         {*<div class="row">*}

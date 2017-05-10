@@ -47,9 +47,12 @@
             user-select: none;
         }
     </style>
+
 {/literal}
 
 <div style="position: relative; width: 100%; margin: 0; padding: 0;" class="line-items-container">
+
+
 
     <table class="line-items editable table table-bordered">
         <thead class="panel-heading">
