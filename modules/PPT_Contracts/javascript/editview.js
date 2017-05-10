@@ -90,7 +90,7 @@ $(document).ready(function () {
             } else {
 
                 $.each(data, function (i, value) {
-                    container.append(flightBuilder.buildFlight(value));
+                    container.append(flightBuilder.buildFlight(value, i));
                 });
 
                 // elem = '<div class="col-sm-12" style="text-align: center; font-size: 14pt">' +
