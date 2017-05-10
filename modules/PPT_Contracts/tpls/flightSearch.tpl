@@ -8,7 +8,7 @@
 
         .flights-container {
             position: relative;
-            width: 120%;
+            width: 100%;
             /*align-content: center;*/
         }
 

@@ -98,13 +98,15 @@ class PPT_Account extends Basic
     //related
     public $ppt_contact_id;
     public $ppt_contract_id;
+    public $ppt_sra_id;
 
     public $additional_column_fields = Array('assigned_user_name', 'assigned_user_id', 'ppt_contact_id',
-        'ppt_contract_id');
+        'ppt_contract_id', 'ppt_sra_id');
 
     public $relationship_fields = Array(
         'ppt_contact_id' => 'ppt_contacts',
         'ppt_contract_id' => 'ppt_contracts',
+        'ppt_sra_id' => 'ppt_sra',
     );
 
     public function bean_implements($interface)

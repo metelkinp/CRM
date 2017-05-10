@@ -698,6 +698,15 @@ $dictionary['PPT_Account'] = array(
             'bean_name' => 'PPT_Contract',
             'source' => 'non-db',
         ),
+        'ppt_sra' => array(
+            'name' => 'ppt_sra',
+            'type' => 'link',
+            'relationship' => 'sra_accounts',
+            'module' => 'PPT_SRA',
+            'bean_name' => 'PPT_SRA',
+            'source' => 'non-db',
+        ),
+
 
     ),
     'indices' => array(
