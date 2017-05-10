@@ -77,6 +77,7 @@ $(document).ready(function () {
         container.show();
 
         var elem;
+        var flightBuilder = new Flight();
 
         if (err !== undefined) {
             elem = $('<div class="col-sm-12" style="text-align: center; font-size: 14pt; color: red"></div>');
@@ -87,9 +88,14 @@ $(document).ready(function () {
                 elem = '<div class="col-sm-12" style="text-align: center; font-size: 14pt">No Flights Found</div>';
                 container.append(elem);
             } else {
-                elem = '<div class="col-sm-12" style="text-align: center; font-size: 14pt">' +
-                    data.length + ' Flights Found</div>';
-                container.append(elem);
+
+                $.each(data, function (i, value) {
+                    container.append(flightBuilder.buildFlight(value));
+                });
+
+                // elem = '<div class="col-sm-12" style="text-align: center; font-size: 14pt">' +
+                //     data.length + ' Flights Found</div>';
+                // container.append(elem);
             }
         }
     }

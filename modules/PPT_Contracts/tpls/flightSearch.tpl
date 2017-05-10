@@ -40,6 +40,30 @@
             line-height: 60px;
         }
 
+        .flight-card {
+            margin : 0 0 1.5em 0;
+            border-radius: 4px;
+            background: #fff;
+            padding: 1.5em;
+            display: block;
+        }
+
+        .flight-card-header {
+            margin-bottom: .5em;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .flight-card-body {
+            background-color: #eee;
+            border-radius: 4px;
+            padding: .5em 0;
+            display: block;
+        }
+
+
+
+
     </style>
 {/literal}
 

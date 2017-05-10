@@ -1,64 +1,53 @@
-function Flight(tu) {
-    var timeUnit = tu;
+function Flight() {
+   // var timeUnit = tu;
 
     function buildFlight(flightData, editMode) {
-        var container = $("<div style='position: relative; width: 100%; display: inline-block;'></div>");
-        var segmentsContainer = $("<div style='position: relative; width: 87%; display: inline-block;'></div>");
+        var flightCard = $('<div class="flight-card"></div>');
 
-        container.append(segmentsContainer);
+        flightCard.append(buildCardHeader(flightData));
+        flightCard.append(buildCardBody(flightData));
 
-        this.buildSegments(flightData, editMode, segmentsContainer);
-
-        return container;
+        return flightCard;
     }
 
-    //inner functions
-    function buildSegments(f, scont) {
-        var segments = f.segments;
+    function buildCardHeader(data) {
+        var navBar = $('<nav class="navbar navbar-inverse" style="min-height: 10px"></nav>');
+        var nbContent = $('<div class="container-fluid" style="padding-left: 0; padding-right: 0"></div>');
+        var tabs = $('<ul class="nav navbar-nav"></ul>');
 
-        $.each(segments, function (i, segment) {
-            scont.append(this.buildOneSegment(segment));
+        $.each(data.segments, function (i, value) {
+            var anchore =  $('<a data-toggle="tab" role="tab" href="#' + 'flight' + (i+1) + '">' + value.flightCode + '</a>');
+            var listItem = i == 0 ?
+                $('<li role="presentation" class="active" style="border-right: solid 1px lightgray;"></li>') :
+                $('<li role="presentation" style="border-right: solid 1px lightgray;"></li>');
+
+            anchore.click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+
+            listItem.append(anchore);
+
+            tabs.append(listItem);
         });
+
+        nbContent.append(tabs);
+        navBar.append(nbContent);
+        return $('<div class="flight-card-header"></div>').append(navBar);
     }
 
-    function buildOneSegment(segment) {
-        var segmentBlock = $("<table style='position: relative; width: 30%; display: inline-block; " +
-            "margin: 5px; border: 1px solid lightgray; border-radius: 3px; background-color: lightgrey'></table>");
+    function buildCardBody(data) {
+        var flightBodyContainer =$('<div class="tab-content flight-card-body"></div>');
 
-        var titleBlock = $("<thead></thead>");
-        var tiRow = $("<tr></tr>");
-        tiRow.append($("<th></th>").text(segment.origin));
-        tiRow.append($("<th></th>").text('->'));
-        tiRow.append($("<th></th>").text(segment.destination));
-        titleBlock.append(tiRow);
+        $.each(data.segments, function (i, value) {
+            var flightItem = i == 0 ?
+                $('<div role="tabpanel" class="tab-pane active" id="flight' + (i+1) + '">' + value.flightCode + '</div>') :
+                $('<div role="tabpanel" class="tab-pane" id="flight' + (i+1) + '">' + value.flightCode + '</div>');
 
-        segmentBlock.append(titleBlock);
+            flightBodyContainer.append(flightItem);
+        });
 
-        var bodyBlock = $("<tbody></tbody>");
-        var fNo = $("<tr></tr>");
-        fNo.append($("<th style='text-align: left'></th>").text('Flight No.:'));
-        fNo.append($("<th></th>"));
-        fNo.append($("<td style='text-align: center'></td>").text(segment.flightCode));
-        bodyBlock.append(fNo);
-        var acType = $("<tr></tr>");
-        acType.append($("<th style='text-align: left'></th>").text('Aircraft Type:'));
-        acType.append($("<th></th>"));
-        acType.append($("<td style='text-align: center'></td>").text(segment.acType));
-        bodyBlock.append(acType);
-        var dprt = $("<tr></tr>");
-        dprt.append($("<th style='text-align: left'></th>").text('Depart:'));
-        dprt.append($("<th></th>"));
-        dprt.append($("<td style='text-align: center'></td>").text(timeUnit.getDateTime(new Date(segment.departDate))));
-        bodyBlock.append(dprt);
-        var arv = $("<tr></tr>");
-        arv.append($("<th style='text-align: left'></th>").text('Arrival:'));
-        arv.append($("<th></th>"));
-        arv.append($("<td style='text-align: center'></td>").text(timeUnit.getDateTime(new Date(segment.arrivDate))));
-        bodyBlock.append(arv);
-
-        segmentBlock.append(bodyBlock);
-
-        return segmentBlock;
+        return flightBodyContainer;
     }
 
     return {
