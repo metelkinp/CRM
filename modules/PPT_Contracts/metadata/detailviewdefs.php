@@ -28,10 +28,10 @@ $viewdefs[$module_name]['DetailView'] = array(
                 'newTab' => true,
                 'panelDefault' => 'expanded',
             ),
-//            'LBL_PANEL_FLIGHTS' => array(
-//                'newTab' => true,
-//                'panelDefault' => 'expanded',
-//            ),
+            'LBL_PANEL_FLIGHTS' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded',
+            ),
             'LBL_PANEL_RATES' => array(
                 'newTab' => true,
                 'panelDefault' => 'expanded',

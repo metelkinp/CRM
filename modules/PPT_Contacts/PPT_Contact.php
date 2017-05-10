@@ -104,6 +104,22 @@ class PPT_Contact extends Basic
     //relations
     public $account_id;
     public $account_name;
+    public $ppt_contract_id;
+    public $ppt_sra_id;
+
+    public $additional_column_fields = Array(
+        'assigned_user_name',
+        'account_name',
+        'account_id',
+        'ppt_contract_id',
+        'ppt_sra_id',
+    );
+
+    public $relationship_fields = Array(
+        'account_id' => 'ppt_accounts',
+        'ppt_contract_id' => 'ppt_contracts',
+        'ppt_sra_id' => 'ppt_sra'
+    );
 
     public function bean_implements($interface)
     {

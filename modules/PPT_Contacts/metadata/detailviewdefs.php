@@ -52,6 +52,30 @@ $viewdefs[$module_name]['DetailView'] = array(
             array('label' => '10', 'field' => '30'),
             array('label' => '10', 'field' => '30'),
         ),
+        'useTabs' => true,
+        'tabDefs' => array(
+            'LBL_PANEL_MAIN_INFO' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded'
+            ),
+            'LBL_PANEL_CONTACTS' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded'
+            ),
+            'LBL_PANEL_OTHER_INFO' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded'
+            ),
+            'LBL_PANEL_ADDRESS_BUSINESS' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded'
+            ),
+            'LBL_PANEL_ADDRESS_PERSONAL' => array(
+                'newTab' => true,
+                'panelDefault' => 'expanded'
+            ),
+        ),
+
     ),
     'panels' => array(
         'lbl_panel_main_info' => array(

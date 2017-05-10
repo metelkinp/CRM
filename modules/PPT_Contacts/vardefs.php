@@ -449,6 +449,34 @@ $dictionary['PPT_Contact'] = array(
             'quicksearch' => 'enabled',
             'studio' => 'visible',
         ),
+
+        'ppt_accounts' => array(
+            'name' => 'accounts',
+            'type' => 'link',
+            'relationship' => 'account_contacts',
+            'link_type' => 'one',
+            'source' => 'non-db',
+            'vname' => 'LBL_ACCOUNT',
+        ),
+
+        'ppt_contracts' => array(
+            'name' => 'ppt_contracts',
+            'type' => 'link',
+            'relationship' => 'contact_contracts',
+            'source' => 'non-db',
+            'module' => 'PPT_Contracts',
+            'bean_name' => 'PPT_Contract',
+        ),
+
+        'ppt_sra' => array(
+            'name' => 'ppt_sra',
+            'type' => 'link',
+            'relationship' => 'contact_sra',
+            'source' => 'non-db',
+            'module' => 'PPT_SRA',
+            'bean_name' => 'PPT_SRA',
+        ),
+
 ),
     'indices' => array(
         array(

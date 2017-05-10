@@ -96,6 +96,10 @@ $mod_strings = array (
     'LBL_PANEL_ADDRESS_BUSINESS' => 'Business Address',
     'LBL_PANEL_ADDRESS_PERSONAL' => 'Personal Address',
 
+    'LBL_SUBPANEL_CONTRACTS' => 'Contracts',
+    'LBL_SUBPANEL_SRA' => 'SRA',
+
+
   'LBL_LIST_FORM_TITLE' => 'Contacts List',
   'LBL_MODULE_NAME' => 'Contacts',
   'LBL_MODULE_TITLE' => 'Contacts',

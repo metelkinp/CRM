@@ -1,5 +1,5 @@
 <?php
-// created: 2017-05-03 16:18:27
+// created: 2017-05-10 10:43:16
 $sugar_config = array (
   'addAjaxBannedModules' => 
   array (
@@ -263,7 +263,7 @@ $sugar_config = array (
     'timeout' => 86400,
   ),
   'js_custom_version' => 1,
-  'js_lang_version' => 3,
+  'js_lang_version' => 4,
   'languages' => 
   array (
     'en_us' => 'English (US)',
@@ -399,4 +399,5 @@ $sugar_config = array (
   'use_real_names' => true,
   'vcal_time' => '2',
   'verify_client_ip' => true,
+  'disabled_themes' => ',',
 );
