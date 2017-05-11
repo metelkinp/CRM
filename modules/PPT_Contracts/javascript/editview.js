@@ -23,6 +23,10 @@ $(document).ready(function () {
     $("div[data-label='LBL_LINE_ITEMS']").css({visibility: 'hidden', height: 0});
     $("div[field='line_items']").css({visibility: 'hidden', height: 0});
 
+    //hidden label of flight
+    $("div[data-label='LBL_FLIGHT']").css({visibility: 'hidden', height: 0});
+    $("div[field='flight']").css({visibility: 'hidden', height: 0});
+
     // add line item to table
     $('.add-line-item').click(function (event) {
         order.addLineItem();

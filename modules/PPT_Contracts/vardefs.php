@@ -157,17 +157,17 @@ $dictionary['PPT_Contract'] = array(
             'display_default' => 'now',
         ),
 
-//        'line_items_group' => array(
-//            'name' => 'line_items_group',
-//            'vname' => 'LBL_LINE_ITEMS_GROUP',
-//            'type' => 'varchar',
-//            'len' => 255,
-//            'size' => 20,
-//            'required' => false,
-//            'massupdate' => 0,
-//            'reportable' => true,
-//            'source' => 'non-db',
-//        ),
+        'flight' => array(
+            'name' => 'flight',
+            'vname' => 'LBL_FLIGHT',
+            'type' => 'text',
+            'required' => true,
+            'massupdate' => 0,
+            'reportable' => true,
+            'rows' => 10,
+            'cols' => 100,
+        ),
+
         'line_items' => array(
             'name' => 'line_items',
             'vname' => 'LBL_LINE_ITEMS',

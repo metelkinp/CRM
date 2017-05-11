@@ -2,7 +2,7 @@
     <style>
         /* make thead and tfoot cells darker */
         .table th {
-            background: #F3F1F1;
+            background: #A4A0A1;
         }
 
         /* undo Bootstrap's 2px thead border */

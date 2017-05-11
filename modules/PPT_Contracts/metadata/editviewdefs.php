@@ -75,6 +75,7 @@ $viewdefs[$module_name]['EditView'] = array(
                     'label' => 'LBL_FLIGHT_SEARCH',
                 ),
             ),
+            array('flight',''),
         ),
 
         'lbl_panel_rates' => array(),

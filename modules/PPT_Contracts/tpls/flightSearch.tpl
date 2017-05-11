@@ -13,13 +13,13 @@
         }
 
         .flight-search-header {
-            background: #F3F1F1;
+            background: #A4A0A1;
             border: solid 1px lightgrey;
             margin-bottom: 0;
         }
 
         .flight-search-body {
-            max-height: 20vh;
+            max-height: 28em;
             overflow-y: auto;
             margin-top: 0;
         }
@@ -41,28 +41,49 @@
         }
 
         .flight-card {
-            margin : 0 0 1.5em 0;
-            border-radius: 4px;
+            margin : 0 0 0.5em 0;
             background: #fff;
-            padding: 1.5em;
+            padding: 0.5em;
             display: block;
         }
 
         .flight-card-header {
             margin-bottom: .5em;
-            border-radius: 4px;
             display: block;
         }
 
         .flight-card-body {
             background-color: #eee;
-            border-radius: 4px;
             padding: .5em 0;
             display: block;
         }
 
+        .br-4 {
+            border-radius: 4px;
+        }
 
+        .fc-body-element {
+            align-content: center;
+            min-height: 60px;
+            vertical-align: middle;
+            font-size: 14pt;
+            display: inline-block;
+            padding: 0.5em;
+        }
 
+        .fcbe-padding {
+            padding: .9em .2em .5em .2em;
+        }
+
+        .fche-nav-brand {
+            visibility: visible;
+            text-align: center;
+            font-size: 13pt;
+            color: whitesmoke;
+            cursor: pointer;
+            background-color: darkblue;
+            min-width: 100px;
+        }
 
     </style>
 {/literal}
@@ -72,10 +93,10 @@
         <div class="col-sm-4"></div>
         <div class="col-sm-8">
             <div class="col-sm-11">
-                <div class="col-sm-6 label" style="text-align: right">
+                <div class="col-sm-5 label" style="text-align: right">
                     Date:
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                     <span class="dateTime" style="margin-left: 5px">
                             <input class="date_input" style="margin: 5px" autocomplete="off" type="text" name="flight_date" id="flight_date"
                                    title tabindex size="11" maxlength="10">
