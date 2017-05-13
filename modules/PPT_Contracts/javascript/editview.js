@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    //expanding basic crm row
+    var row = $('.ex-line-items-container').parent();
+    row.removeClass('col-sm-8');
+    row.addClass('col-sm-10');
+
     var order = new Order();
 
     //custom save action on button 'SAVE' - saving data about flights and commodity
@@ -31,11 +36,11 @@ $(document).ready(function () {
     $('.add-line-item').click(function (event) {
         order.addLineItem();
 
-        // scroll to the bottom of the page to compensate for the new table row
-        $('html, body').animate({
-            scrollTop: $('.line-items > tfoot > tr:last-child').offset().top
-            - $(window).height() / 2
-        }, 'fast');
+        // // scroll to the bottom of the page to compensate for the new table row
+        // $('html, body').animate({
+        //     scrollTop: $('.line-items > tfoot > tr:last-child').offset().top
+        //     - $(window).height() / 2
+        // }, 'fast');
     });
 
     //search flights
@@ -96,10 +101,6 @@ $(document).ready(function () {
                 $.each(data, function (i, value) {
                     container.append(flightBuilder.buildFlight(value, i));
                 });
-
-                // elem = '<div class="col-sm-12" style="text-align: center; font-size: 14pt">' +
-                //     data.length + ' Flights Found</div>';
-                // container.append(elem);
             }
         }
     }

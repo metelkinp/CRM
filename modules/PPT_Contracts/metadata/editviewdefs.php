@@ -59,11 +59,11 @@ $viewdefs[$module_name]['EditView'] = array(
         ),
         'lbl_panel_line_items' => array(
             array(
-                array(
+                0 => array(
                     'name' => 'line_items_group',
                     'customCode' => '{include file="modules/PPT_Contracts/tpls/lineItemsGroupEdit.tpl"}',
                     'label' => 'LBL_LIG',
-                ),
+                )
             ),
             array('line_items', ''),
         ),
