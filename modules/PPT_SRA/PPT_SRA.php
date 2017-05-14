@@ -77,11 +77,13 @@ class PPT_SRA extends Basic
     public $currency;
     public $min_field;
     public $n_field;
-    public $r_45kg;
-    public $r_100kg;
-    public $r_300kg;
-    public $r_500kg;
-    public $r_1000kg;
+
+    public $rates;
+//    public $r_45kg;
+//    public $r_100kg;
+//    public $r_300kg;
+//    public $r_500kg;
+//    public $r_1000kg;
 
     //related
     public $account_id;
