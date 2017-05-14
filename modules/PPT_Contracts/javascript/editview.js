@@ -37,6 +37,8 @@ $(document).ready(function () {
     buttonsContainer.prepend(fakeButton);
     saveButton.hide();
 
+
+
     //hidden body of flights search block
     $('#flight-search-body').hide();
 

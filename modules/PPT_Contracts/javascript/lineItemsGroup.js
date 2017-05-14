@@ -180,7 +180,7 @@ $(document).ready(function () {
 
     //use in detail-view scope
     if ($('.detail-view')[0] !== undefined) {
-        console.log('SETUP');
+        //console.log('SETUP');
         var order = new Order();
 
         //hidden

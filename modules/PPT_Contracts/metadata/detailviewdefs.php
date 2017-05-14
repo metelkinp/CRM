@@ -5,6 +5,7 @@ $viewdefs[$module_name]['DetailView'] = array(
     'templateMeta' => array(
         'includes' => array(
             array('file' => 'modules/PPT_Contracts/javascript/lineItemsGroup.js'),
+            array('file' => 'modules/PPT_Contracts/javascript/buildFlight.js'),
         ),
         'form' => array(
             'buttons' => array(
@@ -60,6 +61,16 @@ $viewdefs[$module_name]['DetailView'] = array(
                 ),
             ),
             array('line_items',''),
+        ),
+        'lbl_panel_flights' => array(
+            array(
+                array(
+                    'name' => 'flight_search',
+                    'customCode' => '{include file="modules/PPT_Contracts/tpls/flightSearchDetails.tpl"}',
+                    'label' => 'LBL_FLIGHT_SEARCH',
+                ),
+            ),
+            array('flight',''),
         ),
 //        'lbl_panel_rates' => array (
 //

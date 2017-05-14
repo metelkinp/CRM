@@ -5,7 +5,6 @@ $viewdefs[$module_name]['EditView'] = array(
     'templateMeta' => array(
         'includes' => array(
             array('file' => 'modules/PPT_Contracts/javascript/lineItemsGroup.js'),
-            array('file' => 'modules/PPT_Contracts/javascript/mydatetime.js'),
             array('file' => 'modules/PPT_Contracts/javascript/buildFlight.js'),
             array('file' => 'modules/PPT_Contracts/javascript/editview.js'),
         ),
@@ -71,7 +70,7 @@ $viewdefs[$module_name]['EditView'] = array(
             array(
                 array(
                     'name' => 'flight_search',
-                    'customCode' => '{include file="modules/PPT_Contracts/tpls/flightSearch.tpl"}',
+                    'customCode' => '{include file="modules/PPT_Contracts/tpls/flightSearchEdit.tpl"}',
                     'label' => 'LBL_FLIGHT_SEARCH',
                 ),
             ),

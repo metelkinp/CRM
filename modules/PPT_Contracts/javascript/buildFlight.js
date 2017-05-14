@@ -1,5 +1,5 @@
 function Flight() {
-   // var timeUnit = tu;
+    var timeUnit = new MyTimeUnit();
 
     function buildFlight(flightData, num) {
         var flightCard = $('<div class="flight-card br-4"></div>');
@@ -79,8 +79,8 @@ function Flight() {
         else
             inContainer.append(airportBlock);
 
-        dateInfoInnerBlock.append($('<div style="text-align: center"></div>').append($('<span></span>').text(MyTimeUnit.getTime(date))));
-        dateInfoInnerBlock.append($('<div style="font-size: 12pt"></div>').text(MyTimeUnit.getDate(date)));
+        dateInfoInnerBlock.append($('<div style="text-align: center"></div>').append($('<span></span>').text(timeUnit.getTime(date))));
+        dateInfoInnerBlock.append($('<div style="font-size: 12pt"></div>').text(timeUnit.getDate(date)));
         dateInfoBlock.append(dateInfoInnerBlock);
 
         airportBlock.append($('<span></span>)').text(airport));
@@ -128,10 +128,65 @@ function Flight() {
         })
     }
 
+    function MyTimeUnit() {
+
+        function getDateTime(d) {
+            var date = new Date(d);
+            var _date = MyTimeUnit.getDate(date);
+            var _time = MyTimeUnit.getTime(date);
+            return _date + ' ' + _time;
+        }
+
+        function getDate (d) {
+            var date = new Date(d);
+            var day = date.getDate();
+            day = day < 10 ? '0' + day : day;
+            var month = date.getMonth() + 1;
+            month = month < 10 ? '0' + month : month;
+            return month + '/' + day + '/' + date.getFullYear();
+        }
+
+        function getTime(d) {
+            var date = new Date(d);
+            var hour = date.getHours();
+            hour = hour < 10 ? '0' + hour : hour;
+            var minutes = date.getMinutes();
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            return hour + ':' + minutes;
+        }
+
+        return {
+            getDateTime: getDateTime,
+            getDate: getDate,
+            getTime: getTime
+        }
+    }
+
+
+
     return {
         buildFlight : buildFlight
     }
 }
+
+
+$(document).ready(function () {
+    //console.log('SETUP');
+
+    if ($('.detail-view')[0] !== undefined) {
+        //hidden label of flight
+        $("div[field='flight']").parent().parent().css({visibility: 'hidden', height: 0});
+
+        var flightBuilder = new Flight();
+
+        var flightData = $('#flight').text();
+
+        if (flightData !== undefined && flightData !== '') {
+            $('.flights-container').append(flightBuilder.buildFlight(JSON.parse(flightData), 0));
+            $('.fche-nav-brand').hide();
+        }
+    }
+});
 
 
 
