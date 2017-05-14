@@ -35,10 +35,10 @@ $viewdefs[$module_name]['EditView'] = array(
                 'newTab' => true,
                 'panelDefault' => 'expanded',
             ),
-            'LBL_PANEL_RATES' => array(
-                'newTab' => true,
-                'panelDefault' => 'expanded',
-            ),
+//            'LBL_PANEL_RATES' => array(
+//                'newTab' => true,
+//                'panelDefault' => 'expanded',
+//            ),
             'LBL_PANEL_OTHER' => array(
                 'newTab' => true,
                 'panelDefault' => 'expanded',
@@ -78,7 +78,7 @@ $viewdefs[$module_name]['EditView'] = array(
             array('flight',''),
         ),
 
-        'lbl_panel_rates' => array(),
+//        'lbl_panel_rates' => array(),
         'lbl_panel_other' => array(
             array('start_date', 'end_date'),
             array('customer_signed_date', 'company_signed_date'),

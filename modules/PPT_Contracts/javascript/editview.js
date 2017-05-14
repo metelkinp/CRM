@@ -15,8 +15,13 @@ $(document).ready(function () {
         // add line item to table
         $('.add-line-item').click(function (event) {
             order.addLineItem();
+            order.calculateChargeableWeight();
         });
     }
+
+    $('.lims-charge-calc').change(function() {
+        order.calculateChargeableWeight()
+    });
 
     //custom save action on button 'SAVE' - saving data about flights and commodity
     var buttonsContainer = $('div.buttons');

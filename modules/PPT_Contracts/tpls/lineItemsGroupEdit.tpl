@@ -49,8 +49,10 @@
         }
 
         .lims-last-cell {
-            min-width: 145px;
-            max-width: 145px;
+            /*min-width:  145px;*/
+            /*max-width: 145px;*/
+            min-width: calc(100% - 855px);
+            max-width: calc(100% - 855px);
             float: right;
         }
 
@@ -75,6 +77,24 @@
 
         .remove-line-item {
             color : red;
+        }
+
+        .lims-footer-cell {
+            display: inline-block;
+            min-width: 855px;
+            max-width: 855px;
+            text-align: left;
+            padding: .5em;
+            font-size: 10pt;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .charge-weight {
+            text-align: center;
+            padding: .5em;
+            font-weight: bold;
+            font-size: 10pt;
         }
 
     </style>
@@ -122,10 +142,11 @@
     </div>
     <div class="col-sm-12 lims-basic lims-footer b">
         <div class="col-sm-11 lims-basic lims-footer-row">
-            <div class="lims-basic" style="display: inline-block">
-                <span style="text-align: right">CMDT</span>
+            <div class="lims-basic lims-footer-cell">
+                Chargeable Weight:
             </div>
-            <div class="lims-basic lims-last-cell">
+            <div class="lims-basic lims-last-cell charge-weight">
+                166.667
             </div>
         </div>
     </div>

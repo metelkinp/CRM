@@ -34,6 +34,7 @@ Order = function() {
         glyph.on('click', function (e) {
             var id = e.target.dataset.id;
             $('.lims-body-container[data-id=\'' + id + '\']').remove();
+            calculateChargeableWeight();
         });
         glyph.removeClass('glyphicon-plus');
         glyph.removeClass('add-line-item');
@@ -47,17 +48,20 @@ Order = function() {
     }
 
     function save() {
-        var res = [];
+        var res = {};
 
+        var lineItems = [];
         $('.lims-body-row').each(function () {
             var item = {};
             var i = 0;
             $(this).find('input').each(function () {
                 item[columns[i++]] = $(this).val();
             });
-            res.push(item);
+            lineItems.push(item);
         });
 
+        res.lineItems = lineItems;
+        res.chargeableWeight = $('.charge-weight').text();
         //console.log(res);
         return res;
     }
@@ -66,7 +70,7 @@ Order = function() {
         var body = $('.lims-body');
         $('.lims-body > .lims-body-container').remove();
 
-        $.each(data, function (index, obj) {
+        $.each(data.lineItems, function (index, obj) {
             body.append(buildRow(obj, index + 1, editMode));
         });
 
@@ -74,12 +78,17 @@ Order = function() {
             var last = $('.lims-body > .lims-body-container:last');
             var glyph = last.find('div.lims-icon-box > span');
             glyph.off('click');
-            glyph.on('click', addLineItem);
+            glyph.on('click', function () {
+                addLineItem();
+                calculateChargeableWeight();
+            });
             glyph.removeClass('glyphicon-minus');
             glyph.removeClass('remove-line-item');
             glyph.addClass('glyphicon-plus');
             glyph.addClass('add-line-item');
         }
+
+        $('.charge-weight').text(data.chargeableWeight);
     }
 
     function buildRow(data, id, editMode) {
@@ -131,7 +140,9 @@ Order = function() {
                 id + '" title="Remove Line Item"></span>');
             glyph.on('click', function (e) {
                 var targId = e.target.dataset.id;
+                $('.lims-charge-calc').change();
                 $('.lims-body-container[data-id=\'' + targId + '\']').remove();
+                calculateChargeableWeight();
             });
             iconBox.append(glyph);
         }
@@ -141,10 +152,27 @@ Order = function() {
         return container;
     }
 
+    function calculateChargeableWeight() {
+        console.log('FIRE');
+
+        var total = 0;
+
+        $('.lims-body-row').each(function () {
+            var rowValue = 1;
+            $(this).find('input.lims-charge-calc').each(function () {
+                rowValue *= $(this).val();
+            });
+            total += rowValue;
+        });
+
+        $('.charge-weight').text(total * 166.667);
+    }
+
     return {
         addLineItem: addLineItem,
         save: save,
-        restoreItems: restoreItems
+        restoreItems: restoreItems,
+        calculateChargeableWeight: calculateChargeableWeight
     }
 };
 
@@ -174,7 +202,10 @@ $(document).ready(function () {
             total *= $(this).val();
         });
 
-        $('input.volume' + rowId).val(total);
+        var volumeField = $('input.volume' + rowId);
+        volumeField.val(total);
+        volumeField.change();
     });
+
 });
 
