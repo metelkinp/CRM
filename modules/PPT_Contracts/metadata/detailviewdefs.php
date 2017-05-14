@@ -5,7 +5,6 @@ $viewdefs[$module_name]['DetailView'] = array(
     'templateMeta' => array(
         'includes' => array(
             array('file' => 'modules/PPT_Contracts/javascript/lineItemsGroup.js'),
-            array('file' => 'modules/PPT_Contracts/javascript/detailview.js'),
         ),
         'form' => array(
             'buttons' => array(

@@ -7,6 +7,17 @@ $(document).ready(function () {
 
     var order = new Order();
 
+    //restore data
+    var oldData = $('#line_items').text();
+    if (oldData !== undefined && oldData !== '') {
+        order.restoreItems(JSON.parse(oldData), true);
+    } else {
+        // add line item to table
+        $('.add-line-item').click(function (event) {
+            order.addLineItem();
+        });
+    }
+
     //custom save action on button 'SAVE' - saving data about flights and commodity
     var buttonsContainer = $('div.buttons');
     var saveButton = $('#SAVE');
@@ -31,17 +42,6 @@ $(document).ready(function () {
     //hidden label of flight
     $("div[data-label='LBL_FLIGHT']").css({visibility: 'hidden', height: 0});
     $("div[field='flight']").css({visibility: 'hidden', height: 0});
-
-    // add line item to table
-    $('.add-line-item').click(function (event) {
-        order.addLineItem();
-
-        // // scroll to the bottom of the page to compensate for the new table row
-        // $('html, body').animate({
-        //     scrollTop: $('.line-items > tfoot > tr:last-child').offset().top
-        //     - $(window).height() / 2
-        // }, 'fast');
-    });
 
     //search flights
     $('.flight-search-icon').click(function (event) {
