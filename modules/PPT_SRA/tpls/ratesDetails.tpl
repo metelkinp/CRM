@@ -58,25 +58,14 @@
 
     </style>
 {/literal}
-<div class="rates-ex-container b">
-    <div class="col-sm-7 rates-header">
-        <div class="col-sm-12">
-            <div class="col-sm-10 rates-header-row">
-                <div class="col-sm-6 rates-cell">Weight</div>
-                <div class="col-sm-6 rates-cell" style="border-top-right-radius: 5px">Rate</div>
-            </div>
-            <div class="col-sm-2"></div>
+
+<div class="col-sm-12 rates-ex-container b">
+    <div class="col-sm-12 rates-header">
+        <div class="col-sm-12 rates-header-row">
+            <div class="col-sm-6 rates-cell">Weight</div>
+            <div class="col-sm-6 rates-cell" style="border-top-right-radius: 5px">Rate</div>
         </div>
     </div>
-    <div class="col-sm-7 rates-body">
-        <div class="col-sm-12 rates-body-container" data-id="1">
-            <div class="col-sm-10 rates-body-row">
-                <div class="col-sm-6 rates-cell" style="border-left: 1px solid"><input type="text"></div>
-                <div class="col-sm-6 rates-cell"><input type="text"></div>
-            </div>
-            <div class="col-sm-2 rates-icon-box">
-                <span class="glyphicon glyphicon-plus add-rate" title="Add Rate" data-id="1"></span>
-            </div>
-        </div>
+    <div class="col-sm-12 rates-body">
     </div>
 </div>

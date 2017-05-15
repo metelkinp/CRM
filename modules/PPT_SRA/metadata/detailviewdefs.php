@@ -3,6 +3,9 @@
 $module_name = 'PPT_SRA';
 $viewdefs[$module_name]['DetailView'] = array(
     'templateMeta' => array (
+        'includes' => array(
+            array('file' => 'modules/PPT_SRA/javascript/rates.js'),
+        ),
         'form' => array (
             'buttons' => array (
                 'EDIT',
@@ -44,11 +47,14 @@ $viewdefs[$module_name]['DetailView'] = array(
         'lbl_panel_rates' => array (
             array('min_field',''),
             array('n_field',''),
-            array('r_45kg',''),
-            array('r_100kg',''),
-            array('r_300kg',''),
-            array('r_500kg',''),
-            array('r_1000kg',''),
+            array(
+                0 => array(
+                    'name' => 'rates_group',
+                    'customCode' => '{include file="modules/PPT_SRA/tpls/ratesDetails.tpl"}',
+                    'label' => 'LBL_RATES_GROUP',
+                )
+            ),
+            array('rates', ''),
         ),
         'lbl_panel_other' => array (
             array('contact_name', 'description'),

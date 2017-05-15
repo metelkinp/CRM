@@ -44,12 +44,66 @@ Rates = function () {
         return res;
     }
 
-    return {
-        addRate: addRate,
-        save: save
+    function restoreRates(data, editMode) {
+        var body = $('.rates-body');
+        $('.rates-body > .rates-body-container').remove();
+
+        var i = 0;
+        $.each(data, function (key, value) {
+            body.append(buildRow(key, value, i++, editMode));
+        });
+
+        if (editMode !== undefined) {
+            var last = $('.rates-body > .rates-body-container:last');
+            var glyph = last.find('div.rates-icon-box > span');
+            glyph.off('click');
+            glyph.on('click', function () {
+                addRate();
+            });
+            glyph.removeClass('glyphicon-minus');
+            glyph.removeClass('remove-rate');
+            glyph.addClass('glyphicon-plus');
+            glyph.addClass('add-rate');
+        }
     }
 
+    function buildRow(w, r, id, mode) {
+        var container = $('<div class="col-sm-12 rates-body-container" data-id="' + id + '"></div>');
+        var row = mode !== undefined ? $('<div class="col-sm-10 rates-body-row"></div>') :
+            $('<div class="col-sm-12 rates-body-row"></div>');
+        var basicWeightCell = '<div class="col-sm-6 rates-cell" style="border-left: 1px solid"></div>';
+        var basicRateCell = '<div class="col-sm-6 rates-cell"></div>';
 
+        if (mode !== undefined) {
+            row.append($(basicWeightCell).append($('<input type="text">').val(w)));
+            row.append($(basicRateCell).append($('<input type="text">').val(r)));
+        } else {
+            row.append($(basicWeightCell).text(w));
+            row.append($(basicRateCell).text(r));
+        }
+
+        container.append(row);
+
+        if (mode !== undefined) {
+            var iconBox = $('<div class="col-sm-2 rates-icon-box"></div>');
+            var glyph = $('<span class="glyphicon glyphicon-minus remove-rate" data-id="' +
+                id + '" title="Remove Rate"></span>');
+            glyph.on('click', function (e) {
+                var targId = e.target.dataset.id;
+                $('.rates-body-container[data-id=\'' + targId + '\']').remove();
+            });
+            iconBox.append(glyph);
+            container.append(iconBox);
+        }
+
+        return container;
+    }
+
+    return {
+        addRate: addRate,
+        save: save,
+        restoreRates: restoreRates
+    }
 
 };
 
@@ -66,7 +120,7 @@ $(document).ready(function () {
         //restore data
         var oldData = $('#rates').text();
         if (oldData !== undefined && oldData !== '') {
-            //order.restoreItems(JSON.parse(oldData), true);
+            rates.restoreRates(JSON.parse(oldData), true);
         } else {
             // add line item to table
             $('.add-rate').click(function (event) {
@@ -74,7 +128,7 @@ $(document).ready(function () {
             });
         }
 
-        //custom save action on button 'SAVE' - saving data about flights and commodity
+        //custom save action on button 'SAVE' - saving data about rates
         var buttonsContainer = $('div.buttons');
         var saveButton = $('#SAVE');
         var fakeButton = $('<input title="Save" accesskey="a" class="button primary" value="Save" type="button">');
@@ -92,6 +146,20 @@ $(document).ready(function () {
 
     } else {
         //detail mode
+
+        //hidden rates
+        $("div[field='rates']").parent().parent().hide();
+
+        //change parent row classes
+        var parent = $('.rates-ex-container').parent().parent();
+        parent.removeClass('col-sm-10');
+        parent.addClass('col-sm-4');
+
+        //restore data
+        var oldData = $('#rates').text();
+        if (oldData !== undefined && oldData !== '') {
+            rates.restoreRates(JSON.parse(oldData));
+        }
 
 
     }
