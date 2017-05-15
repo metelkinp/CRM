@@ -53,31 +53,31 @@ $listViewDefs[$module_name] = array(
         'label' => 'LBL_N',
         'default' => true,
     ),
-    'R_45KG' => array (
-        'width' => '5',
-        'label' => 'LBL_45KG',
-        'default' => true,
-    ),
-    'R_100KG' => array (
-        'width' => '5',
-        'label' => 'LBL_100KG',
-        'default' => true,
-    ),
-    'R_300KG' => array (
-        'width' => '5',
-        'label' => 'LBL_300KG',
-        'default' => true,
-    ),
-    'R_500KG' => array (
-        'width' => '5',
-        'label' => 'LBL_500KG',
-        'default' => true,
-    ),
-    'R_1000KG' => array (
-        'width' => '5',
-        'label' => 'LBL_1000KG',
-        'default' => true,
-    ),
+//    'R_45KG' => array (
+//        'width' => '5',
+//        'label' => 'LBL_45KG',
+//        'default' => true,
+//    ),
+//    'R_100KG' => array (
+//        'width' => '5',
+//        'label' => 'LBL_100KG',
+//        'default' => true,
+//    ),
+//    'R_300KG' => array (
+//        'width' => '5',
+//        'label' => 'LBL_300KG',
+//        'default' => true,
+//    ),
+//    'R_500KG' => array (
+//        'width' => '5',
+//        'label' => 'LBL_500KG',
+//        'default' => true,
+//    ),
+//    'R_1000KG' => array (
+//        'width' => '5',
+//        'label' => 'LBL_1000KG',
+//        'default' => true,
+//    ),
     'VALID_FROM' => array(
         'width' => '10',
         'label' => 'LBL_VALID_FROM',
