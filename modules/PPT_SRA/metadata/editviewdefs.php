@@ -4,7 +4,7 @@ $module_name = 'PPT_SRA';
 $viewdefs[$module_name]['EditView'] = array(
     'templateMeta' => array(
         'includes' => array(
-            array('file' => 'modules/PPT_SRA/javascript/rates.js'),
+            array('file' => 'modules/PPT_SRA/javascript/sra.js'),
         ),
         'form' => array(
             'buttons' => array(
