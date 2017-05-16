@@ -5,3 +5,6 @@
 .classpath
 *.iml
 *.log
+cache/
+upload/
+modules/AOS_Index/Index/Index/

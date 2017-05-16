@@ -441,10 +441,11 @@ $(document).ready(function () {
 
             $.ajax({
                 method: 'GET',
-                url: "http://localhost:3030/services/ppt/flights/find",
+                url: "ppt-services/ExternalAPI.php",
                 data: data,
                 crossDomain: true,
                 success: function (data, status, jqxhr) {
+                    //console.log(data);
                     displayResult(data, container);
                 },
                 error: function (jqxhr, status, trace) {
