@@ -7,4 +7,4 @@
 *.log
 cache/
 upload/
-modules/AOS_Index/Index/Index/
+modules/AOS_Index/Index/**
