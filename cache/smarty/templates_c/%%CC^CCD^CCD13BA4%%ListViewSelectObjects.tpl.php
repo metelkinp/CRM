@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.29, created on 2017-05-17 11:11:28
+<?php /* Smarty version 2.6.29, created on 2017-05-17 18:28:52
          compiled from themes%5CSuiteP%5Cinclude/ListView/ListViewSelectObjects.tpl */ ?>
 <div class="selectedRecords label hidden"><?php echo $this->_tpl_vars['APP']['LBL_LISTVIEW_SELECTED_OBJECTS']; ?>
 </div><div class="selectedRecords value hidden"><?php echo $this->_tpl_vars['TOTAL_ITEMS_SELECTED']; ?>

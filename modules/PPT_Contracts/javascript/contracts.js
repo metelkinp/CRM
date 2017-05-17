@@ -441,7 +441,7 @@ $(document).ready(function () {
             //console.log(data);
 
             $.ajax({
-                method: 'GET',
+                method: 'POST',
                 url: "ppt-services/ExternalAPI.php",
                 data: data,
                 crossDomain: true,

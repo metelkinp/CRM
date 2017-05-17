@@ -11,12 +11,12 @@ $settings = $ppt_settings['external_services'];
 
 $url = $settings['external-url'];
 
-switch ($_GET['case']) {
+switch ($_REQUEST['case']) {
     case 'FLIGHT_SEARCH' : {
         $data = array(
-            'origin' => $_GET['origin'],
-            'destination' => $_GET['destination'],
-            'from' => $_GET['from']
+            'origin' => $_POST['origin'],
+            'destination' => $_POST['destination'],
+            'from' => $_POST['from']
         );
 
         $path = $settings['path-flightsearch'];
@@ -26,8 +26,6 @@ switch ($_GET['case']) {
         break;
     }
 }
-//$parms = sprintf("%s", http_build_query($data));
-//$parms = filter_input(INPUT_GET, $parms, FILTER_SANITIZE_ENCODED);
 
 curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 curl_setopt($curl, CURLOPT_URL, $url);

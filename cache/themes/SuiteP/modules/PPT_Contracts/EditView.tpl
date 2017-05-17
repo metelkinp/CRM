@@ -507,7 +507,7 @@ SUGAR.util.doWhen(
 
 <div class="col-xs-12 col-sm-4 label" data-label="LBL_CONTACT">
 
-{capture name="label" assign="label"}{sugar_translate label='LBL_CONTACT' module='PPT_Contracts'}{/capture}
+{capture name="label" assign="label"}{sugar_translate label='LBL_CONTACT_NAME' module='PPT_Contracts'}{/capture}
 {$label|strip_semicolon}:
 
 </div>
@@ -525,7 +525,7 @@ onclick='open_popup(
 "{$fields.contact_name.module}", 
 600, 
 400, 
-"", 
+"&account_id={$fields.account_id.value}", 
 true, 
 false, 
 {literal}{"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"id":"contact_id","name":"contact_name"}}{/literal}, 

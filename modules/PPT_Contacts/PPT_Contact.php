@@ -123,14 +123,89 @@ class PPT_Contact extends Basic
 
     public function bean_implements($interface)
     {
-        switch($interface)
-        {
+        switch ($interface) {
             case 'ACL':
                 return true;
         }
 
         return false;
     }
+
+    function add_list_count_joins(&$query, $where)
+    {
+        if (stristr($where, "ppt_accounts.name")) {
+            $query .= "
+                LEFT JOIN ppt_accounts
+                ON ppt_contacts.account_id = ppt_accounts.id
+            ";
+        }
+        $custom_join = $this->getCustomJoin();
+        $query .= $custom_join['join'];
+    }
+
+    function create_new_list_query($order_by, $where, $filter = array(), $params = array(), $show_deleted = 0, $join_type = '', $return_array = false, $parentbean = null, $singleSelect = false, $ifListForExport = false)
+    {
+        $custom_join = $this->getCustomJoin();
+        $select_query = "SELECT ";
+        $select_query .= "
+            ppt_contacts.*,
+            ppt_accounts.name as account_name,
+            ppt_accounts.id as account_id,
+            ppt_accounts.assigned_user_id account_id_owner,
+            users.user_name as assigned_user_name ";
+        $select_query .= $custom_join['select'];
+        $ret_array['select'] = $select_query;
+
+        $from_query = "
+            FROM ppt_contacts ";
+
+        $from_query .=  "
+            LEFT JOIN users
+            ON ppt_contacts.assigned_user_id=users.id
+            LEFT JOIN ppt_accounts
+            ON ppt_contacts.account_id=ppt_accounts.id AND ppt_accounts.deleted=0 ";
+        $from_query .= $custom_join['join'];
+
+        $ret_array['from'] = $from_query;
+        $ret_array['from_min'] = 'from ppt_contacts';
+
+        $where_auto = '1=1';
+
+        if($show_deleted == 0) {
+            $where_auto = " ppt_contacts.deleted=0 ";
+            //$where_auto .= " AND accounts.deleted=0  ";
+        } else if($show_deleted == 1){
+            $where_auto = " ppt_contacts.deleted=1 ";
+        }
+
+        if($where != ""){
+            $where_query = "where ($where) AND ".$where_auto;
+        }else{
+            $where_query = "where ".$where_auto;
+        }
+
+        $ret_array['where'] = $where_query;
+        $ret_array['order_by'] = '';
+
+        //process order by and add if it's not empty
+        $order_by = $this->process_order_by($order_by);
+        if (!empty($order_by)) {
+            $ret_array['order_by'] = ' ORDER BY ' . $order_by;
+        }
+
+        if($return_array)
+        {
+            return $ret_array;
+        }
+
+        return $ret_array['select'] . $ret_array['from'] . $ret_array['where']. $ret_array['order_by'];
+
+    }
+
+    function create_list_filtered_by_accout($acc_id) {
+        //TODO
+    }
+
 
     public function save($check_notify = false)
     {

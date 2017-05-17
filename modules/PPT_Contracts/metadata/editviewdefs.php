@@ -48,7 +48,16 @@ $viewdefs[$module_name]['EditView'] = array(
         'lbl_panel_main' => array(
             array('status', 'account_name'),
             array('', 'shipper_name'),
-            array('', 'contact_name'),
+            array('',
+                array
+                (
+                    'name' => 'contact_name',
+                    'label' => 'LBL_CONTACT',
+                    'displayParams' => array(
+                        'initial_filter' => '&account_id={$fields.account_id.value}',
+                    ),
+                )
+            ),
             array('origin', 'dest'),
             array('service', 'product'),
             array('scc', 'iata_code'),
