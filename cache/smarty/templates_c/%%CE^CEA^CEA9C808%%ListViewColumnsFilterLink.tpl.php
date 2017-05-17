@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.29, created on 2017-05-15 10:33:53
+<?php /* Smarty version 2.6.29, created on 2017-05-17 11:11:29
          compiled from include/ListView/ListViewColumnsFilterLink.tpl */ ?>
 <ul class="clickMenu selectmenu SugarActionMenu columnsFilterLink listViewLinkButton listViewLinkButton_<?php echo $this->_tpl_vars['action_menu_location']; ?>
 " onclick="columnsFilter.onOpen();">

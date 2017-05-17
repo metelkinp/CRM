@@ -432,6 +432,7 @@ $(document).ready(function () {
             date.setHours(date.getHours() + 1);
 
             var data = {
+                case: 'FLIGHT_SEARCH',
                 origin: $("#origin").val(),
                 destination: $("#dest").val(),
                 from: date.getTime()

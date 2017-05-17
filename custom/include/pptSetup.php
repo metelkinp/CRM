@@ -92,6 +92,5 @@ function pptSetup()
         $GLOBALS['ppt_domains'] = true;
 
     }
-}
 
-;
+};
