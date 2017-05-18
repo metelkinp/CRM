@@ -3302,6 +3302,7 @@ SUGAR.util = function () {
 						at: 'left top',
 						of: $(el)
 					}
+
 				});
 
 			if (show_buttons) {
@@ -3344,11 +3345,11 @@ SUGAR.util = function () {
 							autoOpen: false,
 							title: caption,
 							width: 300,
-							position: {
-								my: 'right top',
-								at: 'left top',
-								of: $(el)
-							}
+                            position: {
+                                my: 'right top',
+                                at: 'left top',
+                                of: $(el)
+                            }
 						});
 					if (show_buttons) {
 						$(".ui-dialog").find('.ui-dialog-titlebar-close').css("display", "none");

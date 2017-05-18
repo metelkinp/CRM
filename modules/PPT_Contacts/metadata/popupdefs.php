@@ -53,17 +53,17 @@ $popupMeta = array(
     'varName' => 'PPT_CONTACT',
     'orderBy' => 'name',
     'whereClauses' => array(
-        'account_name' => 'ppt_accounts.name',
-        'account_id' => 'ppt_accounts.id',
         'first_name' => 'ppt_contacts.first_name',
         'last_name' => 'ppt_contacts.last_name',
+        'position' => 'ppt_contacts.position',
         'assigned_user_id' => 'ppt_contacts.assigned_user_id',
     ),
 
     'searchInputs' => array(
         'first_name',
         'last_name',
-        'account_name',
+        'position',
+        'department',
         'assigned_user_id',
     ),
 
@@ -77,39 +77,32 @@ $popupMeta = array(
         ),
         'JOB_TITLE' => array(
             'width' => '20%',
-            'sortable' => false,
             'label' => 'LBL_JOB_TITLE',
             'default' => true,
         ),
-        'ACCOUNT_NAME' => array(
-            'width'   => '20%',
-            'label'   => 'LBL_ACCOUNT',
-            'id'      => 'ACCOUNT_ID',
-            'module'  => 'PPT_Accounts',
-            'link'    => true,
-            'default' => true,
-            'sortable'=> true,
-            'ACLTag' => 'PPT_ACCOUNT',
-            'related_fields' => array('account_id'),
-        ),
         'POSITION' => array(
             'width' => '20%',
-            'sortable' => false,
             'label' => 'LBL_POSITION',
+            'default' => true,
+        ),
+        'DEPARTMENT' => array(
+            'width' => '20%',
+            'label' => 'LBL_DEPARTMENT',
             'default' => true,
         ),
         'PHONE_MAIN' => array(
             'width' => '20%',
             'label' => 'LBL_PHONE_MAIN',
             'default' => true,
-            'sortable' => false,
         ),
+
     ),
 
     'searchdefs' => array(
         'first_name',
         'last_name',
-        array('name' => 'account_name', 'type' => 'varchar',),
+        array('name' => 'position', 'type' => 'enum', 'label' => 'LBL_POSITION'),
+        'department',
         array('name' => 'assigned_user_id', 'type' => 'enum', 'label' => 'LBL_ASSIGNED_TO', 'function' => array('name' => 'get_user_array', 'params' => array(false))),
     )
 );

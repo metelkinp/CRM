@@ -356,6 +356,18 @@
       'rows' => 10,
       'cols' => 100,
     ),
+    'rates_count' => 
+    array (
+      'name' => 'rates_count',
+      'vname' => 'LBL_RATES',
+      'type' => 'varchar',
+      'required' => false,
+      'massupdate' => 0,
+      'reportable' => false,
+      'inline_edit' => false,
+      'default' => '0 levels',
+      'len' => '50',
+    ),
     'account_id' => 
     array (
       'name' => 'account_id',

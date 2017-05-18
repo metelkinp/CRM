@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.29, created on 2017-05-17 18:29:04
+<?php /* Smarty version 2.6.29, created on 2017-05-18 16:31:08
          compiled from cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 47, false),array('modifier', 'strip_semicolon', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 139, false),array('modifier', 'lookup', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 177, false),array('modifier', 'count', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 279, false),array('modifier', 'default', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 1962, false),array('function', 'sugar_include', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 63, false),array('function', 'sugar_translate', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 71, false),array('function', 'counter', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 144, false),array('function', 'html_options', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 152, false),array('function', 'sugar_getimagepath', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 180, false),array('function', 'sugar_getimage', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 1951, false),array('function', 'sugar_getscript', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 2386, false),)), $this); ?>
@@ -764,7 +764,7 @@ _<?php echo $this->_tpl_vars['fields']['shipper_name']['name']; ?>
 
 <div class="col-xs-12 col-sm-4 label" data-label="LBL_CONTACT">
 
-<?php ob_start(); ?><?php echo smarty_function_sugar_translate(array('label' => 'LBL_CONTACT_NAME','module' => 'PPT_Contracts'), $this);?>
+<?php ob_start(); ?><?php echo smarty_function_sugar_translate(array('label' => 'LBL_CONTACT','module' => 'PPT_Contracts'), $this);?>
 <?php $this->_smarty_vars['capture']['label'] = ob_get_contents();  $this->assign('label', ob_get_contents());ob_end_clean(); ?>
 <?php echo ((is_array($_tmp=$this->_tpl_vars['label'])) ? $this->_run_mod_handler('strip_semicolon', true, $_tmp) : smarty_modifier_strip_semicolon($_tmp)); ?>
 :

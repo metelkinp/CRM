@@ -507,7 +507,7 @@ SUGAR.util.doWhen(
 
 <div class="col-xs-12 col-sm-4 label" data-label="LBL_CONTACT">
 
-{capture name="label" assign="label"}{sugar_translate label='LBL_CONTACT_NAME' module='PPT_Contracts'}{/capture}
+{capture name="label" assign="label"}{sugar_translate label='LBL_CONTACT' module='PPT_Contracts'}{/capture}
 {$label|strip_semicolon}:
 
 </div>

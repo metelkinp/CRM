@@ -143,7 +143,66 @@ class PPT_Contact extends Basic
         $query .= $custom_join['join'];
     }
 
-    function create_new_list_query($order_by, $where, $filter = array(), $params = array(), $show_deleted = 0, $join_type = '', $return_array = false, $parentbean = null, $singleSelect = false, $ifListForExport = false)
+    function create_new_list_query($order_by, $where, $filter = array(), $params = array(), $show_deleted = 0, $join_type = '',
+                                   $return_array = false, $parentbean = null, $singleSelect = false, $ifListForExport = false)
+    {
+        //in popup case from module with account_id
+        if ($_REQUEST['action'] == 'Popup' && isset($_REQUEST['account_id']) && !empty($_REQUEST['account_id'])) {
+            return $this->create_list_filtered_by_account($_REQUEST['account_id'], $show_deleted, $order_by, $return_array);
+        } else {
+            return $this->create_basic_list_query($order_by, $where, $filter, $params, $show_deleted, $join_type,
+                $return_array, $parentbean, $singleSelect, $ifListForExport);
+        }
+
+    }
+
+    private function create_list_filtered_by_account($acc_id, $show_deleted, $order_by, $return_array)
+    {
+        $custom_join = $this->getCustomJoin();
+        $select_query = "SELECT ";
+        $select_query .= "
+            ppt_contacts.* ";
+
+        $select_query .= $custom_join['select'];
+        $ret_array['select'] = $select_query;
+
+        $from_query = "
+            FROM ppt_contacts ";
+
+        $from_query .= $custom_join['join'];
+
+        $ret_array['from'] = $from_query;
+        $ret_array['from_min'] = 'from ppt_contacts';
+
+        $where_auto = '1=1';
+
+        if ($show_deleted == 0) {
+            $where_auto = " ppt_contacts.deleted=0 ";
+            //$where_auto .= " AND accounts.deleted=0  ";
+        } else if ($show_deleted == 1) {
+            $where_auto = " ppt_contacts.deleted=1 ";
+        }
+
+        $where_query = "WHERE ppt_contacts.account_id='$acc_id' AND" . $where_auto;
+
+        $ret_array['where'] = $where_query;
+        $ret_array['order_by'] = '';
+
+        //process order by and add if it's not empty
+        $order_by = $this->process_order_by($order_by);
+        if (!empty($order_by)) {
+            $ret_array['order_by'] = ' ORDER BY ' . $order_by;
+        }
+
+        if ($return_array) {
+            return $ret_array;
+        }
+
+        return $ret_array['select'] . $ret_array['from'] . $ret_array['where'] . $ret_array['order_by'];
+    }
+
+    private function create_basic_list_query($order_by, $where, $filter = array(), $params = array(), $show_deleted = 0, $join_type = '',
+                                             $return_array = false, $parentbean = null, $singleSelect = false, $ifListForExport = false)
     {
         $custom_join = $this->getCustomJoin();
         $select_query = "SELECT ";
@@ -159,7 +218,7 @@ class PPT_Contact extends Basic
         $from_query = "
             FROM ppt_contacts ";
 
-        $from_query .=  "
+        $from_query .= "
             LEFT JOIN users
             ON ppt_contacts.assigned_user_id=users.id
             LEFT JOIN ppt_accounts
@@ -171,17 +230,17 @@ class PPT_Contact extends Basic
 
         $where_auto = '1=1';
 
-        if($show_deleted == 0) {
+        if ($show_deleted == 0) {
             $where_auto = " ppt_contacts.deleted=0 ";
             //$where_auto .= " AND accounts.deleted=0  ";
-        } else if($show_deleted == 1){
+        } else if ($show_deleted == 1) {
             $where_auto = " ppt_contacts.deleted=1 ";
         }
 
-        if($where != ""){
-            $where_query = "where ($where) AND ".$where_auto;
-        }else{
-            $where_query = "where ".$where_auto;
+        if ($where != "") {
+            $where_query = "where ($where) AND " . $where_auto;
+        } else {
+            $where_query = "where " . $where_auto;
         }
 
         $ret_array['where'] = $where_query;
@@ -193,17 +252,12 @@ class PPT_Contact extends Basic
             $ret_array['order_by'] = ' ORDER BY ' . $order_by;
         }
 
-        if($return_array)
-        {
+        if ($return_array) {
             return $ret_array;
         }
 
-        return $ret_array['select'] . $ret_array['from'] . $ret_array['where']. $ret_array['order_by'];
+        return $ret_array['select'] . $ret_array['from'] . $ret_array['where'] . $ret_array['order_by'];
 
-    }
-
-    function create_list_filtered_by_accout($acc_id) {
-        //TODO
     }
 
 

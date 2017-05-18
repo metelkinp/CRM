@@ -59,15 +59,19 @@ $viewdefs[$module_name]['EditView'] = array(
                     'label' => 'LBL_RATES_GROUP',
                 )
             ),
-            array('rates', ''),
-//            array('r_45kg',''),
-//            array('r_100kg',''),
-//            array('r_300kg',''),
-//            array('r_500kg',''),
-//            array('r_1000kg',''),
+            array('rates', 'rates_count'),
         ),
         'lbl_panel_other' => array(
-            array('contact_name', 'description'),
+            array(
+                array
+                (
+                    'name' => 'contact_name',
+                    'label' => 'LBL_CONTACT',
+                    'displayParams' => array(
+                        'initial_filter' => '&account_id={$fields.account_id.value}',
+                    ),
+                ),
+                'description'),
             array('assigned_user_name',''),
         ),
     ),

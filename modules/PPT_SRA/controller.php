@@ -1,9 +1,8 @@
 <?php
 
-
 require_once('include/MVC/Controller/SugarController.php');
 
-class PPT_ContractsController extends SugarController {
+class PPT_SRAController extends SugarController {
     function action_editview() {
 
         $this->view = 'edit';
@@ -13,6 +12,7 @@ class PPT_ContractsController extends SugarController {
         if (isset($_REQUEST['ppt_account_id'])) {
             $this->bean->account_id = $_REQUEST['ppt_account_id'];
             $this->bean->account_name = $_REQUEST['ppt_account_name'];
+
         }
 
         //incoming call from Contact (subpanel)

@@ -38,7 +38,7 @@ Rates = function () {
 
         $('.rates-body-row').each(function () {
             var label = $(this).find('input:first').val();
-            res[label] = $(this).find('input:last').val();
+            res[label] = Number($(this).find('input:last').val());
         });
 
         return res;
@@ -133,8 +133,10 @@ $(document).ready(function () {
         var saveButton = $('#SAVE');
         var fakeButton = $('<input title="Save" accesskey="a" class="button primary" value="Save" type="button">');
         fakeButton.click(function () {
-                var data = JSON.stringify(rates.save());
-                $('#rates').text(data);
+                var data = rates.save();
+                $('#rates').text(JSON.stringify(data));
+                var count = Object.keys(data).length;
+                $('#rates_count').val(count + ' levels');
 
                 saveButton.click();
             }

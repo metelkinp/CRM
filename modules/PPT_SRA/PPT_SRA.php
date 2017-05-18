@@ -79,11 +79,7 @@ class PPT_SRA extends Basic
     public $n_field;
 
     public $rates;
-//    public $r_45kg;
-//    public $r_100kg;
-//    public $r_300kg;
-//    public $r_500kg;
-//    public $r_1000kg;
+    public $rates_count;
 
     //related
     public $account_id;
@@ -102,6 +98,63 @@ class PPT_SRA extends Basic
 
         return false;
     }
+
+    public function create_new_list_query($order_by, $where, $filter = array(), $params = array(), $show_deleted = 0, $join_type = '', $return_array = false, $parentbean = null, $singleSelect = false, $ifListForExport = false)
+    {
+        $custom_join = $this->getCustomJoin();
+
+        $select_query = "SELECT ";
+        $select_query .= "
+            ppt_sra.*,
+            accounts.name AS account_name,
+            accounts.id AS account_id,
+            shippers.name AS shipper_name,
+            shippers.id AS shipper_id ";
+        $select_query .= $custom_join['select'];
+        $ret_array['select'] = $select_query;
+
+        $from_query = " FROM ppt_sra ";
+        $from_query .= "
+            LEFT JOIN ppt_accounts AS accounts ON ppt_sra.account_id=accounts.id AND accounts.deleted=0 ";
+        $from_query .= "
+            LEFT JOIN ppt_accounts AS shippers ON ppt_sra.shipper_id=shippers.id AND shippers.deleted=0 ";
+        $from_query .= $custom_join['join'];
+
+        $ret_array['from'] = $from_query;
+        $ret_array['from_min'] = 'from ppt_sra';
+
+        $where_auto = '1=1';
+
+        if ($show_deleted == 0) {
+            $where_auto = " ppt_sra.deleted=0 ";
+            //$where_auto .= " AND accounts.deleted=0  ";
+        } else if ($show_deleted == 1) {
+            $where_auto = " ppt_sra.deleted=1 ";
+        }
+
+        if ($where != "") {
+            $where_query = "where ($where) AND " . $where_auto;
+        } else {
+            $where_query = "where " . $where_auto;
+        }
+
+        $ret_array['where'] = $where_query;
+        $ret_array['order_by'] = '';
+
+        //process order by and add if it's not empty
+        $order_by = $this->process_order_by($order_by);
+        if (!empty($order_by)) {
+            $ret_array['order_by'] = ' ORDER BY ' . $order_by;
+        }
+
+        if ($return_array) {
+            return $ret_array;
+        }
+
+        return $ret_array['select'] . $ret_array['from'] . $ret_array['where'] . $ret_array['order_by'];
+
+    }
+
 
     public function save($check_notify = false)
     {
