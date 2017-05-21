@@ -451,7 +451,7 @@ $dictionary['PPT_Contact'] = array(
         ),
 
         'ppt_accounts' => array(
-            'name' => 'accounts',
+            'name' => 'ppt_accounts',
             'type' => 'link',
             'relationship' => 'account_contacts',
             'link_type' => 'one',

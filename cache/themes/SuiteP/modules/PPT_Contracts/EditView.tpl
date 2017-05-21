@@ -525,7 +525,7 @@ onclick='open_popup(
 "{$fields.contact_name.module}", 
 600, 
 400, 
-"&account_id={$fields.account_id.value}", 
+"&account_id=" + encodeURIComponent(document.getElementById("account_id").value) + "", 
 true, 
 false, 
 {literal}{"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"id":"contact_id","name":"contact_name"}}{/literal}, 

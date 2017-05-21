@@ -504,6 +504,36 @@
       'quicksearch' => 'enabled',
       'studio' => 'visible',
     ),
+    'ppt_accounts' => 
+    array (
+      'name' => 'ppt_accounts',
+      'type' => 'link',
+      'link_type' => 'one',
+      'relationship' => 'contract_accounts',
+      'source' => 'non-db',
+      'module' => 'PPT_Accounts',
+      'bean_name' => 'PPT_Account',
+    ),
+    'ppt_shippers' => 
+    array (
+      'name' => 'ppt_shippers',
+      'type' => 'link',
+      'link_type' => 'one',
+      'relationship' => 'contract_shippers',
+      'source' => 'non-db',
+      'module' => 'PPT_Accounts',
+      'bean_name' => 'PPT_Account',
+    ),
+    'ppt_contacts' => 
+    array (
+      'name' => 'ppt_contacts',
+      'type' => 'link',
+      'link_type' => 'one',
+      'relationship' => 'contact_contracts',
+      'source' => 'non-db',
+      'module' => 'PPT_Contacts',
+      'bean_name' => 'PPT_Contact',
+    ),
   ),
   'indices' => 
   array (

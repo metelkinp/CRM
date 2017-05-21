@@ -1,5 +1,5 @@
 <?php
-// created: 2017-05-18 14:59:07
+// created: 2017-05-21 10:20:47
 $mod_strings = array (
   'LBL_RE' => 'RE:',
   'ERR_BAD_LOGIN_PASSWORD' => 'Login or Password Incorrect',

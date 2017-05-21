@@ -68,7 +68,7 @@ $viewdefs[$module_name]['EditView'] = array(
                     'name' => 'contact_name',
                     'label' => 'LBL_CONTACT',
                     'displayParams' => array(
-                        'initial_filter' => '&account_id={$fields.account_id.value}',
+                        'initial_filter' => '&account_id=" + encodeURIComponent(document.getElementById("account_id").value) + "',
                     ),
                 ),
                 'description'),

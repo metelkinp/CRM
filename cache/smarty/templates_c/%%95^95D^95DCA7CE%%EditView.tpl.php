@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.29, created on 2017-05-18 16:31:08
+<?php /* Smarty version 2.6.29, created on 2017-05-21 10:21:42
          compiled from cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 47, false),array('modifier', 'strip_semicolon', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 139, false),array('modifier', 'lookup', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 177, false),array('modifier', 'count', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 279, false),array('modifier', 'default', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 1962, false),array('function', 'sugar_include', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 63, false),array('function', 'sugar_translate', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 71, false),array('function', 'counter', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 144, false),array('function', 'html_options', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 152, false),array('function', 'sugar_getimagepath', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 180, false),array('function', 'sugar_getimage', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 1951, false),array('function', 'sugar_getscript', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 2386, false),)), $this); ?>
@@ -796,8 +796,7 @@ onclick='open_popup(
 ", 
 600, 
 400, 
-"&account_id=<?php echo $this->_tpl_vars['fields']['account_id']['value']; ?>
-", 
+"&account_id=" + encodeURIComponent(document.getElementById("account_id").value) + "", 
 true, 
 false, 
 <?php echo '{"call_back_function":"set_return","form_name":"EditView","field_to_name_array":{"id":"contact_id","name":"contact_name"}}'; ?>
