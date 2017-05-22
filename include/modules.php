@@ -486,6 +486,10 @@ $beanList['PPT_Contracts'] = 'PPT_Contract';
 $beanFiles['PPT_Contract'] = 'modules/PPT_Contracts/PPT_Contract.php';
 $moduleList[] = 'PPT_Contracts';
 
+$beanList['PPT_SPQ'] = 'PPT_SPQ';
+$beanFiles['PPT_SPQ'] = 'modules/PPT_SPQ/PPT_SPQ.php';
+$moduleList[] = 'PPT_SPQ';
+
 if (file_exists('include/modules_override.php')) {
     include 'include/modules_override.php';
 }

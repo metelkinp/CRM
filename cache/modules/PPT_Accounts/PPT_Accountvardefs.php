@@ -881,6 +881,15 @@
       'bean_name' => 'PPT_SRA',
       'source' => 'non-db',
     ),
+    'ppt_spq' => 
+    array (
+      'name' => 'ppt_spq',
+      'type' => 'link',
+      'relationship' => 'spq_accounts',
+      'module' => 'PPT_SPQ',
+      'bean_name' => 'PPT_SPQ',
+      'source' => 'non-db',
+    ),
   ),
   'indices' => 
   array (

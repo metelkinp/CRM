@@ -1,5 +1,5 @@
 <?php
-// created: 2017-05-22 09:51:59
+// created: 2017-05-22 16:29:24
 $mod_strings = array (
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Date Created',
@@ -56,6 +56,7 @@ $mod_strings = array (
   'LBL_PANEL_ADDRESS_PERSONAL' => 'Personal Address',
   'LBL_SUBPANEL_CONTRACTS' => 'Contracts',
   'LBL_SUBPANEL_SRA' => 'SRA',
+  'LBL_SUBPANEL_SPQ' => 'Spot Quotes',
   'LBL_LIST_FORM_TITLE' => 'Contacts List',
   'LBL_MODULE_NAME' => 'Contacts',
   'LBL_MODULE_TITLE' => 'Contacts',

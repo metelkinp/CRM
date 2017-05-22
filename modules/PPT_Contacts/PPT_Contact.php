@@ -106,6 +106,7 @@ class PPT_Contact extends Basic
     public $account_name;
     public $ppt_contract_id;
     public $ppt_sra_id;
+    public $ppt_spq_id;
 
     public $additional_column_fields = Array(
         'assigned_user_name',
@@ -113,12 +114,14 @@ class PPT_Contact extends Basic
         'account_id',
         'ppt_contract_id',
         'ppt_sra_id',
+        'ppt_spq_id',
     );
 
     public $relationship_fields = Array(
         'account_id' => 'ppt_accounts',
         'ppt_contract_id' => 'ppt_contracts',
-        'ppt_sra_id' => 'ppt_sra'
+        'ppt_sra_id' => 'ppt_sra',
+        'ppt_spq_id' => 'ppt_spq',
     );
 
     public function bean_implements($interface)

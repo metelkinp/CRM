@@ -98,7 +98,7 @@ $mod_strings = array (
 
     'LBL_SUBPANEL_CONTRACTS' => 'Contracts',
     'LBL_SUBPANEL_SRA' => 'SRA',
-
+    'LBL_SUBPANEL_SPQ' => 'Spot Quotes',
 
   'LBL_LIST_FORM_TITLE' => 'Contacts List',
   'LBL_MODULE_NAME' => 'Contacts',

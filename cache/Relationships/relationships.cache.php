@@ -13597,6 +13597,17 @@
     'rhs_key' => 'contact_id',
     'relationship_type' => 'one-to-many',
   ),
+  'contact_spq' => 
+  array (
+    'name' => 'contact_spq',
+    'lhs_module' => 'PPT_Contacts',
+    'lhs_table' => 'ppt_contacts',
+    'lhs_key' => 'id',
+    'rhs_module' => 'PPT_SPQ',
+    'rhs_table' => 'ppt_spq',
+    'rhs_key' => 'contact_id',
+    'relationship_type' => 'one-to-many',
+  ),
   'contact_contracts' => 
   array (
     'name' => 'contact_contracts',
@@ -13850,6 +13861,61 @@
   'contract_shippers' => 
   array (
     'name' => 'contract_shippers',
+    'lhs_module' => 'PPT_Accounts',
+    'lhs_table' => 'ppt_accounts',
+    'lhs_key' => 'id',
+    'rhs_module' => 'PPT_Contracts',
+    'rhs_table' => 'ppt_contracts',
+    'rhs_key' => 'shipper_id',
+    'relationship_type' => 'one-to-many',
+  ),
+  'ppt_spq_modified_user' => 
+  array (
+    'name' => 'ppt_spq_modified_user',
+    'lhs_module' => 'Users',
+    'lhs_table' => 'users',
+    'lhs_key' => 'id',
+    'rhs_module' => 'PPT_SPQ',
+    'rhs_table' => 'ppt_spq',
+    'rhs_key' => 'modified_user_id',
+    'relationship_type' => 'one-to-many',
+  ),
+  'ppt_spq_created_by' => 
+  array (
+    'name' => 'ppt_spq_created_by',
+    'lhs_module' => 'Users',
+    'lhs_table' => 'users',
+    'lhs_key' => 'id',
+    'rhs_module' => 'PPT_SPQ',
+    'rhs_table' => 'ppt_spq',
+    'rhs_key' => 'created_by',
+    'relationship_type' => 'one-to-many',
+  ),
+  'ppt_spq_assigned_user' => 
+  array (
+    'name' => 'ppt_spq_assigned_user',
+    'lhs_module' => 'Users',
+    'lhs_table' => 'users',
+    'lhs_key' => 'id',
+    'rhs_module' => 'PPT_SPQ',
+    'rhs_table' => 'ppt_spq',
+    'rhs_key' => 'assigned_user_id',
+    'relationship_type' => 'one-to-many',
+  ),
+  'spq_accounts' => 
+  array (
+    'name' => 'spq_accounts',
+    'lhs_module' => 'PPT_Accounts',
+    'lhs_table' => 'ppt_accounts',
+    'lhs_key' => 'id',
+    'rhs_module' => 'PPT_Contracts',
+    'rhs_table' => 'ppt_contracts',
+    'rhs_key' => 'account_id',
+    'relationship_type' => 'one-to-many',
+  ),
+  'spq_shippers' => 
+  array (
+    'name' => 'spq_shippers',
     'lhs_module' => 'PPT_Accounts',
     'lhs_table' => 'ppt_accounts',
     'lhs_key' => 'id',

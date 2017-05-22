@@ -33,5 +33,21 @@ $layout_defs['PPT_Contacts'] = array(
                 ),
             ),
         ),
+
+        'ppt_spq' => array(
+            'order' => '150',
+            'module' => 'PPT_SPQ',
+            'sort_order' => 'desc',
+            'sort_by' => 'date_modified',
+            'subpanel_name' => 'ForAccount',
+            'get_subpanel_data' => 'ppt_spq',
+            'add_subpanel_data' => 'ppt_spq_id',
+            'title_key' => 'LBL_SUBPANEL_SPQ',
+            'top_buttons' => array(
+                array(
+                    'widget_class' => 'SubPanelTopCreateButton',
+                ),
+            ),
+        ),
     ),
 );

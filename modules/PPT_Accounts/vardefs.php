@@ -706,8 +706,14 @@ $dictionary['PPT_Account'] = array(
             'bean_name' => 'PPT_SRA',
             'source' => 'non-db',
         ),
-
-
+        'ppt_spq' => array(
+            'name' => 'ppt_spq',
+            'type' => 'link',
+            'relationship' => 'spq_accounts',
+            'module' => 'PPT_SPQ',
+            'bean_name' => 'PPT_SPQ',
+            'source' => 'non-db',
+        ),
     ),
     'indices' => array(
         array(
@@ -727,24 +733,6 @@ $dictionary['PPT_Account'] = array(
         ),
     ),
     'relationships' => array(
-       ////        strtolower($module)."_spq" => array(
-////            'lhs_module' => $module,
-////            'lhs_table' => $table_name,
-////            'lhs_key' => 'id',
-////            'rhs_module' => 'myppt_SPQ',
-////            'rhs_table' => 'myppt_spq',
-////            'rhs_key' => 'agent_id',
-////            'relationship_type' => 'one-to-many',
-////        ),
-////        strtolower($module)."_pa" => array(
-////            'lhs_module' => $module,
-////            'lhs_table' => $table_name,
-////            'lhs_key' => 'id',
-////            'rhs_module' => 'myppt_PA',
-////            'rhs_table' => 'myppt_pa',
-////            'rhs_key' => 'agent_id',
-////            'relationship_type' => 'one-to-many',
-////        ),
         'account_contacts' => array(
             'lhs_module' => 'PPT_Accounts',
             'lhs_table' => 'ppt_accounts',
@@ -754,15 +742,6 @@ $dictionary['PPT_Account'] = array(
             'rhs_key' => 'account_id',
             'relationship_type' => 'one-to-many',
         ),
-////        strtolower($module)."_contracts" => array(
-////            'lhs_module' => $module,
-////            'lhs_table' => $table_name,
-////            'lhs_key' => 'id',
-////            'rhs_module' => 'myppt_Contracts',
-////            'rhs_table' => 'myppt_contracts',
-////            'rhs_key' => 'account_id',
-////            'relationship_type' => 'one-to-many',
-////        ),
     ),
     'optimistic_locking' => true,
     'unified_search' => true,

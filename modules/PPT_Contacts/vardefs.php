@@ -477,7 +477,16 @@ $dictionary['PPT_Contact'] = array(
             'bean_name' => 'PPT_SRA',
         ),
 
-),
+        'ppt_spq' => array(
+            'name' => 'ppt_spq',
+            'type' => 'link',
+            'relationship' => 'contact_spq',
+            'source' => 'non-db',
+            'module' => 'PPT_SPQ',
+            'bean_name' => 'PPT_SPQ',
+        ),
+
+    ),
     'indices' => array(
         array(
             'name' => 'idx_name',
@@ -502,6 +511,15 @@ $dictionary['PPT_Contact'] = array(
             'lhs_key' => 'id',
             'rhs_module' => 'PPT_SRA',
             'rhs_table' => 'ppt_sra',
+            'rhs_key' => 'contact_id',
+            'relationship_type' => 'one-to-many',
+        ),
+        'contact_spq' => array(
+            'lhs_module' => 'PPT_Contacts',
+            'lhs_table' => 'ppt_contacts',
+            'lhs_key' => 'id',
+            'rhs_module' => 'PPT_SPQ',
+            'rhs_table' => 'ppt_spq',
             'rhs_key' => 'contact_id',
             'relationship_type' => 'one-to-many',
         ),
