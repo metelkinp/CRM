@@ -46,17 +46,17 @@ function pptSetup()
 
         );
 
-        $file = fopen('include/language/en_us.lang.ppt.php','w');
+        $file = fopen('include/language/en_us.lang.ppt.php', 'w');
         $str = "<?php \r\n";
 
         foreach ($db_defs as $k => $v) {
             if (isset($k)) {
 
-                $str .= '$app_list_strings[\''. $k . '\'] = array(';
+                $str .= '$app_list_strings[\'' . $k . '\'] = array(';
 
                 $field = $v['field'];
 
-                $sql = "SELECT DISTINCT ". $field . " FROM " . $v['table'];
+                $sql = "SELECT DISTINCT " . $field . " FROM " . $v['table'];
                 $result = $db->query($sql);
 
                 while (($row = $db->fetchRow($result)) != null) {
@@ -91,6 +91,48 @@ function pptSetup()
 
         $GLOBALS['ppt_domains'] = true;
 
+        //User management bug fix
+        global $ACLActions;
+
+        $modules = array(
+            'PPT_Accounts',
+            'PPT_Contacts',
+            'PPT_Contracts',
+            'PPT_SRA'
+        );
+
+        foreach ($ACLActions['module']['actions'] as $action_name => $action_def) {
+            $type = 'module';
+
+            foreach ($modules as $module) {
+                $query = "SELECT * FROM acl_actions WHERE name='$action_name' AND category = '$module' AND acltype='$type' AND deleted=0 ";
+                $result = $db->query($query);
+                //only add if an action with that name and category don't exist
+                $row=$db->fetchByAssoc($result);
+
+                if ($row == null) {
+                    $ac_id = create_guid();
+                    $ac_date = $GLOBALS['timedate']->nowDb();
+                    $ac_access = $action_def['default'];
+
+                    $query = "INSERT INTO acl_actions (id, date_entered, date_modified, modified_user_id, created_by, name, category, acltype, aclaccess, deleted)" .
+                        " VALUES('$ac_id', '$ac_date', '$ac_date', 1, 1, '$action_name', '$module', '$type', '$ac_access', 0)";
+
+                    $db->query($query);
+                }
+            }
+//
+//            $action = new ACLAction();
+//            $action->name = $action_name;
+//            $action->category = 'PPT_Contacts';
+//            $action->aclaccess = $action_def['default'];
+//            $action->acltype = 'module';
+//            $action->modified_user_id = 1;
+//            $action->created_by = 1;
+//            $action->save();
+        }
     }
 
-};
+}
+
+;

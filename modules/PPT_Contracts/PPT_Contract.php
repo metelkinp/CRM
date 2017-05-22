@@ -9,6 +9,8 @@ class PPT_Contract extends Basic
     public $object_name = 'PPT_Contract';
     public $table_name = 'ppt_contracts';
     public $importable = true;
+    public $acltype = 'module';
+    public $acl_category = 'PPT_Contracts';
 
     public $id;
     public $name;
@@ -20,6 +22,12 @@ class PPT_Contract extends Basic
     public $created_by_name;
     public $deleted;
     public $description;
+    public $created_by_link;
+    public $modified_user_link;
+    public $assigned_user_id;
+    public $assigned_user_name;
+    public $assigned_user_link;
+    public $SecurityGroups;
 
     public $number;
     public $service;
@@ -154,7 +162,15 @@ class PPT_Contract extends Basic
         return $ret_array['select'] . $ret_array['from'] . $ret_array['where'] . $ret_array['order_by'];
     }
 
+    public function getObjectName()
+    {
+        return parent::getObjectName();
+    }
 
+    public function getACLCategory()
+    {
+        return parent::getACLCategory();
+    }
 
     public function save($check_notify = false)
     {

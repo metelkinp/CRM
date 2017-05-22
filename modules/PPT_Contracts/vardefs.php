@@ -363,4 +363,4 @@ $dictionary['PPT_Contract'] = array(
 if (!class_exists('VardefManager')) {
     require_once('include/SugarObjects/VardefManager.php');
 }
-VardefManager::createVardef('PPT_Contracts', 'PPT_Contract', array('basic', 'assignable', 'security_groups',));
+VardefManager::createVardef('PPT_Contracts', 'PPT_Contract', array('acl', 'assignable', 'security_groups', 'basic'));

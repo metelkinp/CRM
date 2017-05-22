@@ -209,18 +209,19 @@ class PPT_Contact extends Basic
         $select_query .= "
             ppt_contacts.*,
             ppt_accounts.name as account_name,
-            ppt_accounts.id as account_id,
-            ppt_accounts.assigned_user_id account_id_owner,
-            users.user_name as assigned_user_name ";
+            ppt_accounts.id as account_id ";
+//            ppt_accounts.assigned_user_id account_id_owner,
+//            users.user_name as assigned_user_name ";
         $select_query .= $custom_join['select'];
         $ret_array['select'] = $select_query;
 
         $from_query = "
             FROM ppt_contacts ";
 
+//        $from_query .= "
+//            LEFT JOIN users
+//            ON ppt_contacts.assigned_user_id=users.id
         $from_query .= "
-            LEFT JOIN users
-            ON ppt_contacts.assigned_user_id=users.id
             LEFT JOIN ppt_accounts
             ON ppt_contacts.account_id=ppt_accounts.id AND ppt_accounts.deleted=0 ";
         $from_query .= $custom_join['join'];

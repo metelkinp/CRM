@@ -6,6 +6,62 @@
   'duplicate_merge' => 'disabled',
   'fields' => 
   array (
+    'assigned_user_id' => 
+    array (
+      'name' => 'assigned_user_id',
+      'rname' => 'user_name',
+      'id_name' => 'assigned_user_id',
+      'vname' => 'LBL_ASSIGNED_TO_ID',
+      'group' => 'assigned_user_name',
+      'type' => 'relate',
+      'table' => 'users',
+      'module' => 'Users',
+      'reportable' => true,
+      'isnull' => 'false',
+      'dbType' => 'id',
+      'audited' => true,
+      'comment' => 'User ID assigned to record',
+      'duplicate_merge' => 'disabled',
+    ),
+    'assigned_user_name' => 
+    array (
+      'name' => 'assigned_user_name',
+      'link' => 'assigned_user_link',
+      'vname' => 'LBL_ASSIGNED_TO_NAME',
+      'rname' => 'user_name',
+      'type' => 'relate',
+      'reportable' => false,
+      'source' => 'non-db',
+      'table' => 'users',
+      'id_name' => 'assigned_user_id',
+      'module' => 'Users',
+      'duplicate_merge' => 'disabled',
+    ),
+    'assigned_user_link' => 
+    array (
+      'name' => 'assigned_user_link',
+      'type' => 'link',
+      'relationship' => 'ppt_contracts_assigned_user',
+      'vname' => 'LBL_ASSIGNED_TO_USER',
+      'link_type' => 'one',
+      'module' => 'Users',
+      'bean_name' => 'User',
+      'source' => 'non-db',
+      'duplicate_merge' => 'enabled',
+      'rname' => 'user_name',
+      'id_name' => 'assigned_user_id',
+      'table' => 'users',
+    ),
+    'SecurityGroups' => 
+    array (
+      'name' => 'SecurityGroups',
+      'type' => 'link',
+      'relationship' => 'securitygroups_ppt_contracts',
+      'module' => 'SecurityGroups',
+      'bean_name' => 'SecurityGroup',
+      'source' => 'non-db',
+      'vname' => 'LBL_SECURITYGROUPS',
+    ),
     'id' => 
     array (
       'name' => 'id',
@@ -159,62 +215,6 @@
       'module' => 'Users',
       'bean_name' => 'User',
       'source' => 'non-db',
-    ),
-    'assigned_user_id' => 
-    array (
-      'name' => 'assigned_user_id',
-      'rname' => 'user_name',
-      'id_name' => 'assigned_user_id',
-      'vname' => 'LBL_ASSIGNED_TO_ID',
-      'group' => 'assigned_user_name',
-      'type' => 'relate',
-      'table' => 'users',
-      'module' => 'Users',
-      'reportable' => true,
-      'isnull' => 'false',
-      'dbType' => 'id',
-      'audited' => true,
-      'comment' => 'User ID assigned to record',
-      'duplicate_merge' => 'disabled',
-    ),
-    'assigned_user_name' => 
-    array (
-      'name' => 'assigned_user_name',
-      'link' => 'assigned_user_link',
-      'vname' => 'LBL_ASSIGNED_TO_NAME',
-      'rname' => 'user_name',
-      'type' => 'relate',
-      'reportable' => false,
-      'source' => 'non-db',
-      'table' => 'users',
-      'id_name' => 'assigned_user_id',
-      'module' => 'Users',
-      'duplicate_merge' => 'disabled',
-    ),
-    'assigned_user_link' => 
-    array (
-      'name' => 'assigned_user_link',
-      'type' => 'link',
-      'relationship' => 'ppt_contracts_assigned_user',
-      'vname' => 'LBL_ASSIGNED_TO_USER',
-      'link_type' => 'one',
-      'module' => 'Users',
-      'bean_name' => 'User',
-      'source' => 'non-db',
-      'duplicate_merge' => 'enabled',
-      'rname' => 'user_name',
-      'id_name' => 'assigned_user_id',
-      'table' => 'users',
-    ),
-    'SecurityGroups' => 
-    array (
-      'name' => 'SecurityGroups',
-      'type' => 'link',
-      'relationship' => 'securitygroups_ppt_contracts',
-      'module' => 'SecurityGroups',
-      'bean_name' => 'SecurityGroup',
-      'source' => 'non-db',
-      'vname' => 'LBL_SECURITYGROUPS',
     ),
     'number' => 
     array (
@@ -594,26 +594,6 @@
   ),
   'relationships' => 
   array (
-    'ppt_contracts_modified_user' => 
-    array (
-      'lhs_module' => 'Users',
-      'lhs_table' => 'users',
-      'lhs_key' => 'id',
-      'rhs_module' => 'PPT_Contracts',
-      'rhs_table' => 'ppt_contracts',
-      'rhs_key' => 'modified_user_id',
-      'relationship_type' => 'one-to-many',
-    ),
-    'ppt_contracts_created_by' => 
-    array (
-      'lhs_module' => 'Users',
-      'lhs_table' => 'users',
-      'lhs_key' => 'id',
-      'rhs_module' => 'PPT_Contracts',
-      'rhs_table' => 'ppt_contracts',
-      'rhs_key' => 'created_by',
-      'relationship_type' => 'one-to-many',
-    ),
     'ppt_contracts_assigned_user' => 
     array (
       'lhs_module' => 'Users',
@@ -638,6 +618,26 @@
       'join_key_rhs' => 'record_id',
       'relationship_role_column' => 'module',
       'relationship_role_column_value' => 'PPT_Contracts',
+    ),
+    'ppt_contracts_modified_user' => 
+    array (
+      'lhs_module' => 'Users',
+      'lhs_table' => 'users',
+      'lhs_key' => 'id',
+      'rhs_module' => 'PPT_Contracts',
+      'rhs_table' => 'ppt_contracts',
+      'rhs_key' => 'modified_user_id',
+      'relationship_type' => 'one-to-many',
+    ),
+    'ppt_contracts_created_by' => 
+    array (
+      'lhs_module' => 'Users',
+      'lhs_table' => 'users',
+      'lhs_key' => 'id',
+      'rhs_module' => 'PPT_Contracts',
+      'rhs_table' => 'ppt_contracts',
+      'rhs_key' => 'created_by',
+      'relationship_type' => 'one-to-many',
     ),
     'contract_accounts' => 
     array (
@@ -664,9 +664,9 @@
   'unified_search' => true,
   'templates' => 
   array (
+    'basic' => 'basic',
     'security_groups' => 'security_groups',
     'assignable' => 'assignable',
-    'basic' => 'basic',
   ),
   'custom_fields' => false,
 );

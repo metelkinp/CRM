@@ -46,10 +46,10 @@ global $current_user,$beanList, $beanFiles, $mod_strings;
 $installed_classes = array();
 $ACLbeanList=$beanList;
 
-
-
 if(is_admin($current_user)){
     foreach($ACLbeanList as $module=>$class){
+
+       //$str .= ($class . "\r\n");
 
         if(empty($installed_classes[$class]) && isset($beanFiles[$class]) && file_exists($beanFiles[$class])){
             if($class == 'Tracker'){
@@ -73,7 +73,6 @@ if(is_admin($current_user)){
             }
         }
     }
-
 
 }
 ?>

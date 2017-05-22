@@ -2452,7 +2452,9 @@ $(document).ready(function() {ldelim}
     </script>
 {/literal}{literal}
 <script type="text/javascript">
-addForm('EditView');addToValidate('EditView', 'name', 'name', true,'{/literal}{sugar_translate label='LBL_NAME' module='PPT_Contracts' for_js=true}{literal}' );
+addForm('EditView');addToValidate('EditView', 'assigned_user_id', 'relate', false,'{/literal}{sugar_translate label='LBL_ASSIGNED_TO_ID' module='PPT_Contracts' for_js=true}{literal}' );
+addToValidate('EditView', 'assigned_user_name', 'relate', false,'{/literal}{sugar_translate label='LBL_ASSIGNED_TO_NAME' module='PPT_Contracts' for_js=true}{literal}' );
+addToValidate('EditView', 'name', 'name', true,'{/literal}{sugar_translate label='LBL_NAME' module='PPT_Contracts' for_js=true}{literal}' );
 addToValidate('EditView', 'date_entered_date', 'date', false,'Date Created' );
 addToValidate('EditView', 'date_modified_date', 'date', false,'Date Modified' );
 addToValidate('EditView', 'modified_user_id', 'assigned_user_name', false,'{/literal}{sugar_translate label='LBL_MODIFIED' module='PPT_Contracts' for_js=true}{literal}' );
@@ -2461,8 +2463,6 @@ addToValidate('EditView', 'created_by', 'assigned_user_name', false,'{/literal}{
 addToValidate('EditView', 'created_by_name', 'relate', false,'{/literal}{sugar_translate label='LBL_CREATED' module='PPT_Contracts' for_js=true}{literal}' );
 addToValidate('EditView', 'description', 'text', false,'{/literal}{sugar_translate label='LBL_DESCRIPTION' module='PPT_Contracts' for_js=true}{literal}' );
 addToValidate('EditView', 'deleted', 'bool', false,'{/literal}{sugar_translate label='LBL_DELETED' module='PPT_Contracts' for_js=true}{literal}' );
-addToValidate('EditView', 'assigned_user_id', 'relate', false,'{/literal}{sugar_translate label='LBL_ASSIGNED_TO_ID' module='PPT_Contracts' for_js=true}{literal}' );
-addToValidate('EditView', 'assigned_user_name', 'relate', false,'{/literal}{sugar_translate label='LBL_ASSIGNED_TO_NAME' module='PPT_Contracts' for_js=true}{literal}' );
 addToValidate('EditView', 'number', 'int', false,'{/literal}{sugar_translate label='LBL_NUMBER' module='PPT_Contracts' for_js=true}{literal}' );
 addToValidate('EditView', 'origin', 'enum', true,'{/literal}{sugar_translate label='LBL_ORIGIN' module='PPT_Contracts' for_js=true}{literal}' );
 addToValidate('EditView', 'dest', 'enum', true,'{/literal}{sugar_translate label='LBL_DEST' module='PPT_Contracts' for_js=true}{literal}' );

@@ -13733,28 +13733,6 @@
     'rhs_key' => 'shipper_id',
     'relationship_type' => 'one-to-many',
   ),
-  'ppt_contracts_modified_user' => 
-  array (
-    'name' => 'ppt_contracts_modified_user',
-    'lhs_module' => 'Users',
-    'lhs_table' => 'users',
-    'lhs_key' => 'id',
-    'rhs_module' => 'PPT_Contracts',
-    'rhs_table' => 'ppt_contracts',
-    'rhs_key' => 'modified_user_id',
-    'relationship_type' => 'one-to-many',
-  ),
-  'ppt_contracts_created_by' => 
-  array (
-    'name' => 'ppt_contracts_created_by',
-    'lhs_module' => 'Users',
-    'lhs_table' => 'users',
-    'lhs_key' => 'id',
-    'rhs_module' => 'PPT_Contracts',
-    'rhs_table' => 'ppt_contracts',
-    'rhs_key' => 'created_by',
-    'relationship_type' => 'one-to-many',
-  ),
   'ppt_contracts_assigned_user' => 
   array (
     'name' => 'ppt_contracts_assigned_user',
@@ -13835,6 +13813,28 @@
         'default' => '0',
       ),
     ),
+  ),
+  'ppt_contracts_modified_user' => 
+  array (
+    'name' => 'ppt_contracts_modified_user',
+    'lhs_module' => 'Users',
+    'lhs_table' => 'users',
+    'lhs_key' => 'id',
+    'rhs_module' => 'PPT_Contracts',
+    'rhs_table' => 'ppt_contracts',
+    'rhs_key' => 'modified_user_id',
+    'relationship_type' => 'one-to-many',
+  ),
+  'ppt_contracts_created_by' => 
+  array (
+    'name' => 'ppt_contracts_created_by',
+    'lhs_module' => 'Users',
+    'lhs_table' => 'users',
+    'lhs_key' => 'id',
+    'rhs_module' => 'PPT_Contracts',
+    'rhs_table' => 'ppt_contracts',
+    'rhs_key' => 'created_by',
+    'relationship_type' => 'one-to-many',
   ),
   'contract_accounts' => 
   array (

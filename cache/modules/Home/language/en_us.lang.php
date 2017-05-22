@@ -1,5 +1,5 @@
 <?php
-// created: 2017-05-21 10:20:57
+// created: 2017-05-22 09:52:06
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'Home',
   'LBL_MODULES_TO_SEARCH' => 'Modules to Search',

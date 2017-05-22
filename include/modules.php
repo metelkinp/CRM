@@ -480,6 +480,7 @@ $moduleList[] = 'PPT_Contacts';
 $beanList['PPT_SRA'] = 'PPT_SRA';
 $beanFiles['PPT_SRA'] = 'modules/PPT_SRA/PPT_SRA.php';
 $moduleList[] = 'PPT_SRA';
+$modules_exempt_from_availability_check['PPT_SRA'] = 'PPT_SRA';
 
 $beanList['PPT_Contracts'] = 'PPT_Contract';
 $beanFiles['PPT_Contract'] = 'modules/PPT_Contracts/PPT_Contract.php';

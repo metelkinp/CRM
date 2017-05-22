@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.29, created on 2017-05-21 10:21:42
+<?php /* Smarty version 2.6.29, created on 2017-05-22 10:31:45
          compiled from cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 47, false),array('modifier', 'strip_semicolon', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 139, false),array('modifier', 'lookup', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 177, false),array('modifier', 'count', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 279, false),array('modifier', 'default', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 1962, false),array('function', 'sugar_include', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 63, false),array('function', 'sugar_translate', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 71, false),array('function', 'counter', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 144, false),array('function', 'html_options', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 152, false),array('function', 'sugar_getimagepath', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 180, false),array('function', 'sugar_getimage', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 1951, false),array('function', 'sugar_getscript', 'cache/themes/SuiteP/modules/PPT_Contracts/EditView.tpl', 2386, false),)), $this); ?>
@@ -3586,7 +3586,13 @@ $(document).ready(function() {
 '; ?>
 <?php echo '
 <script type="text/javascript">
-addForm(\'EditView\');addToValidate(\'EditView\', \'name\', \'name\', true,\''; ?>
+addForm(\'EditView\');addToValidate(\'EditView\', \'assigned_user_id\', \'relate\', false,\''; ?>
+<?php echo smarty_function_sugar_translate(array('label' => 'LBL_ASSIGNED_TO_ID','module' => 'PPT_Contracts','for_js' => true), $this);?>
+<?php echo '\' );
+addToValidate(\'EditView\', \'assigned_user_name\', \'relate\', false,\''; ?>
+<?php echo smarty_function_sugar_translate(array('label' => 'LBL_ASSIGNED_TO_NAME','module' => 'PPT_Contracts','for_js' => true), $this);?>
+<?php echo '\' );
+addToValidate(\'EditView\', \'name\', \'name\', true,\''; ?>
 <?php echo smarty_function_sugar_translate(array('label' => 'LBL_NAME','module' => 'PPT_Contracts','for_js' => true), $this);?>
 <?php echo '\' );
 addToValidate(\'EditView\', \'date_entered_date\', \'date\', false,\'Date Created\' );
@@ -3608,12 +3614,6 @@ addToValidate(\'EditView\', \'description\', \'text\', false,\''; ?>
 <?php echo '\' );
 addToValidate(\'EditView\', \'deleted\', \'bool\', false,\''; ?>
 <?php echo smarty_function_sugar_translate(array('label' => 'LBL_DELETED','module' => 'PPT_Contracts','for_js' => true), $this);?>
-<?php echo '\' );
-addToValidate(\'EditView\', \'assigned_user_id\', \'relate\', false,\''; ?>
-<?php echo smarty_function_sugar_translate(array('label' => 'LBL_ASSIGNED_TO_ID','module' => 'PPT_Contracts','for_js' => true), $this);?>
-<?php echo '\' );
-addToValidate(\'EditView\', \'assigned_user_name\', \'relate\', false,\''; ?>
-<?php echo smarty_function_sugar_translate(array('label' => 'LBL_ASSIGNED_TO_NAME','module' => 'PPT_Contracts','for_js' => true), $this);?>
 <?php echo '\' );
 addToValidate(\'EditView\', \'number\', \'int\', false,\''; ?>
 <?php echo smarty_function_sugar_translate(array('label' => 'LBL_NUMBER','module' => 'PPT_Contracts','for_js' => true), $this);?>
