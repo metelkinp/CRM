@@ -30,17 +30,17 @@ $viewdefs[$module_name]['DetailView'] = array(
 
     'panels' => array(
         'lbl_panel_main' => array(
-            array('air_waybill', 'account_name'),
-            array('', 'shipper_name'),
+            array('air_waybill', ''),
+            array('account_name', 'shipper_name'),
 
-            array('origin', 'dest'),
-            array('service', 'product'),
-            array('', 'nature_of_goods'),
+            array('origin', 'service'),
+            array('dest', 'product'),
+            array('nature_of_goods', ''),
             array('c_weight', 'rate'),
             array(
                 array(
                     'name' => 'flags_group',
-                    'customCode' => '{include file="modules/PPT_SPQ/tpls/flagsGroup.tpl"}',
+                    'customCode' => '{include file="modules/PPT_SPQ/tpls/flagsGroupDetails.tpl"}',
                     'label' => 'LBL_FLAGS_GROUP',
                 ),
                 ''
