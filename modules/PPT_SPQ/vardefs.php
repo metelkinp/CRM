@@ -120,7 +120,6 @@ $dictionary['PPT_SPQ'] = array(
             'type' => 'enum',
             'options' => 'ppt-nature-of-goods-dom',
             'len' => 255,
-            'required' => true,
             'massupdate' => 0,
             'reportable' => true,
         ),

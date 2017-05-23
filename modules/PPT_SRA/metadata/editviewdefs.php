@@ -38,8 +38,8 @@ $viewdefs[$module_name]['EditView'] = array(
     'panels' => array(
         'lbl_panel_main' => array(
             array('account_name', 'shipper_name'),
-            array('origin', 'dest'),
-            array('service', 'product'),
+            array('origin', 'service'),
+            array('dest', 'product'),
             array('issue', 'valid_from'),
             array(
                 0 => array(),

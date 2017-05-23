@@ -58,8 +58,8 @@ $viewdefs[$module_name]['EditView'] = array(
                     ),
                 )
             ),
-            array('origin', 'dest'),
-            array('service', 'product'),
+            array('origin', 'service'),
+            array('dest', 'product'),
             array('scc', 'iata_code'),
             array('shipping_date', 'arrival_date'),
         ),

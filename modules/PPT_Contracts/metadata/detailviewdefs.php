@@ -46,8 +46,8 @@ $viewdefs[$module_name]['DetailView'] = array(
         'lbl_panel_main' => array(
             array('status','account_name'),
             array('shipper_name', 'contact_name'),
-            array('origin', 'dest'),
-            array('service', 'product'),
+            array('origin', 'service'),
+            array('dest', 'product'),
             array('scc', 'iata_code'),
             array('shipping_date', 'arrival_date'),
         ),
